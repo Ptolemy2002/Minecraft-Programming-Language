@@ -1,0 +1,2 @@
+#Can be called to remove the pack and any trace it was ever installed
+tellraw @a [{"text":"The pack "},{"text":"\"example pack\" ","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack\nExample pack used for debugging"}]}},{"text":"has been sucessfully unloaded."}]

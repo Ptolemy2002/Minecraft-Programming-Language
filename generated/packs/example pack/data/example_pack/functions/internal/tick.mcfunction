@@ -1,0 +1,1 @@
+#This function is run every tick after this datapack is loaded.

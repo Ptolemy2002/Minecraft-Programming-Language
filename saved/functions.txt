@@ -1,0 +1,4 @@
+internal/load
+internal/tick
+uninstall
+test
