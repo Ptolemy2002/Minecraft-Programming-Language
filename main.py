@@ -109,7 +109,7 @@ def noComments(data):
 
   for l in data:
     line = l.strip()
-    hashtagIndex = indexOf("#", line, [["\"", "\""], ["[", "]"], ["/", ";"]])
+    hashtagIndex = indexOf("#", line, [["\"", "\""], ["[", "]"], ["/", ";"], ["(", ")"]])
     if hashtagIndex > 0:
       result.append(line[:hashtagIndex].strip())
     elif hashtagIndex != 0 and len(line) > 0:

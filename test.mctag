@@ -1,9 +1,12 @@
 type: entity_types
-//All hostile and passive mobs
-+ all(namespace=minecraft)
+
+#All hostile and passive mobs taller than 1 block
++ all(namespace=minecraft, height>1) #partial line comment
 - all(category=utility)
-- all(category=projectile)
-//potions
+- all(category=neutral)
+
+#potions
 + potion
-//rempve all woods
-- #woods
+
+#remove all woods
+- all(#woods)
