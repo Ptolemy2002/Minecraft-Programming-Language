@@ -43,6 +43,10 @@ def start():
           options.append(i)
       print(f'got {len(options)} entries from "{type}.csv"')
 
+      for line in code[1:]:
+        #TODO: Add entries based on code here
+        pass
+
       print(f'deleting "{type}.csv" from memory to save space')
       del options
 if __name__ == "__main__":

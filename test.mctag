@@ -5,8 +5,9 @@ type: entity_types
 - all(category=utility)
 - all(category=neutral)
 
-#potions
+#potions and arrows+
 + potion
++ minecraft:arrow
 
 #remove all woods
 - all(#woods)
