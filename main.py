@@ -1,6 +1,7 @@
 import os
 import json
 import tags
+import convert
 
 """
 Given a list of lists (or ranges) [li], return if [x] is included in any of them
@@ -108,7 +109,7 @@ def noComments(data):
 
   for l in data:
     line = l.strip()
-    hashtagIndex = indexOf("#", line, [["\"", "\""]])
+    hashtagIndex = indexOf("#", line, [["\"", "\""], ["[", "]"], ["/", ";"]])
     if hashtagIndex > 0:
       result.append(line[:hashtagIndex].strip())
     elif hashtagIndex != 0 and len(line) > 0:
@@ -259,4 +260,6 @@ def main():
   print("Done")
 
 if __name__ == "__main__":
-  main()
+  #main()
+  #tags.start()
+  convert.start()
