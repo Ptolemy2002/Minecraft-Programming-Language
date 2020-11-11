@@ -1,13 +1,15 @@
 type: entity_types
 
 #All hostile and passive mobs taller than 1 block
-+ all(namespace=minecraft, height>1) #partial line comment
-- all(category=utility)
-- all(category=neutral)
++ all(namespace==minecraft) #partial line comment
+- all(height <= 1)
+- all(category==neutral)
+- all(category==utility)
 
-#potions and arrows+
 + potion
 + minecraft:arrow
++ endermite
++ silverfish
 
-#remove all woods
-- all(#woods)
+#remove all small
+- all(#small)

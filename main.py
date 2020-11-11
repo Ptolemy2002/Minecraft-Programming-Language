@@ -224,13 +224,13 @@ def main():
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   print("Saving functions for use in tags")
-  with open("saved/functions.txt", "w+") as file:
-    data = ["internal/load", "internal/tick", "uninstall"]
+  with open("saved/data/functions.csv", "w+") as file:
+    data = ["name","internal/load", "internal/tick", "uninstall"]
     for i in customFunctions:
       data.append(i)
     file.write("\n".join(data))
   print("Generating tag files")
-  tags.start()
+  tags.start(packName, packId, packDesc)
 
   print("setting up data pack files")
   os.makedirs(f"generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)
@@ -263,3 +263,4 @@ if __name__ == "__main__":
   main()
   #tags.start()
   #convert.start()
+  #regex_test.start()
