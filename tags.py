@@ -34,7 +34,7 @@ def genTag(file, packName, packId):
   print(f'type is "{t}"')
   print(f'Loading "{t}.csv" into memory')
 
-  with open(f"saved/data/{t}.csv", "r") as csvFile:
+  with open(f".saved/data/{t}.csv", "r") as csvFile:
     dictReader = csv.DictReader(csvFile)
     for i in dictReader:
       options.append(i)
@@ -54,11 +54,11 @@ def genTag(file, packName, packId):
                   print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
                   workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
               else:
-                with open(f"saved/tags/{t}/{argString[1:]}.txt", "r") as data:
+                with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                   for i in data:
                     workingList.append(i)
-            elif os.path.exists(f"saved/tags/{t}/{argString[1:]}.txt"):
-              with open(f"saved/tags/{t}/{argString[1:]}.txt", "r") as data:
+            elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
+              with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                 for i in data:
                   workingList.append(i)
             else:
@@ -116,10 +116,16 @@ def genTag(file, packName, packId):
             if element in result:
               result.remove(element)
 
-  with open(f"generated/packs/{packName}/data/{packId}/tags/{t}/{name}.json", "w+") as file1:
+  name_split = name.split("/")
+  if len(name_split) > 1:
+    os.makedirs(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
+  with open(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name}.json", "w+") as file1:
     json.dump({"replace": False, "values":result}, file1)
 
-  with open(f"saved/tags/{t}/{name}.txt", "w+") as data:
+  if len(name_split) > 1:
+    os.makedirs(f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
+    print("made dir", f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}")
+  with open(f".saved/tags/{t}/{name}.txt", "w+") as data:
     data.write("\n".join(result))
 
   print(f'deleting "{t}.csv" from memory to save space')
@@ -130,15 +136,18 @@ def genTag(file, packName, packId):
 
 def start(packName, packId, packDesc):
   print("Creating necessary file paths")
-  os.makedirs("saved/tags/blocks", exist_ok = True)
-  os.makedirs("saved/tags/entity_types", exist_ok = True)
-  os.makedirs("saved/tags/items", exist_ok = True)
-  os.makedirs("saved/tags/functions", exist_ok = True)
+  os.makedirs(".saved/tags/blocks", exist_ok = True)
+  os.makedirs(".saved/tags/entity_types", exist_ok = True)
+  os.makedirs(".saved/tags/items", exist_ok = True)
+  os.makedirs(".saved/tags/functions", exist_ok = True)
 
   print("looking for mctag files")
-  for file in os.listdir(os.getcwd()):
-    if file.endswith(".mctag") and not file in done:
-      genTag(file, packName, packId)
+  for subdir, dirs, files in os.walk(os.getcwd()):
+    for file in files:
+      path = os.path.join(subdir, file).split("/")
+      path = path[path.index("Minecraft-Programming-Language") + 1:]
+      if file.endswith(".mctag") and not "/".join(path) in done:
+        genTag("/".join(path), packName, packId)
       
 if __name__ == "__main__":
   start(main.packName, main.packId, main.packDesc)

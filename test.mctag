@@ -13,7 +13,7 @@ type: entity_types
 + silverfish
 
 #remove all small
-- all(#small)
+- all(#size/small)
 
 #Add all that contain the word "ball"
 + all(ball)

@@ -212,19 +212,22 @@ def main():
     generateCode(mainCode)
 
   print("looking for other files")
-  for file in os.listdir(os.getcwd()):
-    if file.endswith(".mcscript") and not file == "main.mcscript":
-      print(f"found file \"{file}\"")
-      with open(file) as data:
-        print("Converting to data pack form")
-        generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True))
+  for subdir, dirs, files in os.walk(os.getcwd()):
+    for file in files:
+      if file.endswith(".mcscript") and not file == "main.mcscript":
+        path = os.path.join(subdir, file).split("/")
+        path = "/".join(path[path.index("Minecraft-Programming-Language") + 1:])
+        print(f"found file \"{path}\"")
+        with open(path) as data:
+          print("Converting to data pack form")
+          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True))
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   print("Saving functions for use in tags")
-  with open("saved/data/functions.csv", "w+") as file:
+  with open(".saved/data/functions.csv", "w+") as file:
     data = ["name","internal/load", "internal/tick", "uninstall"]
     for i in customFunctions:
       data.append(i)
@@ -233,29 +236,29 @@ def main():
   tags.start(packName, packId, packDesc)
 
   print("setting up data pack files")
-  os.makedirs(f"generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/functions/internal', exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/tags/blocks', exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/tags/entity_types', exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/tags/fluids', exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/tags/functions', exist_ok = True)
-  os.makedirs(f'generated/packs/{packName}/data/{packId}/tags/items', exist_ok = True)
-  with open(f"generated/packs/{packName}/pack.mcmeta", "w+") as file:
+  os.makedirs(f".generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/functions/internal', exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/blocks', exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/entity_types', exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/fluids', exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/functions', exist_ok = True)
+  os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/items', exist_ok = True)
+  with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
     json.dump({"pack":{"pack-format":6,"description": packDesc}}, file)
-  with open(f"generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
+  with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
     json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file)
-  with open(f"generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:
+  with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:
     json.dump({"replace": False, "values":[f"{packId}:internal/{tickFunction.name}"]}, file)
 
   print("Writing init function to data pack")
-  initFunction.implement(f"generated/packs/{packName}/data/{packId}/functions/internal/{initFunction.name}.mcfunction")
+  initFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/internal/{initFunction.name}.mcfunction")
   print("Writing uninstall function to data pack")
-  uninstallFunction.implement(f"generated/packs/{packName}/data/{packId}/functions/{uninstallFunction.name}.mcfunction")
+  uninstallFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{uninstallFunction.name}.mcfunction")
   print("Writing tick function to data pack")
-  tickFunction.implement(f"generated/packs/{packName}/data/{packId}/functions/internal/{tickFunction.name}.mcfunction")
+  tickFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/internal/{tickFunction.name}.mcfunction")
   for name in customFunctions:
     print(f'Writing "{name}" function to data pack')
-    customFunctions[name].implement(f"generated/packs/{packName}/data/{packId}/functions/{name}.mcfunction")
+    customFunctions[name].implement(f".generated/packs/{packName}/data/{packId}/functions/{name}.mcfunction")
   
   print("Done")
 
