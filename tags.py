@@ -61,7 +61,7 @@ def genTag(file, packName, packId):
               with open(f"saved/tags/{argString[1:]}.txt", "r") as data:
                 for i in data:
                   workingList.append(i)
-          elif "=" in argString:
+          elif "=" in argString or "<" in argString or ">" in argString:
             match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", argString)
             operation = match.group("operation")
             key = match.group("key")
