@@ -213,6 +213,7 @@ def main():
 
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
+    dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       if file.endswith(".mcscript") and not file == "main.mcscript":
         path = os.path.join(subdir, file).split("/")

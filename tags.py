@@ -147,6 +147,7 @@ def start(packName, packId, packDesc):
 
   print("looking for mctag files")
   for subdir, dirs, files in os.walk(os.getcwd()):
+    dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       path = os.path.join(subdir, file).split("/")
       path = path[path.index("Minecraft-Programming-Language") + 1:]
