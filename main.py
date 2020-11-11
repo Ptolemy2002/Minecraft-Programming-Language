@@ -167,6 +167,7 @@ packName = "Generated Data Pack"
 packId = "generated_data_pack"
 packDesc = "Data pack generated from a Minecraft Programming Language compiler"
 defaultPackInfo = False
+useSnapshots = False
 
 initFunction = Function("load", "This function is run when the datapack is loaded.")
 uninstallFunction = Function("uninstall", "Can be called to remove the pack and any trace it was ever installed")
@@ -196,8 +197,13 @@ def main():
     packName = info[0]
     packId = info[1]
     packDesc = info[2]
-    defaultPackInfo = False
     print(f'got pack name "{packName}" with id "{packId}"')
+    useSnapshots = bool(info[3].lower().capitalize())
+    if useSnapshots:
+      print("Snapshots have been enabled. Pack format changed to 7.")
+    else:
+      print("No snapshots are in use. Pack format is 6.")
+    defaultPackInfo = False
     print("Converting to data pack form")
   else:
     print(f'no pack info specified. Default values will be used (name "{packName}" id {packId})')
@@ -205,7 +211,6 @@ def main():
   
   print("Populating default function statements")
 
-  print("Converting main file to datapack form")
   if defaultPackInfo:
     generateCode(mainCode[1:])
   else:
@@ -245,7 +250,7 @@ def main():
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/functions', exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/items', exist_ok = True)
   with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
-    json.dump({"pack":{"pack-format":6,"description": packDesc}}, file)
+    json.dump({"pack":{"pack-format":7 if useSnapshots else 6,"description": packDesc}}, file)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
     json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:

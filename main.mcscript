@@ -1,4 +1,4 @@
-pack-info: "example pack" "example_pack" "Example pack used for debugging"; #Partial comment
+pack-info: "example pack" "example_pack" "Example pack used for debugging" true; #Partial comment
 
 #This will set up a simple scoreboard objective.
 entity int score = 0;
