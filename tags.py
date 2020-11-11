@@ -41,6 +41,7 @@ def genTag(file, packName, packId):
 
   print(f'got {len(options)} entries from "{t}.csv"')
 
+  print("filtering entries")
   for line in code[1:]:
         workingString = line[1:]
         workingList = []
@@ -55,6 +56,7 @@ def genTag(file, packName, packId):
                 with open(f"{argString[1:]}.mctag", "r") as data:
                   print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
                   workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
+                  print(f'continuing to load "{file}"')
               else:
                 with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                   for i in data:
@@ -127,7 +129,6 @@ def genTag(file, packName, packId):
 
   if len(name_split) > 1:
     os.makedirs(f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
-    print("made dir", f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}")
   with open(f".saved/tags/{t}/{name}.txt", "w+") as data:
     data.write("\n".join(result))
 
