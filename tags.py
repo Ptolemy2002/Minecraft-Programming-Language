@@ -61,7 +61,7 @@ def genTag(file, packName, packId):
               with open(f"saved/tags/{argString[1:]}.txt", "r") as data:
                 for i in data:
                   workingList.append(i)
-          else:
+          elif "=" in argString:
             match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", argString)
             operation = match.group("operation")
             key = match.group("key")
@@ -93,6 +93,10 @@ def genTag(file, packName, packId):
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) <= value:
+                  workingList.append("minecraft:" + i["name"])
+          else:
+            for i in options:
+                if argString in i["name"]:
                   workingList.append("minecraft:" + i["name"])
             
         elif ":" in workingString:

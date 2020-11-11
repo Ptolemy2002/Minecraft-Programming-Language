@@ -36,3 +36,7 @@ minecraft:zombie_horse
 minecraft:zombie_villager
 minecraft:potion
 minecraft:arrow
+minecraft:dragon_fireball
+minecraft:fireball
+minecraft:small_fireball
+minecraft:snowball

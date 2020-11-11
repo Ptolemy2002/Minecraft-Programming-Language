@@ -13,3 +13,6 @@ type: entity_types
 
 #remove all small
 - all(#small)
+
+#Add all that contain the word "ball"
++ all(ball)
