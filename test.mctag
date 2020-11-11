@@ -3,6 +3,7 @@ type: entity_types
 #All hostile and passive mobs taller than 1 block
 + all(namespace==minecraft) #partial line comment
 - all(height <= 1)
+#Exclude mobs that are not either hostile or passive
 - all(category==neutral)
 - all(category==utility)
 
