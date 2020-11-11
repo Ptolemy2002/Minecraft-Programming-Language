@@ -1,5 +1,5 @@
-name
-internal/load
-internal/tick
-uninstall
-test
+namespace,name
+example_pack,internal/load
+example_pack,internal/tick
+example_pack,uninstall
+example_pack,test

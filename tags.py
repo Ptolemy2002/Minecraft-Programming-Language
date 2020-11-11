@@ -44,8 +44,10 @@ def genTag(file, packName, packId):
   for line in code[1:]:
         workingString = line[1:]
         workingList = []
-
-        if main.segment("all", 0, workingString):
+        if workingString == "all":
+          for i in options:
+            workingList.append(i["namespace"] + ":" + i["name"])
+        elif main.segment("all", 0, workingString):
           argString = main.groups(workingString, [["(",")"]], False)[0]
           if argString[0] == "#":
             if os.path.exists(f"{argString[1:]}.mctag"):
@@ -63,7 +65,7 @@ def genTag(file, packName, packId):
                   workingList.append(i)
             else:
               #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
-              workingList.append(i)
+              workingList.append(argString)
           elif "=" in argString or "<" in argString or ">" in argString:
             match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", argString)
             operation = match.group("operation")
@@ -100,7 +102,7 @@ def genTag(file, packName, packId):
           else:
             for i in options:
                 if argString in i["name"]:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             
         elif ":" in workingString:
           workingList.append(workingString)
@@ -109,7 +111,8 @@ def genTag(file, packName, packId):
 
         if line[0] == "+":
           for i in workingList:
-            result.append(i.strip())
+            if not i.strip() in result:
+              result.append(i.strip())
         elif line[0] == "-":
           for i in workingList:
             element = i.strip()
