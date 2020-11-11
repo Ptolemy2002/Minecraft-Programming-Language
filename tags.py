@@ -57,10 +57,13 @@ def genTag(file, packName, packId):
                 with open(f"saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                   for i in data:
                     workingList.append(i)
-            elif os.path.exists(f"saved/tags/{argString[1:]}.txt"):
-              with open(f"saved/tags/{argString[1:]}.txt", "r") as data:
+            elif os.path.exists(f"saved/tags/{t}/{argString[1:]}.txt"):
+              with open(f"saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                 for i in data:
                   workingList.append(i)
+            else:
+              #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
+              workingList.append(i)
           elif "=" in argString or "<" in argString or ">" in argString:
             match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", argString)
             operation = match.group("operation")
@@ -105,7 +108,8 @@ def genTag(file, packName, packId):
           workingList.append("minecraft:" + workingString)
 
         if line[0] == "+":
-          result.extend(workingList)
+          for i in workingList:
+            result.append(i.strip())
         elif line[0] == "-":
           for i in workingList:
             element = i.strip()

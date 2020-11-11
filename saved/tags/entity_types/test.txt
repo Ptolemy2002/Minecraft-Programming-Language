@@ -40,3 +40,5 @@ minecraft:dragon_fireball
 minecraft:fireball
 minecraft:small_fireball
 minecraft:snowball
+minecraft:arrow
+minecraft:spectral_arrow

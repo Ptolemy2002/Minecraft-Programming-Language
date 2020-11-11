@@ -17,3 +17,6 @@ type: entity_types
 
 #Add all that contain the word "ball"
 + all(ball)
+
+#Add all arrows according to Minecraft
++ all(#minecraft:arrows)

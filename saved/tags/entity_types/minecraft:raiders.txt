@@ -1,0 +1,6 @@
+minecraft:evokers
+minecraft:illusioner
+minecraft:pillager
+minecraft:ravager
+minecraft:vindicator
+minecraft:witch
