@@ -76,31 +76,31 @@ def genTag(file, packName, packId):
             if operation == "==":
               for i in options:
                 if i[key] == value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
             elif operation == "!=":
               for i in options:
                 if not i[key] == value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
             elif operation == ">":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) > value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
             elif operation == "<":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) < value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
             elif operation == ">=":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) >= value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
             elif operation == "<=":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) <= value:
-                  workingList.append("minecraft:" + i["name"])
+                  workingList.append(i["namespace"] + i["name"])
           else:
             for i in options:
                 if argString in i["name"]:
