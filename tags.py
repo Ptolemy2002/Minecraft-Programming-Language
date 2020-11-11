@@ -132,6 +132,7 @@ def genTag(file, packName, packId):
   with open(f".saved/tags/{t}/{name}.txt", "w+") as data:
     data.write("\n".join(result))
 
+  print(f'done loading "{file}"')
   print(f'deleting "{t}.csv" from memory to save space')
   del options
 
@@ -150,9 +151,9 @@ def start(packName, packId, packDesc):
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       path = os.path.join(subdir, file).split("/")
-      path = path[path.index("Minecraft-Programming-Language") + 1:]
-      if file.endswith(".mctag") and not "/".join(path) in done:
-        genTag("/".join(path), packName, packId)
+      path = "/".join(path[path.index("Minecraft-Programming-Language") + 1:])
+      if file.endswith(".mctag") and not path in done:
+        genTag(path, packName, packId)
       
 if __name__ == "__main__":
   start(main.packName, main.packId, main.packDesc)
