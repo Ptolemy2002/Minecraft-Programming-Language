@@ -61,11 +61,20 @@ def genTag(file, packName, packId):
                 with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                   for i in data:
                     for i2 in i.split(","):
-                      workingList.append(i2.strip())
+                      i2 = i2.strip()
+                      if not ":" in i2:
+                        workingList.append("minecraft:" + i2)
+                      else:
+                        workingList.append(i2)
             elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
               with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
-                for i in data:
-                  workingList.append(i)
+                  for i in data:
+                    for i2 in i.split(","):
+                      i2 = i2.strip()
+                      if not ":" in i2:
+                        workingList.append("minecraft:" + i2)
+                      else:
+                        workingList.append(i2)
             else:
               #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
               workingList.append(argString)
