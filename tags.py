@@ -159,7 +159,7 @@ def genTag(file, packName, packId):
                 li.reverse()
 
             if "limit" in pars:
-              li = li[:int(numberCast(pars["limit"]))]
+              li = li[:min(len(li),int(numberCast(pars["limit"])))]
 
             for i in li:
               workingList.append(i)
