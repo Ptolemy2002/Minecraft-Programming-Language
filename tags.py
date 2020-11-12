@@ -43,7 +43,7 @@ def genTag(file, packName, packId):
 
   print("filtering entries")
   for line in code[1:]:
-        workingString = line[1:]
+        workingString = line[1:].strip()
         workingList = []
         if workingString == "all":
           for i in options:
@@ -76,31 +76,31 @@ def genTag(file, packName, packId):
             if operation == "==":
               for i in options:
                 if i[key] == value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             elif operation == "!=":
               for i in options:
                 if not i[key] == value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             elif operation == ">":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) > value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             elif operation == "<":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) < value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             elif operation == ">=":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) >= value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
             elif operation == "<=":
               value = numberCast(value)
               for i in options:
                 if numberCast(i[key]) <= value:
-                  workingList.append(i["namespace"] + i["name"])
+                  workingList.append(i["namespace"] + ":" + i["name"])
           else:
             for i in options:
                 if argString in i["name"]:
@@ -125,7 +125,7 @@ def genTag(file, packName, packId):
   if len(name_split) > 1:
     os.makedirs(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
   with open(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name}.json", "w+") as file1:
-    json.dump({"replace": False, "values":result}, file1)
+    json.dump({"replace": False, "values":result}, file1,indent=4)
 
   if len(name_split) > 1:
     os.makedirs(f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)

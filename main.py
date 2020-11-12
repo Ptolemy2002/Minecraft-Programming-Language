@@ -250,11 +250,11 @@ def main():
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/functions', exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/items', exist_ok = True)
   with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
-    json.dump({"pack":{"pack-format":7 if useSnapshots else 6,"description": packDesc}}, file)
+    json.dump({"pack":{"pack-format":7 if useSnapshots else 6,"description": packDesc}}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file)
+    json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:internal/{tickFunction.name}"]}, file)
+    json.dump({"replace": False, "values":[f"{packId}:internal/{tickFunction.name}"]}, file,indent=4)
 
   print("Writing init function to data pack")
   initFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/internal/{initFunction.name}.mcfunction")

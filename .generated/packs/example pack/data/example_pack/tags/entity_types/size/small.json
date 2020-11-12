@@ -1,1 +1,7 @@
-{"replace": false, "values": ["minecraft:silverfish", "minecraft:endermite"]}
+{
+    "replace": false,
+    "values": [
+        "minecraft:silverfish",
+        "minecraft:endermite"
+    ]
+}
