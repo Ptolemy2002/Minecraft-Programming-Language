@@ -60,7 +60,8 @@ def genTag(file, packName, packId):
               else:
                 with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                   for i in data:
-                    workingList.append(i)
+                    for i2 in i.split(","):
+                      workingList.append(i2.strip())
             elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
               with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                 for i in data:
