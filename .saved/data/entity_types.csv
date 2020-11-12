@@ -1,4 +1,4 @@
-namespace,name,category,width,height,length,volume,Health,subcategory,environment,dimension
+namespace,name,category,width,height,length,volume,health,subcategory,environment,dimension
 minecraft,area_effect_cloud,utility,0,0,0,0,n/a,n/a,land,overworld
 minecraft,armor_stand,utility,0.5,1.975,0.5,0.49375,20,n/a,land,overworld
 minecraft,arrow,projectile,0.5,0.5,0.5,0.125,n/a,n/a,air,overworld

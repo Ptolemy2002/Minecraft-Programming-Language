@@ -20,7 +20,7 @@ def genTag(file, packName, packId):
   code = []
   options = []
 
-  with open(file) as data:
+  with open("tags/" + file) as data:
     for i in data:
       code.append(i)
   
@@ -51,9 +51,9 @@ def genTag(file, packName, packId):
         elif main.segment("all", 0, workingString):
           argString = main.groups(workingString, [["(",")"]], False)[0]
           if argString[0] == "#":
-            if os.path.exists(f"{argString[1:]}.mctag"):
-              if not (f"{argString[1:]}.mctag" in done):
-                with open(f"{argString[1:]}.mctag", "r") as data:
+            if os.path.exists(f"tags/{argString[1:]}.mctag"):
+              if not (f"tags/{argString[1:]}.mctag" in done):
+                with open(f"tags/{argString[1:]}.mctag", "r") as data:
                   print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
                   workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
                   print(f'continuing to load "{file}"')
@@ -79,38 +79,90 @@ def genTag(file, packName, packId):
               #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
               workingList.append(argString)
           elif "=" in argString or "<" in argString or ">" in argString:
-            match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", argString)
-            operation = match.group("operation")
-            key = match.group("key")
-            value = match.group("value")
-            if operation == "==":
+            args = main.words(",", argString, [['"','"']], False, False)
+            pars = {}
+            li = []
+            opCount = 0
+
+            for arg in args:
+              match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", arg)
+              if not match == None:
+                opCount += 1
+                operation = match.group("operation")
+                key = match.group("key")
+                value = match.group("value")
+                if operation == "==":
+                  for i in options:
+                    if i[key] == value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    else:
+                      li.remove(i["namespace"] + ":" + i["name"])
+                elif operation == "!=":
+                  for i in options:
+                    if not i[key] == value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    elif (i["namespace"] + ":" + i["name"]) in li:
+                      li.remove(i["namespace"] + ":" + i["name"])
+                elif operation == ">":
+                  value = numberCast(value)
+                  for i in options:
+                    if numberCast(i[key]) > value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    elif (i["namespace"] + ":" + i["name"]) in li:
+                      li.remove(i["namespace"] + ":" + i["name"])
+                elif operation == "<":
+                  value = numberCast(value)
+                  for i in options:
+                    if numberCast(i[key]) < value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    elif (i["namespace"] + ":" + i["name"]) in li:
+                      li.remove(i["namespace"] + ":" + i["name"])
+                elif operation == ">=":
+                  value = numberCast(value)
+                  for i in options:
+                    if numberCast(i[key]) >= value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    elif (i["namespace"] + ":" + i["name"]) in li:
+                      li.remove(i["namespace"] + ":" + i["name"])
+                elif operation == "<=":
+                  value = numberCast(value)
+                  for i in options:
+                    if numberCast(i[key]) <= value:
+                      li.append(i["namespace"] + ":" + i["name"])
+                    elif (i["namespace"] + ":" + i["name"]) in li:
+                      li.remove(i["namespace"] + ":" + i["name"])
+              elif "=" in arg:
+                par = main.words("=", arg, [['"','"']], False, False)
+                pars[par[0]] = par[1]
+
+            if opCount == 0:
               for i in options:
-                if i[key] == value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            elif operation == "!=":
-              for i in options:
-                if not i[key] == value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            elif operation == ">":
-              value = numberCast(value)
-              for i in options:
-                if numberCast(i[key]) > value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            elif operation == "<":
-              value = numberCast(value)
-              for i in options:
-                if numberCast(i[key]) < value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            elif operation == ">=":
-              value = numberCast(value)
-              for i in options:
-                if numberCast(i[key]) >= value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            elif operation == "<=":
-              value = numberCast(value)
-              for i in options:
-                if numberCast(i[key]) <= value:
-                  workingList.append(i["namespace"] + ":" + i["name"])
+                li.append(i["namespace"] + ":" + i["name"])
+
+            if "sort" in pars:
+              if pars["sort"] == "alphabetical":
+                li = sorted(li)
+              else:
+                def value(options):
+                  def inner(x):
+                    split = x.split(":")
+                    for i in options:
+                      if i["namespace"] == split[0] and i["name"] == split[1]:
+                        return numberCast(i[pars["sort"]])
+                    return None
+                  return inner
+                li = sorted(li, key=value(options))
+                li[:] = [x for x in li if x != -math.inf]
+
+            if "reverse" in pars:
+              if pars["reverse"].lower() == "true":
+                li.reverse()
+
+            if "limit" in pars:
+              li = li[:int(numberCast(pars["limit"]))]
+
+            for i in li:
+              workingList.append(i)
           else:
             for i in options:
                 if argString in i["name"]:
@@ -151,19 +203,19 @@ def genTag(file, packName, packId):
 
 def start(packName, packId, packDesc):
   print("Creating necessary file paths")
+  os.makedirs("tags", exist_ok=True)
   os.makedirs(".saved/tags/blocks", exist_ok = True)
   os.makedirs(".saved/tags/entity_types", exist_ok = True)
   os.makedirs(".saved/tags/items", exist_ok = True)
   os.makedirs(".saved/tags/functions", exist_ok = True)
 
   print("looking for mctag files")
-  for subdir, dirs, files in os.walk(os.getcwd()):
+  for subdir, dirs, files in os.walk(os.getcwd() + "/tags"):
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
-      path = os.path.join(subdir, file).split("/")
-      path = "/".join(path[path.index("Minecraft-Programming-Language") + 1:])
+      path = os.path.relpath(os.path.join(subdir, file))
       if file.endswith(".mctag") and not path in done:
-        genTag(path, packName, packId)
+        genTag(path[path.index("/") + 1:], packName, packId)
       
 if __name__ == "__main__":
   start(main.packName, main.packId, main.packDesc)

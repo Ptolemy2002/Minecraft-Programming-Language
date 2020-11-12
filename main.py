@@ -221,8 +221,7 @@ def main():
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       if file.endswith(".mcscript") and not file == "main.mcscript":
-        path = os.path.join(subdir, file).split("/")
-        path = "/".join(path[path.index("Minecraft-Programming-Language") + 1:])
+        path = os.path.relpath(os.path.join(subdir, file))
         print(f"found file \"{path}\"")
         with open(path) as data:
           print("Converting to data pack form")

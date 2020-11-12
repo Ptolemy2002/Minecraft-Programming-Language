@@ -1,11 +1,11 @@
 type: entity_types
 
 #All hostile and passive mobs taller than 1 block
-+ all(namespace==minecraft) #partial line comment
-- all(height <= 1)
-#Exclude mobs that are not either hostile or passive
-- all(category==neutral)
-- all(category==utility)
++ all(namespace==minecraft,category!=neutral,category!=utility,category!=projectile,sort=height,reverse=true)
+- all(height <= 1) #partial line comment
+
+#Remove the 5 highest health entities
+- all(sort=health,reverse=true,limit=5)
 
 + potion
 + minecraft:arrow
