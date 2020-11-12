@@ -1,6 +1,6 @@
 type: entity_types
 
-#All hostile and passive mobs taller than 1 block
+#All hostile and passive mobs taller than 1 block (sorted from tallest to shortest)
 + all(namespace==minecraft,category!=neutral,category!=utility,category!=projectile,sort=height,reverse=true)
 - all(height <= 1) #partial line comment
 
