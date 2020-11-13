@@ -1,0 +1,4 @@
+type: entity_types
+
+#Every Entity in the game except giants and illusioners
++ all(notin=giant,notin=illusioner,notin=zombie_horse)

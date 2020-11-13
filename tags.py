@@ -133,14 +133,16 @@ def genTag(file, packName, packId):
                       li.remove(i["namespace"] + ":" + i["name"])
               elif "=" in arg:
                 par = main.words("=", arg, [['"','"']], False, False)
-                pars[par[0]] = par[1]
+                if not par[0] in pars:
+                  pars[par[0]] = []
+                pars[par[0]].append(par[1])
 
             if opCount == 0:
               for i in options:
                 li.append(i["namespace"] + ":" + i["name"])
 
             if "sort" in pars:
-              if pars["sort"] == "alphabetical":
+              if pars["sort"][-1] == "alphabetical":
                 li = sorted(li)
               else:
                 def value(options):
@@ -148,24 +150,46 @@ def genTag(file, packName, packId):
                     split = x.split(":")
                     for i in options:
                       if i["namespace"] == split[0] and i["name"] == split[1]:
-                        return numberCast(i[pars["sort"]])
+                        return numberCast(i[pars["sort"][-1]])
                     return None
                   return inner
                 li = sorted(li, key=value(options))
                 li[:] = [x for x in li if x != -math.inf]
 
             if "reverse" in pars:
-              if pars["reverse"].lower() == "true":
+              if pars["reverse"][-1].lower() == "true":
                 li.reverse()
 
             if "limit" in pars:
-              li = li[:min(len(li),int(numberCast(pars["limit"])))]
+              li = li[:min(len(li),int(numberCast(pars["limit"][-1])))]
+            
+            if "in" in pars:
+              for seg in pars["in"]:
+                for i in li:
+                  if not seg in i:
+                    li.remove(i)
+            
+            if "notin" in pars:
+              for seg in pars["notin"]:
+                print(seg)
+                for i in li:
+                  if seg in i:
+                    li.remove(i)
 
             for i in li:
               workingList.append(i)
           else:
+            reverse = False
+            if argString[0] == "!":
+              argString = argString[1:]
+              reverse = True
+            else:
+              reverse = False
+            
             for i in options:
-                if argString in i["name"]:
+                if argString in i["name"] and not reverse:
+                  workingList.append(i["namespace"] + ":" + i["name"])
+                elif reverse and not argString in i["name"]:
                   workingList.append(i["namespace"] + ":" + i["name"])
             
         elif ":" in workingString:

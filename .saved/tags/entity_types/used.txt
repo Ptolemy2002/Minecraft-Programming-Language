@@ -28,12 +28,10 @@ minecraft:falling_block
 minecraft:firework_rocket
 minecraft:fox
 minecraft:ghast
-minecraft:giant
 minecraft:guardian
 minecraft:hoglin
 minecraft:horse
 minecraft:husk
-minecraft:illusioner
 minecraft:iron_golem
 minecraft:item
 minecraft:item_frame
@@ -101,7 +99,6 @@ minecraft:wither_skull
 minecraft:wolf
 minecraft:zoglin
 minecraft:zombie
-minecraft:zombie_horse
 minecraft:zombie_villager
 minecraft:zombified_piglin
 minecraft:player
