@@ -22,3 +22,6 @@ type: entity_types
 
 #Add all entries of a tag that is defined in another pack
 + all(#hp:no_hp)
+
+#Reverse the entire order
+reverse

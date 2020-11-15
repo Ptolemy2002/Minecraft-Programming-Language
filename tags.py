@@ -41,8 +41,16 @@ def genTag(file, packName, packId):
 
   print(f'got {len(options)} entries from "{t}.csv"')
 
+  def getOption(options,x):
+    split = x.split(":")
+    for i in options:
+      if i["namespace"] == split[0] and i["name"] == split[1]:
+        return i
+    return None
+
   print("filtering entries")
   for line in code[1:]:
+    line = line.strip()
     if line[0] == "+" or line[0] == "-":
       workingString = line[1:].strip()
       workingList = []
@@ -68,7 +76,6 @@ def genTag(file, packName, packId):
                     else:
                       workingList.append(i2)
           elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
-            print(f"{argString[1:]}.txt")
             with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
                 for i in data:
                   for i2 in i.split(","):
@@ -156,7 +163,8 @@ def genTag(file, packName, packId):
                       return numberCast(i[pars["sort"][-1]])
                   return None
                 return inner
-              li[:] = [x for x in li if numberCast(x) != -math.inf]
+              
+              li[:] = [x for x in li if numberCast(getOption(options,x)[pars["sort"][-1]]) != -math.inf]
               li = sorted(li, key=value(options))
 
           if "reverse" in pars:
@@ -177,7 +185,6 @@ def genTag(file, packName, packId):
               for i in li:
                 if seg in i:
                   li.remove(i)
-
           for i in li:
             workingList.append(i)
         else:
@@ -225,7 +232,7 @@ def genTag(file, packName, packId):
             return None
           return inner
 
-        result[:] = [x for x in result if numberCast(x) != -math.inf]
+        result[:] = [x for x in result if numberCast(getOption(options,x)[argString]) != -math.inf]
         result = sorted(result, key=value(options))
     elif main.segment("limit", 0, line):
       argString = main.groups(line, [["(",")"]], False)[0]
@@ -262,7 +269,7 @@ def start(packName, packId, packDesc):
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       path = os.path.relpath(os.path.join(subdir, file))
-      if file.endswith(".mctag") and not path in done:
+      if file.endswith(".mctag") and not path[path.index("/") + 1:] in done:
         genTag(path[path.index("/") + 1:], packName, packId)
       
 if __name__ == "__main__":
