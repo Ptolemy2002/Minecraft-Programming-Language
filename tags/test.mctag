@@ -20,8 +20,9 @@ type: entity_types
 #Add all arrows according to Minecraft
 + all(#minecraft:arrows)
 
-#Add all entries of a tag that is defined in another pack
+#Add all entries of some tags that are defined in another pack
 + all(#hp:no_hp)
++ all(#1.12:used)
 
 #Reverse the entire order
 reverse

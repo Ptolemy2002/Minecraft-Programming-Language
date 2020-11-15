@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
+        "#1.12:used",
         "#hp:no_hp",
         "minecraft:spectral_arrow",
         "minecraft:arrow",
