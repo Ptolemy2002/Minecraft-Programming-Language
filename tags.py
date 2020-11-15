@@ -161,7 +161,7 @@ def genTag(file, packName, packId):
                   for i in li1:
                     if i["namespace"] == split[0] and i["name"] == split[1]:
                       num = numberCast(i[pars["sort"][-1]])
-                      if not i == -math.inf:
+                      if not num == -math.inf:
                         return (1,num)
                       else:
                         return i[pars["sort"][-1]]
@@ -232,7 +232,7 @@ def genTag(file, packName, packId):
             for i in li1:
               if i["namespace"] == split[0] and i["name"] == split[1]:
                 num = numberCast(i[argString])
-                if not i == -math.inf:
+                if not num == -math.inf:
                   return (1,num)
                 else:
                   return (1,i[argString])
