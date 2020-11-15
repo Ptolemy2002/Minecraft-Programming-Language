@@ -40,10 +40,10 @@ minecraft:cow
 minecraft:sheep
 minecraft:panda
 minecraft:potion
-minecraft:arrow
 minecraft:dragon_fireball
 minecraft:fireball
 minecraft:small_fireball
 minecraft:snowball
+minecraft:arrow
 minecraft:spectral_arrow
 #hp:no_hp

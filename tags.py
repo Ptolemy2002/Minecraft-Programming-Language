@@ -43,169 +43,170 @@ def genTag(file, packName, packId):
 
   print("filtering entries")
   for line in code[1:]:
-        workingString = line[1:].strip()
-        workingList = []
-        if workingString == "all":
-          for i in options:
-            workingList.append(i["namespace"] + ":" + i["name"])
-        elif main.segment("all", 0, workingString):
-          argString = main.groups(workingString, [["(",")"]], False)[0]
-          if argString[0] == "#":
-            if os.path.exists(f"tags/{argString[1:]}.mctag"):
-              if not (f"tags/{argString[1:]}.mctag" in done):
-                with open(f"tags/{argString[1:]}.mctag", "r") as data:
-                  print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
-                  workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
-                  print(f'continuing to load "{file}"')
-              else:
-                with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
-                  for i in data:
-                    for i2 in i.split(","):
-                      i2 = i2.strip()
-                      if not ":" in i2:
-                        workingList.append("minecraft:" + i2)
-                      else:
-                        workingList.append(i2)
-            elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
-              with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
-                  for i in data:
-                    for i2 in i.split(","):
-                      i2 = i2.strip()
-                      if not ":" in i2:
-                        workingList.append("minecraft:" + i2)
-                      else:
-                        workingList.append(i2)
-            else:
-              #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
-              workingList.append(argString)
-          elif "=" in argString or "<" in argString or ">" in argString:
-            args = main.words(",", argString, [['"','"']], False, False)
-            pars = {}
-            li = []
-            opCount = 0
-
-            for arg in args:
-              match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", arg)
-              if not match == None:
-                opCount += 1
-                operation = match.group("operation")
-                key = match.group("key")
-                value = match.group("value")
-                if operation == "==":
-                  for i in options:
-                    if i[key] == value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    else:
-                      li.remove(i["namespace"] + ":" + i["name"])
-                elif operation == "!=":
-                  for i in options:
-                    if not i[key] == value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    elif (i["namespace"] + ":" + i["name"]) in li:
-                      li.remove(i["namespace"] + ":" + i["name"])
-                elif operation == ">":
-                  value = numberCast(value)
-                  for i in options:
-                    if numberCast(i[key]) > value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    elif (i["namespace"] + ":" + i["name"]) in li:
-                      li.remove(i["namespace"] + ":" + i["name"])
-                elif operation == "<":
-                  value = numberCast(value)
-                  for i in options:
-                    if numberCast(i[key]) < value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    elif (i["namespace"] + ":" + i["name"]) in li:
-                      li.remove(i["namespace"] + ":" + i["name"])
-                elif operation == ">=":
-                  value = numberCast(value)
-                  for i in options:
-                    if numberCast(i[key]) >= value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    elif (i["namespace"] + ":" + i["name"]) in li:
-                      li.remove(i["namespace"] + ":" + i["name"])
-                elif operation == "<=":
-                  value = numberCast(value)
-                  for i in options:
-                    if numberCast(i[key]) <= value:
-                      li.append(i["namespace"] + ":" + i["name"])
-                    elif (i["namespace"] + ":" + i["name"]) in li:
-                      li.remove(i["namespace"] + ":" + i["name"])
-              elif "=" in arg:
-                par = main.words("=", arg, [['"','"']], False, False)
-                if not par[0] in pars:
-                  pars[par[0]] = []
-                pars[par[0]].append(par[1])
-
-            if opCount == 0:
-              for i in options:
-                li.append(i["namespace"] + ":" + i["name"])
-
-            if "sort" in pars:
-              if pars["sort"][-1] == "alphabetical":
-                li = sorted(li)
-              else:
-                def value(options):
-                  def inner(x):
-                    split = x.split(":")
-                    for i in options:
-                      if i["namespace"] == split[0] and i["name"] == split[1]:
-                        return numberCast(i[pars["sort"][-1]])
-                    return None
-                  return inner
-                li = sorted(li, key=value(options))
-                li[:] = [x for x in li if x != -math.inf]
-
-            if "reverse" in pars:
-              if pars["reverse"][-1].lower() == "true":
-                li.reverse()
-
-            if "limit" in pars:
-              li = li[:min(len(li),int(numberCast(pars["limit"][-1])))]
-            
-            if "in" in pars:
-              for seg in pars["in"]:
-                for i in li:
-                  if not seg in i:
-                    li.remove(i)
-            
-            if "notin" in pars:
-              for seg in pars["notin"]:
-                print(seg)
-                for i in li:
-                  if seg in i:
-                    li.remove(i)
-
-            for i in li:
-              workingList.append(i)
+    workingString = line[1:].strip()
+    workingList = []
+    if workingString == "all":
+      for i in options:
+        workingList.append(i["namespace"] + ":" + i["nam+-e"])
+    elif main.segment("all", 0, workingString):
+      argString = main.groups(workingString, [["(",")"]], False)[0]
+      if argString[0] == "#":
+        if os.path.exists(f"tags/{argString[1:]}.mctag"):
+          if not (f"{argString[1:]}.mctag" in done):
+            with open(f"tags/{argString[1:]}.mctag", "r") as data:
+              print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
+              workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
+              print(f'continuing to load "{file}"')
           else:
-            reverse = False
-            if argString[0] == "!":
-              argString = argString[1:]
-              reverse = True
-            else:
-              reverse = False
-            
-            for i in options:
-                if argString in i["name"] and not reverse:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-                elif reverse and not argString in i["name"]:
-                  workingList.append(i["namespace"] + ":" + i["name"])
-            
-        elif ":" in workingString:
-          workingList.append(workingString)
+            with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
+              for i in data:
+                for i2 in i.split(","):
+                  i2 = i2.strip()
+                  if not ":" in i2:
+                    workingList.append("minecraft:" + i2)
+                  else:
+                    workingList.append(i2)
+        elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
+          print(f"{argString[1:]}.txt")
+          with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
+              for i in data:
+                for i2 in i.split(","):
+                  i2 = i2.strip()
+                  if not ":" in i2:
+                    workingList.append("minecraft:" + i2)
+                  else:
+                    workingList.append(i2)
         else:
-          workingList.append("minecraft:" + workingString)
+          #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
+          workingList.append(argString)
+      elif "=" in argString or "<" in argString or ">" in argString:
+        args = main.words(",", argString, [['"','"']], False, False)
+        pars = {}
+        li = []
+        opCount = 0
 
-        if line[0] == "+":
-          for i in workingList:
-            if not i.strip() in result:
-              result.append(i.strip())
-        elif line[0] == "-":
-          for i in workingList:
-            element = i.strip()
-            if element in result:
-              result.remove(element)
+        for arg in args:
+          match = re.match(r"^(?P<key>.+)(?P<operation>\>=|\<=|!=|==|\>|\<)(?P<value>.+)$", arg)
+          if not match == None:
+            opCount += 1
+            operation = match.group("operation")
+            key = match.group("key")
+            value = match.group("value")
+            if operation == "==":
+              for i in options:
+                if i[key] == value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                else:
+                  li.remove(i["namespace"] + ":" + i["name"])
+            elif operation == "!=":
+              for i in options:
+                if not i[key] == value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                elif (i["namespace"] + ":" + i["name"]) in li:
+                  li.remove(i["namespace"] + ":" + i["name"])
+            elif operation == ">":
+              value = numberCast(value)
+              for i in options:
+                if numberCast(i[key]) > value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                elif (i["namespace"] + ":" + i["name"]) in li:
+                  li.remove(i["namespace"] + ":" + i["name"])
+            elif operation == "<":
+              value = numberCast(value)
+              for i in options:
+                if numberCast(i[key]) < value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                elif (i["namespace"] + ":" + i["name"]) in li:
+                  li.remove(i["namespace"] + ":" + i["name"])
+            elif operation == ">=":
+              value = numberCast(value)
+              for i in options:
+                if numberCast(i[key]) >= value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                elif (i["namespace"] + ":" + i["name"]) in li:
+                  li.remove(i["namespace"] + ":" + i["name"])
+            elif operation == "<=":
+              value = numberCast(value)
+              for i in options:
+                if numberCast(i[key]) <= value:
+                  li.append(i["namespace"] + ":" + i["name"])
+                elif (i["namespace"] + ":" + i["name"]) in li:
+                  li.remove(i["namespace"] + ":" + i["name"])
+          elif "=" in arg:
+            par = main.words("=", arg, [['"','"']], False, False)
+            if not par[0] in pars:
+              pars[par[0]] = []
+            pars[par[0]].append(par[1])
+
+        if opCount == 0:
+          for i in options:
+            li.append(i["namespace"] + ":" + i["name"])
+
+        if "sort" in pars:
+          if pars["sort"][-1] == "alphabetical":
+            li = sorted(li)
+            pass
+          else:
+            def value(li1):
+              def inner(x):
+                split = x.split(":")
+                for i in li1:
+                  if i["namespace"] == split[0] and i["name"] == split[1]:
+                    return numberCast(i[pars["sort"][-1]])
+                return None
+              return inner
+            li[:] = [x for x in li if x != -math.inf]
+            li = sorted(li, key=value(options))
+
+        if "reverse" in pars:
+          if pars["reverse"][-1].lower() == "true":
+            li.reverse()
+
+        if "limit" in pars:
+          li = li[:min(len(li),int(numberCast(pars["limit"][-1])))]
+        
+        if "in" in pars:
+          for seg in pars["in"]:
+            for i in li:
+              if not seg in i:
+                li.remove(i)
+        
+        if "notin" in pars:
+          for seg in pars["notin"]:
+            for i in li:
+              if seg in i:
+                li.remove(i)
+
+        for i in li:
+          workingList.append(i)
+      else:
+        reverse = False
+        if argString[0] == "!":
+          argString = argString[1:]
+          reverse = True
+        else:
+          reverse = False
+        
+        for i in options:
+            if argString in i["name"] and not reverse:
+              workingList.append(i["namespace"] + ":" + i["name"])
+            elif reverse and not argString in i["name"]:
+              workingList.append(i["namespace"] + ":" + i["name"])
+        
+    elif ":" in workingString:
+      workingList.append(workingString)
+    else:
+      workingList.append("minecraft:" + workingString)
+
+    if line[0] == "+":
+      for i in workingList:
+        if not i.strip() in result:
+          result.append(i.strip())
+    elif line[0] == "-":
+      for i in workingList:
+        element = i.strip()
+        if element in result:
+          result.remove(element)
 
   name_split = name.split("/")
   if len(name_split) > 1:

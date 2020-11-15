@@ -8,7 +8,6 @@ type: entity_types
 - all(sort=health,reverse=true,limit=5)
 
 + potion
-+ minecraft:arrow
 + endermite
 + silverfish
 
