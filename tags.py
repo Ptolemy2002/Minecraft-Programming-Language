@@ -161,9 +161,9 @@ def genTag(file, packName, packId):
                   for i in li1:
                     if i["namespace"] == split[0] and i["name"] == split[1]:
                       return numberCast(i[pars["sort"][-1]])
+                  return -math.inf
                 return inner
               
-              li[:] = [x for x in li if getOption(options,x) != None and numberCast(getOption(options,x)[pars["sort"][-1]]) != -math.inf]
               li = sorted(li, key=value(options))
 
           if "reverse" in pars:
