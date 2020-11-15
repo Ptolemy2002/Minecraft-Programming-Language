@@ -164,7 +164,7 @@ def genTag(file, packName, packId):
                       if not num == -math.inf:
                         return (1,num)
                       else:
-                        return i[pars["sort"][-1]]
+                        return (1,i[pars["sort"][-1]])
                   return (0,x)
                 return inner
               
