@@ -161,10 +161,9 @@ def genTag(file, packName, packId):
                   for i in li1:
                     if i["namespace"] == split[0] and i["name"] == split[1]:
                       return numberCast(i[pars["sort"][-1]])
-                  return None
                 return inner
               
-              li[:] = [x for x in li if numberCast(getOption(options,x)[pars["sort"][-1]]) != -math.inf]
+              li[:] = [x for x in li if getOption(options,x) != None and numberCast(getOption(options,x)[pars["sort"][-1]]) != -math.inf]
               li = sorted(li, key=value(options))
 
           if "reverse" in pars:
@@ -229,10 +228,9 @@ def genTag(file, packName, packId):
             for i in li1:
               if i["namespace"] == split[0] and i["name"] == split[1]:
                 return numberCast(i[argString])
-            return None
+            return -math.inf
           return inner
 
-        result[:] = [x for x in result if numberCast(getOption(options,x)[argString]) != -math.inf]
         result = sorted(result, key=value(options))
     elif main.segment("limit", 0, line):
       argString = main.groups(line, [["(",")"]], False)[0]
