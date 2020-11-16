@@ -122,3 +122,44 @@ Format Example:
 
     #Add all entries with the namespace "minecraft" that are taller than 1 block
     + all(namespace=="minecraft",height>1)
+    
+# Sort
+The "all" function has an option to sort your entries either alphabetically or by a certain value instead of in the order it is seen. To use it, use the argument "sort=alphabetical" or "sort={key}". The first will sort alphabetically by name, while the second will sort based on the value of the key of each entry. Entries that are not found in the file are sorted alphabetically before entries that are, and entries that have integer values are sorted before entries with string values (which are sorted alphabetically by value).
+
+Alternatively, you can sort an entire tag using the "sort" function that does not require a "+" or "-" at the beginning of the line. The syntax is either "sort(alphabetical)" or "sort(key)".
+
+Format Example:
+
+    + all(sort=height) #Add all sorted by height
+    sort(alphabetical) #Sort the entire tag alphabetically
+
+# Limit Count
+You may limit the number of entries a function receives using either the "limit" argument or (to limit the entire tag) the "limit" function. The syntax for the argument is "limit={number}" and the function is "limit({number})". The number should be an integer. This will splice the list so that only the first {number} entries are included (so "limit=5" will only include the first 5 entries). If there are not that many entries, all entries will be included.
+
+Format Example:
+
+    + all(sort=height,limit=5) #The 5 entities with the lowest height
+    limit(5) #Limit the length of this tag to 5
+  
+# Reverse List
+You may specify to perform operations on the entries in reverse order or reverse the order of the entire tag. This is particularly useful for sorting things greatest to least rather than least to greatest. You may use the argument syntax "reverse={true or false}" or the function syntax "reverse".
+
+Format Example:
+
+    + all(sort=height,reverse=true) #All entries from tallest to shortest
+    reverse #Reverse the order of the entire tag
+# Entity Data
+The following information is stored for every entity in the ".saved/data/entity_types.csv" file:
+|key|description|possible values|
+|--|--|--|
+|namespace|The namespace the entity is defined in|string, no spaces or ":"
+|name|The name of the entry|string, no spaces
+|category|The entity category this entity fits in.<br>Hostile entities attack targets on sight.<br>Passive entities do not attack.<br>Neutral entities attack under certain conditions.<br>Projectile entities are fired for attacking.<br>Utility entities are used as tools rather than living creatures.|neutral, hostile, passive, utility, or projectile
+|subcategory|A subcategory for the entity (if any)<br>Arthropods are insects that are affected by the "bane of arthropods" enchantment.<br>Undead entities burn in daylight and are harmed by healing potions.<br>Illagers are used in raid events.|n/a, arthropod, undead, or illager
+|width|The witdth of the entities hitbox in blocks|decimal number
+|height|The height of the entities hitbox in blocks|decimal number
+|length|The height of the entities hitbox in blocks (for most entities this is eqwual to the width)|decimal number
+|volume|The total amount of space in blocks the entity takes up. Calculated using the formula "length*width*height"|decimal number
+|health|The maximum amount of health points this entity can have. "n/a" for entities that do not have health.|n/a or integer
+|environment|The prefered environment for this entity|land, air, or water
+|dimension|The dimension(s) this entity may be found naturally.|all, none, overworld, nether, end, or overworld/nether
