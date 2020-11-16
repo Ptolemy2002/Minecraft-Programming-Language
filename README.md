@@ -28,7 +28,7 @@ This is a project that, when finished, will allow for the creation of data packs
 			 - [ ] [default tags](#default-item-tags)
 
 # How To Use
-Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
+Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). Copy the ".saved" directory into your root (you can delete any file that doesn't begin with "minecraft" in ".saved/tags") In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
 
     pack-info: "[Pack name]" "[Pack ID (used for namespace)]" "[Pack description]" [Use snapshots (true or false)];
 
@@ -173,3 +173,14 @@ The following information is stored for every entity in the ".saved/data/entity_
 |health|The maximum amount of health points this entity can have. "n/a" for entities that do not have health.|n/a or integer
 |environment|The prefered environment for this entity|land, air, or water
 |dimension|The dimension(s) this entity may be found naturally.|all, none, overworld, nether, end, or overworld/nether
+
+# Default Entity Tags
+The following entity tags are implemented into Minecraft by default and provided in the ".saved/tags" directory of the generator:
+|name|contents|
+|--|--|
+|minecraft:arrows|arrow, spectral_arrow|
+|minecraft:beehive_inhabitors|bee|
+|minecraft:impact_projectiles|arrow, spectral_arrow, snowball, fireball, small_fireball, egg, trident, dragon_fireball, wither_skull|
+|minecraft:raiders|evoker, illusioner, pillager, ravager, vindicator, witch|
+|minecraft:skeletons|skeleton, stray, wither_skeleton|
+|minecraft:powder_snow_walkable_mobs‌|rabbit, endermite, silverfish|

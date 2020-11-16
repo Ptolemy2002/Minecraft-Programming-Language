@@ -6,6 +6,8 @@ minecraft:snowball
 minecraft:small_fireball
 minecraft:fireball
 minecraft:dragon_fireball
+minecraft:silverfish
+minecraft:endermite
 minecraft:potion
 minecraft:panda
 minecraft:sheep
@@ -45,6 +47,11 @@ minecraft:end_crystal
 minecraft:slime
 minecraft:magma_cube
 minecraft:husk
+minecraft:ravager
 minecraft:wither_skeleton
+minecraft:iron_golem
 minecraft:enderman
+minecraft:wither
 minecraft:ghast
+minecraft:ender_dragon
+minecraft:giant

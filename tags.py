@@ -245,13 +245,15 @@ def genTag(file, packName, packId):
       result = result[:min(len(result),int(numberCast(argString)))]
 
   name_split = name.split("/")
+  
   if len(name_split) > 1:
-    os.makedirs(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
+    os.makedirs(f".generated/packs/{packName}/data/{packId}/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}", exist_ok=True)
   with open(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name}.json", "w+") as file1:
     json.dump({"replace": False, "values":result}, file1,indent=4)
 
   if len(name_split) > 1:
-    os.makedirs(f".saved/tags/{t}/{name_split[:len(name_split)-1][0]}", exist_ok=True)
+    os.makedirs(f".saved/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}", exist_ok=True)
+    print(f".saved/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}")
   with open(f".saved/tags/{t}/{name}.txt", "w+") as data:
     data.write("\n".join(result))
 

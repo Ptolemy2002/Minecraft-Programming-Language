@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+        "example_pack:internal/load",
+        "example_pack:internal/tick"
+    ]
+}
