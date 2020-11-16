@@ -235,7 +235,7 @@ def main():
   with open(".saved/data/functions.csv", "w+") as file:
     data = ["namespace,name",f"{packId},internal/load", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
-      data.append(f"{packId},{i}")
+      data.append(f"{packId},{i.name}")
     file.write("\n".join(data))
   print("Generating tag files")
   tags.start(packName, packId, packDesc)
