@@ -169,7 +169,7 @@ The following information is stored for every entity in the ".saved/data/entity_
 |width|The witdth of the entities hitbox in blocks|decimal number
 |height|The height of the entities hitbox in blocks|decimal number
 |length|The height of the entities hitbox in blocks (for most entities this is eqwual to the width)|decimal number
-|volume|The total amount of space in blocks the entity takes up. Calculated using the formula "length * width * height"|decimal number
+|volume|The total amount of space in blocks the entity takes up. Calculated using the formula "length \* width \* height"|decimal number
 |health|The maximum amount of health points this entity can have. "n/a" for entities that do not have health.|n/a or integer
 |environment|The prefered environment for this entity|land, air, or water
 |dimension|The dimension(s) this entity may be found naturally.|all, none, overworld, nether, end, or overworld/nether
