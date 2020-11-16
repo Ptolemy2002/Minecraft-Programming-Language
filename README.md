@@ -2,6 +2,7 @@
 
 This is a project that, when finished, will allow for the creation of data packs and data pack tags through a simple programming language syntax that resembles object oriented languages such as Java. This is intended to be much more powerful and user friendly than typing a series of commands like you do in regular development. Here are the planned features (checked features are implemented, while unchecked are works in progress):
 
+ - [x] [Basic Use](#how-to-use)
  - [x] Tag Development
 	 - [x] [Define a tag](#define-a-tag)
 	 - [x] [Add entries to your tag](#add-entries)
@@ -25,6 +26,15 @@ This is a project that, when finished, will allow for the creation of data packs
 			 - [ ] [default tags](#default-block-tags)
 		 - [ ] [items](#item-data)
 			 - [ ] [default tags](#default-item-tags)
+
+# How To Use
+Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
+
+    pack-info: "[Pack name]" "[Pack ID (used for namespace)]" "[Pack description]" [Use snapshots (true or false)];
+
+Run the "main.py" file using python 3.8.2 (the version this was developed in), and your data pack will be created in ".generated/packs/{pack_name}". You can copy-paste the entire folder to your world's data pack directory and your data pack should load without problems (unless you have a syntax error in one of your literal commands).
+
+Currently, only tags will be generated based on input, while the functions will be populated by generic statements.
 
 # Define a Tag
 You may define a tag by creating a file with the "mctag" extension in the directory "./tags" relative to the main directory (the directory where you put "main.py" and "tags.py"). All subdirectories of "./tags" will be checked for files, and the resulting data pack will preserve subdirectories (so if you put a file in the "internal" folder, the tag name will be "#internal/[tag_name]").
