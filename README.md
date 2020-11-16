@@ -28,7 +28,7 @@ This is a project that, when finished, will allow for the creation of data packs
 			 - [ ] [default tags](#default-item-tags)
 
 # How To Use
-Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). Copy the ".saved" directory into your root (you can delete any file that doesn't begin with "minecraft" in ".saved/tags") In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
+Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). Copy the ".saved" directory into your root (you can delete any file that is in the "you can delete this" directory) In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
 
     pack-info: "[Pack name]" "[Pack ID (used for namespace)]" "[Pack description]" [Use snapshots (true or false)];
 
