@@ -151,8 +151,9 @@ class Comment(Statement):
     self.parentFunction.append("#" + self.text)
 
 class Function:
-  def __init__(self, name, desc):
+  def __init__(self, namespace, name, desc):
     self.name = name
+    self.namespace = namespace
     self.code = []
     Comment(desc, self).implement()
   
@@ -169,10 +170,10 @@ packDesc = "Data pack generated from a Minecraft Programming Language compiler"
 defaultPackInfo = False
 useSnapshots = False
 
-initFunction = Function("load", "This function is run when the datapack is loaded.")
-uninstallFunction = Function("uninstall", "Can be called to remove the pack and any trace it was ever installed")
-tickFunction = Function("tick", "This function is run every tick after this datapack is loaded.")
-customFunctions = {"test": Function("test", "this is a test.")}
+initFunction = Function(packId, "load", "This function is run when the datapack is loaded.")
+uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed")
+tickFunction = Function(packId, "tick", "This function is run every tick after this datapack is loaded.")
+customFunctions = {"test": Function("example_pack", "test", "this is a test.")}
 
 def generateCode(code):
   #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
@@ -231,12 +232,14 @@ def main():
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
+  os.makedirs(f".saved/data", exist_ok = True)
   print("Saving functions for use in tags")
   with open(".saved/data/functions.csv", "w+") as file:
     data = ["namespace,name",f"{packId},internal/load", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
-      data.append(f"{packId},{i.name}")
+      data.append(f"{customFunctions[i].namespace},{customFunctions[i].name}")
     file.write("\n".join(data))
+
   print("Generating tag files")
   tags.start(packName, packId, packDesc)
 

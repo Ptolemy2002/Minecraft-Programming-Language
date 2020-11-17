@@ -253,7 +253,7 @@ def genTag(file, packName, packId):
 
   if len(name_split) > 1:
     os.makedirs(f".saved/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}", exist_ok=True)
-    print(f".saved/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}")
+    #print(f".saved/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}")
   with open(f".saved/tags/{t}/{name}.txt", "w+") as data:
     data.write("\n".join(result))
 
