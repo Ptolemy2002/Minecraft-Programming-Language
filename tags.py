@@ -56,7 +56,7 @@ def genTag(file, packName, packId):
       workingList = []
       if workingString == "all":
         for i in options:
-          workingList.append(i["namespace"] + ":" + i["nam+-e"])
+          workingList.append(i["namespace"] + ":" + i["name"])
       elif main.segment("all", 0, workingString):
         argString = main.groups(workingString, [["(",")"]], False)[0]
         if argString[0] == "#":
