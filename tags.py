@@ -76,14 +76,26 @@ def genTag(file, packName, packId):
                     else:
                       workingList.append(i2)
           elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
-            with open(f".saved/tags/{t}/{argString[1:]}.txt", "r") as data:
-                for i in data:
-                  for i2 in i.split(","):
-                    i2 = i2.strip()
-                    if not ":" in i2:
-                      workingList.append("minecraft:" + i2)
-                    else:
-                      workingList.append(i2)
+            def getEntries(path):
+              result = []
+              with open(f".saved/tags/{t}/{path}.txt", "r") as data:
+                  for i in data:
+                    for i2 in i.split(","):
+                      i2 = i2.strip()
+                      if i2[0] == "#":
+                        if not ":" in i2:
+                          workingList.extend(getEntries(f"minecraft:{i2[1:]}"))
+                        else:
+                          workingList.extend(getEntries(i2[1:]))
+                      else:
+                        if not ":" in i2:
+                          result.append("minecraft:" + i2)
+                        else:
+                          result.append(i2)
+
+              return result
+
+            workingList.extend(getEntries(argString[1:]))
           else:
             #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
             workingList.append(argString)
