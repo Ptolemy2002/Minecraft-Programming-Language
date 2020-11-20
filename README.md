@@ -184,6 +184,7 @@ The following entity tags are implemented into Minecraft by default and provided
 |raiders|evoker, illusioner, pillager, ravager, vindicator, witch|
 |skeletons|skeleton, stray, wither_skeleton|
 |powder_snow_walkable_mobs‌|rabbit, endermite, silverfish|
+This data has been extrapolated from the Minecraft Wiki.
 
 # Function Data
 Each function you create using mcscript files will be added to the ".saved/data/functions.csv" file. You can also define external functions to be included within your mcscript file using 'def {namespace}:{function name}" (WIP). The following information is stored:
@@ -195,3 +196,20 @@ Each function you create using mcscript files will be added to the ".saved/data/
 
 # Default Function Tags
 Minecraft doesn't implement functions by default, so there are no default tags for functions.
+
+# Block Data
+The following information is stored for every block in the ".saved/data/blocks.csv" file:
+|key|description|possible values
+|--|--|--
+|namespace|The namespace the entry is defined in.|string, no spaces or ":"|
+|name|The name of the block.|string, no spaces|
+|harvestLevel|Represents the tool required to break this block.<br>0 is wood and gold.<br>1 is stone<br>2 is iron<br>3 is diamond and netherite<br>-1 means it can be broken by hand.|Integer -1-3 or "unbreakable"|
+|conductive|Whether this block may be used to conduct a redstone signal|true or false|
+|jumpFactor|The factor that modifies jumping on blocks like slime.|decimal number|
+|speedFactor|The factor that modifies speed on blocks like soul sand|decimal number|
+|slipperiness|The factor that modifies slipperiness on blocks like ice.|decimal number|
+|explosionResistance|How resistant the block is to explosions.|decimal number|
+|sticky|Whether the block is sticky like slime and honey.|true or false|
+|transparent|Whether the block is transparent. This property is used in redstone.|true or false|
+
+This data has been extrapolated from Minecraft Forge 1.16.4.
