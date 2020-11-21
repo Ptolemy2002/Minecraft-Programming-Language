@@ -409,7 +409,7 @@ minecraft,acacia_button,64,0,0,Redstone,100,-1,false,false,true
 minecraft,dead_bush,64,0,0,Decoration Blocks,100,-1,false,false,true
 minecraft,farmland,64,0,0,Decoration Blocks,0,-1,false,false,true
 minecraft,stone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bedrock,64,0,0,Building Blocks,0,-1,false,false,true
+minecraft,bedrock,64,0,0,Building Blocks,0,unbreakable,false,false,true
 minecraft,phantom_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
 minecraft,infested_mossy_stone_bricks,64,0,0,Decoration Blocks,0,-1,false,false,true
 minecraft,hoglin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
