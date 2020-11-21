@@ -4,6 +4,7 @@ import os
 import math
 import json
 import re
+import sys
 
 done = []
 
@@ -301,8 +302,12 @@ def start(packName, packId, packDesc):
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       path = os.path.relpath(os.path.join(subdir, file))
-      if file.endswith(".mctag") and not path[path.index("/") + 1:] in done:
-        genTag(path[path.index("/") + 1:], packName, packId)
+      if sys.platform == "win32":
+        if file.endswith(".mctag") and not path[path.index("\\") + 1:] in done:
+          genTag(path[path.index("/") + 1:], packName, packId)
+      else:
+        if file.endswith(".mctag") and not path[path.index("/") + 1:] in done:
+          genTag(path[path.index("/") + 1:], packName, packId)
       
 if __name__ == "__main__":
   start(main.packName, main.packId, main.packDesc)
