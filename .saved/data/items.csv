@@ -426,7 +426,7 @@ minecraft,white_tulip,64,0,0,Decoration Blocks,0,-1,false,false,true
 minecraft,dark_oak_boat,1,0,0,Transportation,1200,-1,false,false,false
 minecraft,tube_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
 minecraft,wooden_sword,1,15,59,Combat,200,-1,false,false,false
-minecraft,potion,1,0,0,Brewing,0,-1,false,false,false
+minecraft,potion,1,0,0,Brewing,0,-1,true,false,false
 minecraft,husk_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
 minecraft,music_disc_blocks,1,0,0,Miscellaneous,0,-1,false,false,false
 minecraft,blaze_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
@@ -814,7 +814,7 @@ minecraft,yellow_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
 minecraft,netherite_helmet,1,15,407,Combat,0,-1,true,false,false
 minecraft,quartz_pillar,64,0,0,Building Blocks,0,-1,false,false,true
 minecraft,drowned_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,milk_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
+minecraft,milk_bucket,1,0,0,Miscellaneous,0,-1,false,TRUE,false
 minecraft,acacia_stairs,64,0,0,Building Blocks,300,-1,false,false,true
 minecraft,target,64,0,0,Redstone,0,-1,false,false,true
 minecraft,jungle_wood,64,0,0,Building Blocks,300,-1,false,false,true
@@ -955,7 +955,7 @@ minecraft,stripped_oak_wood,64,0,0,Building Blocks,300,-1,false,false,true
 minecraft,emerald_block,64,0,0,Building Blocks,0,-1,false,false,true
 minecraft,birch_slab,64,0,0,Building Blocks,150,-1,false,false,true
 minecraft,smooth_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,water_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
+minecraft,water_bucket,1,0,0,Miscellaneous,0,-1,false,TRUE,false
 minecraft,iron_bars,64,0,0,Decoration Blocks,0,-1,false,false,true
 minecraft,melon_slice,64,0,0,Foodstuffs,0,-1,false,true,false
 minecraft,bamboo,64,0,0,Decoration Blocks,50,-1,false,false,true
