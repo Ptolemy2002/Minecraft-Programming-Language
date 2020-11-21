@@ -1,6 +1,7 @@
 import os
 import json
 import tags
+import shutil
 #import convert
 
 """
@@ -210,6 +211,10 @@ def main():
     print(f'no pack info specified. Default values will be used (name "{packName}" id {packId})')
     defaultPackInfo = True
   
+  if os.path.isdir(f".generated/packs/{packName}"):
+    print("Cleaning up previous generation files")
+    shutil.rmtree(f".generated/packs/{packName}")
+
   print("Populating default function statements")
 
   if defaultPackInfo:

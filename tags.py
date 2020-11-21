@@ -5,6 +5,7 @@ import math
 import json
 import re
 import sys
+import shutil
 
 done = []
 
@@ -293,6 +294,17 @@ def genTag(file, packName, packId):
   done.append(file)
   return result
 
+def clean():
+  files = []
+  files.extend([os.path.join(".saved/tags/blocks", f) for f in os.listdir(".saved/tags/blocks") if ((os.path.isdir(os.path.join(".saved/tags/blocks", f)) and not main.segment("minecraft_", 0, f))) or not main.segment("minecraft_", 0, f)])
+  files.extend([os.path.join(".saved/tags/items", f) for f in os.listdir(".saved/tags/items") if ((os.path.isdir(os.path.join(".saved/tags/items", f)) and not main.segment("minecraft_", 0, f)) or not main.segment("minecraft_", 0, f))])
+  files.extend([os.path.join(".saved/tags/entity_types", f) for f in os.listdir(".saved/tags/entity_types") if ((os.path.isdir(os.path.join(".saved/tags/entity_types", f)) and not main.segment("minecraft_", 0, f)) or not main.segment("minecraft_", 0, f))])
+  files.extend([os.path.join(".saved/tags/liquids", f) for f in os.listdir(".saved/tags/liquids") if ((os.path.isdir(os.path.join(".saved/tags/liquids", f)) and not main.segment("minecraft_", 0, f))) or not main.segment("minecraft_", 0, f)])
+  files.extend([os.path.join(".saved/tags/functions", f) for f in os.listdir(".saved/tags/functions") if ((os.path.isdir(os.path.join(".saved/tags/functions", f)) and not main.segment("minecraft_", 0, f)))])
+
+  for f in files:
+    shutil.rmtree(f)
+
 def start(packName, packId, packDesc):
   print("Creating necessary file paths")
   os.makedirs("tags", exist_ok=True)
@@ -301,6 +313,8 @@ def start(packName, packId, packDesc):
   os.makedirs(".saved/tags/items", exist_ok = True)
   os.makedirs(".saved/tags/functions", exist_ok = True)
 
+  print("Cleaning up previous generation files")
+  clean()
   print("looking for mctag files")
   for subdir, dirs, files in os.walk(os.getcwd() + "/tags"):
     dirs[:] = [d for d in dirs if not d[0] == "."]
