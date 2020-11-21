@@ -75,19 +75,19 @@ def genTag(file, packName, packId):
                         i2 = i2.strip()
                         if i2[0] == "#":
                           if not ":" in i2:
-                            workingList.extend(getEntries(f"minecraft:{i2[1:]}"))
+                            workingList.extend(getEntries(f"minecraft_{i2[1:]}"))
                           else:
-                            workingList.extend(getEntries(i2[1:]))
+                            workingList.extend(getEntries(i2[1:].replace(":", "_")))
                         else:
                           if not ":" in i2:
-                            result.append("minecraft:" + i2)
+                            result.append("minecraft_" + i2)
                           else:
-                            result.append(i2)
+                            result.append(i2.replace(":", "_"))
 
                 return result
 
-              workingList.extend(getEntries(argString[1:]))
-          elif os.path.exists(f".saved/tags/{t}/{argString[1:]}.txt"):
+              workingList.extend(getEntries(argString[1:].replace(":", "_")))
+          elif os.path.exists(f".saved/tags/{t}/{argString[1:].replace(':', '_')}.txt"):
             def getEntries(path):
               result = []
               with open(f".saved/tags/{t}/{path}.txt", "r") as data:
@@ -96,18 +96,18 @@ def genTag(file, packName, packId):
                       i2 = i2.strip()
                       if i2[0] == "#":
                         if not ":" in i2:
-                          workingList.extend(getEntries(f"minecraft:{i2[1:]}"))
+                          workingList.extend(getEntries(f"minecraft_{i2[1:]}"))
                         else:
-                          workingList.extend(getEntries(i2[1:]))
+                          workingList.extend(getEntries(i2[1:].replace(":", "_")))
                       else:
                         if not ":" in i2:
-                          result.append("minecraft:" + i2)
+                          result.append("minecraft_" + i2.replace(":", "_"))
                         else:
                           result.append(i2)
 
               return result
 
-            workingList.extend(getEntries(argString[1:]))
+            workingList.extend(getEntries(argString[1:].replace(":", "_")))
           else:
             #The tag isn't defined here. Append it to the pack anyway in case it's defined somewhere else.
             workingList.append(argString)
