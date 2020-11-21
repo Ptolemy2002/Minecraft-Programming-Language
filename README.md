@@ -1,3 +1,4 @@
+
 # Minecraft-Programming-Language
 
 This is a project that, when finished, will allow for the creation of data packs and data pack tags through a simple programming language syntax that resembles object oriented languages such as Java. This is intended to be much more powerful and user friendly than typing a series of commands like you do in regular development. Here are the planned features (checked features are implemented, while unchecked are works in progress):
@@ -20,11 +21,11 @@ This is a project that, when finished, will allow for the creation of data packs
 			 - [x] [default tags](#default-entity-tags)
 		 - [x] [functions](#function-data)
 			 - [x] [default tags](#default-function-tags)
-		 - [ ] [fluids](#fluid-data)
-			 - [ ] [default tags](#default-fluid-tags)
+		 - [x] [fluids](#fluid-data)
+			 - [x] [default tags](#default-fluid-tags)
 		 - [x] [blocks](#block-data)
-			 - [ ] [default tags](#default-block-tags)
-		 - [x] [items](#item-data)
+			 - [x] [default tags](#default-block-tags)
+		 - [ ] [items](#item-data)
 			 - [ ] [default tags](#default-item-tags)
 
 # How To Use
@@ -308,3 +309,16 @@ The following block tags are implemented into Minecraft by default and provided 
 |wooden_stairs                             |oak_stairs, spruce_stairs, birch_stairs, jungle_stairs, acacia_stairs, dark_oak_stairs, crimson_stairs, warped_stairs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wooden_trapdoors                          |acacia_trapdoor, birch_trapdoor, dark_oak_trapdoor, jungle_trapdoor, oak_trapdoor, spruce_trapdoor, crimson_trapdoor, warped_trapdoor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wool                                      |white_wool, orange_wool, magenta_wool, light_blue_wool, yellow_wool, lime_wool, pink_wool, gray_wool, light_gray_wool, cyan_wool, purple_wool, blue_wool, brown_wool, green_wool, red_wool, black_wool                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+# Fluid Data
+The following information is stored in the ".saved/data/fluids.csv" file:
+|key|description|possible values
+|--|--|--|
+|namespace|The namespace the entry is defined in.|string, no spaces or ":"|
+|name|The name of the liquid.|string, no spaces|
+
+# Default Fluid Tags
+The following fluid tags are implemented into Minecraft by default and provided in the ".saved/tags/fluids" directory of the generator:
+|Tag Name|Values|
+|--|--|
+|lava|lava, flowing_lava|
+|water|water, flowing_water|
