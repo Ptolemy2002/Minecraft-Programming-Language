@@ -308,7 +308,7 @@ def start(packName, packId, packDesc):
       path = os.path.relpath(os.path.join(subdir, file))
       if sys.platform == "win32":
         if file.endswith(".mctag") and not path[path.index("\\") + 1:] in done:
-          genTag(path[path.index("/") + 1:], packName, packId)
+          genTag(path[path.index("\\") + 1:], packName, packId)
       else:
         if file.endswith(".mctag") and not path[path.index("/") + 1:] in done:
           genTag(path[path.index("/") + 1:], packName, packId)
