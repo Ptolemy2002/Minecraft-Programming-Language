@@ -252,7 +252,7 @@ def main():
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/functions', exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/items', exist_ok = True)
   with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
-    json.dump({"pack":{"pack-format":7 if useSnapshots else 6,"description": packDesc}}, file,indent=4)
+    json.dump({"pack":{"pack_format":7 if useSnapshots else 6,"description": packDesc}}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
     json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:

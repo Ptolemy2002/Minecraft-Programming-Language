@@ -60,7 +60,7 @@ Format example:
     #This is a comment.
     + minecraft:armor_stand #This is also a comment.
 
-There is an alternate way to define tags that can be used if you have a list of all entries that should be included. You may insert a "txt" file in the directory "./.saved/tags/[type]" that contains either a line separated or comma separated list of the specific entries that should be included (default namespace is "minecraft"). You may not specify other tags or filter entries - This format only accepts literal entry specifications.
+There is an alternate way to define tags that can be used if you have a list of all entries that should be included. You may insert a "txt" file in the directory "./.saved/tags/[type]" that contains either a line separated or comma separated list of the specific entries that should be included (default namespace is "minecraft"). For the file name, use an underscore instead of a colon. You may specify other tags, but not filter entries.
 
 Format example:
 
