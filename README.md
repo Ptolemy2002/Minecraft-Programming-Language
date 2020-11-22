@@ -1,4 +1,5 @@
 
+
 # Minecraft-Programming-Language
 
 This is a project that, when finished, will allow for the creation of data packs and data pack tags through a simple programming language syntax that resembles object oriented languages such as Java. This is intended to be much more powerful and user friendly than typing a series of commands like you do in regular development. Here are the planned features (checked features are implemented, while unchecked are works in progress):
@@ -189,7 +190,7 @@ The following entity tags are implemented into Minecraft by default and provided
 This data has been extrapolated from the Minecraft Wiki.
 
 # Function Data
-Each function you create using mcscript files will be added to the ".saved/data/functions.csv" file. You can also define external functions to be included within your mcscript file using 'def {namespace}:{function name}" (WIP). The following information is stored:
+Each function you create using mcscript files will be added to the ".saved/data/functions.csv" file. You can also define external functions to be included within your mcscript file using 'def {namespace}:{function name};". The following information is stored:
 |key|description|possible values
 |--|--|--|
 |namespace|The namespace the entry is defined in.|string, no spaces or ":"|
