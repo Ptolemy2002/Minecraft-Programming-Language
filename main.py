@@ -179,10 +179,15 @@ uninstallFunction = Function(packId, "uninstall", "Can be called to remove the p
 tickFunction = Function(packId, "internal/tick", "This function is run every tick after this datapack is loaded.", 0)
 customFunctions = {}
 listeners = {}
+externalFunctions = []
 internalListeners = ["load", "tick", "uninstall"]
 
 def generateCode(code, function, path, file):
   global listeners
+  global externalFunctions
+  global customFunctions
+  global packId
+
   if function == None:
     #Top-level statements: Variables and function declarations
     for line in code:
@@ -195,28 +200,44 @@ def generateCode(code, function, path, file):
         version = len(listeners[name]) + 1
         function = None
         if priority == None:
-          function = Function(packId, f"listeners/{name}/{name}-{version}", f"This function is called for every {name} event.", 0)
+          function = Function(packId, f"listeners/{name}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event.", 0)
         else:
           priority = int(priority)
-          function = Function(packId, f"listeners/{name}/{name}-{version}", f"This function is called for every {name} event. with {priority} priority", priority)
+          function = Function(packId, f"listeners/{name}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event. with {priority} priority", priority)
         
         statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
         customFunctions[function.name] = function
-        generateCode(statements, function, function.path, f"{name}-{version}.mcscript")
+        generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
       else:
-        match = re.match(r'function (?P<name>[a-z_]+)\(\)', line)
+        match = re.match(r'function (desc="(?P<desc>[^\"]+)")? (?P<name>[a-z_]+)\(\)', line)
         if match != None:
           name = match.group("name")
-          function = Function(packId, f"{path}/{name.replace('.', '_')}", f"The function defined with the name {name} in the file {path}/{file}", 0)
+          desc = match.group("desc")
+          function = None
+          if desc == None:
+            function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", f"The function defined with the name '{name}' in the file '{path}/{file}'", 0)
+          else:
+            function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", desc, 0)
           statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
-          generateCode(statements, function, function.path, f"{path}/{name.replace('.', '_')}.mcscript")
+          customFunctions[function.name] = function
+          generateCode(statements, function, function.path, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}.mcscript")
         else:
-          pass
+          match  = re.match(r'def (?P<namespace>[a-z_\/]+):(?P<name>[a-z_]+)', line)
+          if match != None:
+            externalFunctions.append(Function(match.group("namespace"), match.group("name"), "", 0))
+          else:
+            pass
   else:
     #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
     pass
 
 def main():
+  global packId
+  global packDesc
+  global packName
+  global useSnapshots
+  global packDesc
+
   print("Start")
 
   mainCode = []
@@ -279,7 +300,11 @@ def main():
   with open(".saved/data/functions.csv", "w+") as file:
     data = ["namespace,name",f"{packId},internal/load", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
+      print(f"Function {customFunctions[i].namespace}:{customFunctions[i].name} is defined. Adding it to the data.")
       data.append(f"{customFunctions[i].namespace},{customFunctions[i].name}")
+    for i in externalFunctions:
+      print(f'External function "{i.namespace}:{i.name}" is defined. Adding it to the data.')
+      data.append(f"{i.namespace},{i.name}")
     file.write("\n".join(data))
 
   print("Generating tag files")
@@ -309,7 +334,7 @@ def main():
   tickFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{tickFunction.name}.mcfunction")
   for name in customFunctions:
     print(f'Writing "{name}" function to data pack')
-    os.makedirs(f".generated/packs/{packName}/data/{packId}/functions/{customFunctions[name].path}")
+    os.makedirs(f".generated/packs/{packName}/data/{packId}/functions/{customFunctions[name].path}", exist_ok=True)
     customFunctions[name].implement(f".generated/packs/{packName}/data/{packId}/functions/{name}.mcfunction")
   
   print("Done")

@@ -2,6 +2,8 @@ namespace,name
 example_pack,internal/load
 example_pack,internal/tick
 example_pack,uninstall
-generated_data_pack,listeners/load/load-1
-generated_data_pack,listeners/tick/tick-1
-generated_data_pack,listeners/item.use/item.use-1
+example_pack,listeners/load/load-1
+example_pack,listeners/tick/tick-1
+example_pack,listeners/item.use/item_use-1
+example_pack,go
+hp,update

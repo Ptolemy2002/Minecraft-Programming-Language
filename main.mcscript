@@ -1,4 +1,5 @@
 pack-info: "example pack" "example_pack" "Example pack used for debugging" true; #Partial comment
+def hp:update;
 
 #This will set up a simple scoreboard objective.
 entity int score = 0;
@@ -57,6 +58,6 @@ on item.use {
 };
 
 #Function
-function go() {
+function desc="Start the game" go() {
     /say start;
 };
