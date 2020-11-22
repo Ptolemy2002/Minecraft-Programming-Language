@@ -103,9 +103,9 @@ def genTag(file, packName, packId):
                           workingList.extend(getEntries(i2[1:].replace(":", "_")))
                       else:
                         if not ":" in i2:
-                          result.append("minecraft_" + i2.replace(":", "_"))
+                          result.append("minecraft_" + i2)
                         else:
-                          result.append(i2)
+                          result.append(i2.replace(":", "_"))
 
               return result
 
