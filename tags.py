@@ -270,12 +270,8 @@ def genTag(file, packName, packId):
       argString = main.groups(line, [["(",")"]], False)[0]
       result = result[:min(len(result),int(numberCast(argString)))]
 
-  name_split = None
-  if sys.platform == "win32":
-    name_split = name.split("\\")
-  else:
-    name_split = name.split("/")
-  
+  name_split = re.split(r"(/|\\)", name)
+
   if len(name_split) > 1:
     os.makedirs(f".generated/packs/{packName}/data/{packId}/tags/{t}/{'/'.join(name_split[:len(name_split)-1])}", exist_ok=True)
   with open(f".generated/packs/{packName}/data/{packId}/tags/{t}/{name}.json", "w+") as file1:
