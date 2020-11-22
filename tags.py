@@ -79,7 +79,7 @@ def genTag(file, packName, packId):
                           if not ":" in i2:
                             workingList.extend(getEntries(f"minecraft_{i2[1:]}"))
                           else:
-                            workingList.extend(getEntries(i2[1:].replace(":", "_")))
+                            workingList.extend(getEntries(i2[1:]))
                         else:
                           if not ":" in i2:
                             result.append("minecraft_" + i2)
@@ -299,7 +299,8 @@ def clean():
   files.extend([os.path.join(".saved/tags/functions", f) for f in os.listdir(".saved/tags/functions") if ((os.path.isdir(os.path.join(".saved/tags/functions", f)) and not main.segment("minecraft_", 0, f)))])
 
   for f in files:
-    shutil.rmtree(f)
+    while os.path.isfile(f) or os.path.isdir(f):
+      shutil.rmtree(f)
 
 def start(packName, packId, packDesc):
   print("Creating necessary file paths")

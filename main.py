@@ -210,10 +210,12 @@ def main():
   else:
     print(f'no pack info specified. Default values will be used (name "{packName}" id {packId})')
     defaultPackInfo = True
-  
+
+  print(os.path.isdir(f".generated/packs/{packName}"))
   if os.path.isdir(f".generated/packs/{packName}"):
     print("Cleaning up previous generation files")
-    shutil.rmtree(f".generated/packs/{packName}")
+    while os.path.isdir(f".generated/packs/{packName}"):
+      shutil.rmtree(f".generated/packs/{packName}")
 
   print("Populating default function statements")
 
