@@ -207,9 +207,9 @@ def generateCode(code, function, path, file):
         match = re.match(r'function (?P<name>[a-z_]+)\(\)', line)
         if match != None:
           name = match.group("name")
-          function = Function(packId, f"{path}/{name}", f"The function defined with the name {name} in the file {path}/{file}", 0)
+          function = Function(packId, f"{path}/{name.replace('.', '_')}", f"The function defined with the name {name} in the file {path}/{file}", 0)
           statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
-          generateCode(statements, function, function.path, f"{path}/{name}.mcscript")
+          generateCode(statements, function, function.path, f"{path}/{name.replace('.', '_')}.mcscript")
         else:
           pass
   else:
