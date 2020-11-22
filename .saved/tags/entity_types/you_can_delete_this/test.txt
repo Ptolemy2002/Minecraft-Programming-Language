@@ -1,11 +1,13 @@
 #1.12:used
 #hp:no_hp
-minecraft:spectral_arrow
-minecraft:arrow
+minecraft_spectral_arrow
+minecraft_arrow
 minecraft:snowball
 minecraft:small_fireball
 minecraft:fireball
 minecraft:dragon_fireball
+minecraft:silverfish
+minecraft:endermite
 minecraft:potion
 minecraft:panda
 minecraft:sheep
