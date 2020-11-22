@@ -60,7 +60,7 @@ Format example:
     #This is a comment.
     + minecraft:armor_stand #This is also a comment.
 
-There is an alternate way to define tags that can be used if you have a list of all entries that should be included. You may insert a "txt" file in the directory "./.saved/tags/[type]" that contains either a line separated or comma separated list of the specific entries that should be included (default namespace is "minecraft"). For the file name, use an underscore instead of a colon. You may specify other tags, but not filter entries.
+There is an alternate way to define tags that can be used if you have a list of all entries that should be included. You may insert a "txt" file in the directory "./.saved/tags/[type]" that contains either a line separated or comma separated list of the specific entries that should be included (default namespace is "minecraft"). You may not specify other tags or filter entries - This format only accepts literal entry specifications.
 
 Format example:
 
@@ -174,6 +174,7 @@ The following information is stored for every entity in the ".saved/data/entity_
 |health|The maximum amount of health points this entity can have. "n/a" for entities that do not have health.|n/a or integer
 |environment|The preferred environment for this entity|land, air, or water
 |dimension|The dimension(s) this entity may be found naturally.|all, none, overworld, nether, end, or overworld/nether
+|snapshot|Whether this entry is only available in snapshots or not|true or false
 
 # Default Entity Tags
 The following entity tags are implemented into Minecraft by default and provided in the ".saved/tags/entity_types" directory of the generator:
@@ -212,6 +213,7 @@ The following information is stored for every block in the ".saved/data/blocks.c
 |explosionResistance|How resistant the block is to explosions.|decimal number|
 |sticky|Whether the block is sticky like slime and honey.|true or false|
 |transparent|Whether the block is transparent. This property is used in redstone.|true or false|
+|snapshot|Whether this entry is only available in snapshots or not|true or false
 
 This data has been extrapolated from Minecraft Forge 1.16.4.
 # Default Block Tags
@@ -309,7 +311,6 @@ The following block tags are implemented into Minecraft by default and provided 
 |wooden_stairs                             |oak_stairs, spruce_stairs, birch_stairs, jungle_stairs, acacia_stairs, dark_oak_stairs, crimson_stairs, warped_stairs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wooden_trapdoors                          |acacia_trapdoor, birch_trapdoor, dark_oak_trapdoor, jungle_trapdoor, oak_trapdoor, spruce_trapdoor, crimson_trapdoor, warped_trapdoor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wool                                      |white_wool, orange_wool, magenta_wool, light_blue_wool, yellow_wool, lime_wool, pink_wool, gray_wool, light_gray_wool, cyan_wool, purple_wool, blue_wool, brown_wool, green_wool, red_wool, black_wool                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
 This data has been extrapolated from the Minecraft Wiki.
 # Fluid Data
 The following information is stored in the ".saved/data/fluids.csv" file:
@@ -338,7 +339,7 @@ The following fluid tags are implemented into Minecraft by default and provided 
 |fireproof|Whether this item is immune to fire. True for all netherite items.|true or false|
 |food|Whether this item is consumable as a food. True for all buckets, potions, and foodstuffs.|true or false|
 |block|Whether this item can be placed down as a block.|true or false|
-
+|snapshot|Whether this entry is only available in snapshots or not|true or false
 This data has been extrapolated from Minecraft Forge 1.16.4.
 # Default Item Tags
 The following block tags are implemented into Minecraft by default and provided in the ".saved/tags/items" directory of the generator:
@@ -401,5 +402,4 @@ The following block tags are implemented into Minecraft by default and provided 
 |wooden_stairs           |oak_stairs, spruce_stairs, birch_stairs, jungle_stairs, acacia_stairs, dark_oak_stairs, crimson_stairs, warped_stairs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wooden_trapdoors        |acacia_trapdoor, birch_trapdoor, dark_oak_trapdoor, jungle_trapdoor, oak_trapdoor, spruce_trapdoor, crimson_trapdoor, warped_trapdoor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |wool                    |white_wool, orange_wool, magenta_wool, light_blue_wool, yellow_wool, lime_wool, pink_wool, gray_wool, light_gray_wool, cyan_wool, purple_wool, blue_wool, brown_wool, green_wool, red_wool, black_wool                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
 This data has been extrapolated from the Minecraft wiki.
