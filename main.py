@@ -176,7 +176,7 @@ uninstallFunction = Function(packId, "uninstall", "Can be called to remove the p
 tickFunction = Function(packId, "tick", "This function is run every tick after this datapack is loaded.")
 customFunctions = {"test": Function("example_pack", "test", "this is a test.")}
 
-def generateCode(code):
+def generateCode(code, function):
   #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
   pass
 
@@ -220,9 +220,9 @@ def main():
   print("Populating default function statements")
 
   if defaultPackInfo:
-    generateCode(mainCode[1:])
+    generateCode(mainCode[1:], None)
   else:
-    generateCode(mainCode)
+    generateCode(mainCode, None)
 
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
@@ -233,7 +233,7 @@ def main():
         print(f"found file \"{path}\"")
         with open(path) as data:
           print("Converting to data pack form")
-          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True))
+          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True), None)
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
@@ -248,7 +248,7 @@ def main():
     file.write("\n".join(data))
 
   print("Generating tag files")
-  tags.start(packName, packId, packDesc)
+  tags.start(packName, packId, packDesc, useSnapshots)
 
   print("setting up data pack files")
   os.makedirs(f".generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)

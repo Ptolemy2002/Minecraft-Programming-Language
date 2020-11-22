@@ -1,977 +1,977 @@
-namespace,name,maxStackSize,enchantability,durability,creativeTab,fuelTime,harvestLevel,fireproof,food,block
-minecraft,cod_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,iron_leggings,1,9,225,Combat,0,-1,false,false,false
-minecraft,ghast_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,name_tag,64,0,0,Tools,0,-1,false,false,false
-minecraft,andesite_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gray_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,flower_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,golden_horse_armor,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,warped_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,golden_hoe,1,22,32,Tools,0,-1,false,false,false
-minecraft,stone_shovel,1,5,131,Tools,0,-1,false,false,false
-minecraft,jungle_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,beetroot,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,chainmail_leggings,1,12,225,Combat,0,-1,false,false,false
-minecraft,crimson_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,saddle,1,0,0,Transportation,0,-1,false,false,false
-minecraft,lily_pad,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,apple,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,zoglin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,blackstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,observer,64,0,0,Redstone,0,-1,false,false,true
-minecraft,warped_fence,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,bubble_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,polished_blackstone_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,blue_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,pink_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,light_gray_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,green_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,orange_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,skull_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,granite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,melon_seeds,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,fire_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,endermite_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,blue_ice,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polar_bear_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_horn_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_sword,1,14,250,Combat,0,-1,false,false,false
-minecraft,loom,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,golden_carrot,64,0,0,Brewing,0,-1,false,true,false
-minecraft,lime_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,firework_star,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,beacon,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,stripped_crimson_stem,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,quartz,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,written_book,16,0,0,None,0,-1,false,false,false
-minecraft,honey_bottle,16,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,dead_brain_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,diorite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,green_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,zombie_head,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,rabbit_stew,1,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,tipped_arrow,64,0,0,Combat,0,-1,false,false,false
-minecraft,pumpkin_seeds,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,white_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,gray_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,stripped_acacia_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,tropical_fish_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chiseled_quartz_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,diorite_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,netherite_hoe,1,15,2031,Tools,0,-1,true,false,false
-minecraft,lever,64,0,0,Redstone,0,-1,false,false,true
-minecraft,cyan_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,mossy_stone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,tnt,64,0,0,Redstone,0,-1,false,false,true
-minecraft,crimson_sign,16,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,black_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,gray_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,end_stone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,iron_horse_armor,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,birch_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,jungle_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,smooth_stone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,air,64,0,0,None,0,-1,false,false,true
-minecraft,arrow,64,0,0,Combat,0,-1,false,false,false
-minecraft,end_stone_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stripped_birch_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,chest_minecart,1,0,0,Transportation,0,-1,false,false,false
-minecraft,warped_nylium,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dark_oak_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_blue_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,bubble_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,wither_skeleton_skull,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_axe,1,14,250,Tools,0,-1,false,false,false
-minecraft,light_weighted_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,orange_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,end_portal_frame,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,netherite_boots,1,15,481,Combat,0,-1,true,false,false
-minecraft,purpur_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,magma_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cobblestone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_nether_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lime_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,coal,64,0,0,Miscellaneous,1600,-1,false,false,false
-minecraft,zombie_villager_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_fire_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,crimson_fungus,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,repeating_command_block,64,0,0,None,0,-1,false,false,true
-minecraft,dirt,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stripped_dark_oak_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,stray_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,armor_stand,16,0,0,Decoration Blocks,0,-1,false,false,false
-minecraft,green_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,pink_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,cut_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,evoker_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,music_disc_pigstep,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,black_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spruce_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,porkchop,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,end_stone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,jungle_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,wither_skeleton_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,yellow_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_sandstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chicken,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,salmon_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,yellow_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dead_bubble_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,carved_pumpkin,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,redstone_torch,64,0,0,Redstone,0,-1,false,false,true
-minecraft,diamond_hoe,1,10,1561,Tools,0,-1,false,false,false
-minecraft,end_stone_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,magenta_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,jungle_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,black_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,soul_torch,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,mossy_cobblestone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,orange_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,trident,1,1,250,Combat,0,-1,false,false,false
-minecraft,golden_axe,1,22,32,Tools,0,-1,false,false,false
-minecraft,prismarine_shard,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,jungle_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,magma_cube_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,barrier,64,0,0,None,0,-1,false,false,true
-minecraft,scute,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dark_oak_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,spruce_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,acacia_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,cooked_beef,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,crimson_roots,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,magenta_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,stripped_jungle_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,acacia_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,jungle_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,ladder,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,nautilus_shell,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,basalt,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,item_frame,64,0,0,Decoration Blocks,0,-1,false,false,false
-minecraft,slime_block,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,tropical_fish_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,minecart,1,0,0,Transportation,0,-1,false,false,false
-minecraft,clay_ball,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,sugar,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,lapis_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,prismarine,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,iron_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bell,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gravel,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,music_disc_strad,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,light_gray_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_gray_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,vex_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dark_prismarine_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lime_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,golden_pickaxe,1,22,32,Tools,0,0,false,false,false
-minecraft,orange_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,pink_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,black_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dark_oak_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,conduit,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,black_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,wandering_trader_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,brain_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_gray_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,hopper_minecart,1,0,0,Transportation,0,-1,false,false,false
-minecraft,coarse_dirt,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dark_oak_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,brown_mushroom,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cyan_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stripped_warped_stem,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,crimson_trapdoor,64,0,0,Redstone,0,-1,false,false,true
-minecraft,dark_oak_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,dark_oak_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,glistering_melon_slice,64,0,0,Brewing,0,-1,false,false,false
-minecraft,brown_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,lime_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dead_brain_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,grass_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,green_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,magenta_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,netherite_block,64,0,0,Building Blocks,0,-1,true,false,true
-minecraft,iron_ingot,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,tnt_minecart,1,0,0,Transportation,0,-1,false,false,false
-minecraft,rotten_flesh,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,iron_hoe,1,14,250,Tools,0,-1,false,false,false
-minecraft,leather_horse_armor,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,smooth_red_sandstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_andesite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,acacia_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,acacia_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,flower_pot,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,lime_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,quartz_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,shroomlight,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,diamond_chestplate,1,10,528,Combat,0,-1,false,false,false
-minecraft,smooth_quartz_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,furnace_minecart,1,0,0,Transportation,0,-1,false,false,false
-minecraft,cobweb,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,weeping_vines,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stripped_spruce_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,warped_hyphae,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,scaffolding,64,0,0,Decoration Blocks,400,-1,false,false,true
-minecraft,cartography_table,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,potato,64,0,0,Foodstuffs,0,-1,false,true,true
-minecraft,lime_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,panda_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,spruce_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,egg,16,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,crimson_fence_gate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,splash_potion,1,0,0,Brewing,0,-1,false,false,false
-minecraft,stone_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stripped_oak_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,silverfish_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,red_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,damaged_anvil,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,enchanted_book,1,0,0,None,0,-1,false,false,false
-minecraft,lily_of_the_valley,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,honeycomb,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,end_stone_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cooked_rabbit,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,purple_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,music_disc_11,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,spider_eye,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,iron_pickaxe,1,14,250,Tools,0,2,false,false,false
-minecraft,tropical_fish,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,music_disc_13,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,bubble_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gold_ingot,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,brown_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,leather,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,kelp,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_gray_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,sandstone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,polished_blackstone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,music_disc_stal,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,smooth_stone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,quartz_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,end_crystal,64,0,0,Decoration Blocks,0,-1,false,false,false
-minecraft,polished_diorite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,experience_bottle,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,black_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,comparator,64,0,0,Redstone,0,-1,false,false,true
-minecraft,ender_eye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chain_command_block,64,0,0,None,0,-1,false,false,true
-minecraft,grass,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,oak_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,white_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_wart_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_blackstone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,tube_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,zombified_piglin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,birch_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,light_gray_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,heart_of_the_sea,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,beef,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,green_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,sand,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,purpur_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_button,64,0,0,Redstone,0,-1,false,false,true
-minecraft,globe_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,warped_planks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cyan_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,fletching_table,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,light_blue_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,smooth_quartz_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_granite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,ocelot_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,composter,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,lime_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cyan_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chorus_flower,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,pink_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,acacia_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,wooden_pickaxe,1,15,59,Tools,200,0,false,false,false
-minecraft,magenta_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lava_bucket,1,0,0,Miscellaneous,20000,-1,false,false,false
-minecraft,music_disc_mall,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,lectern,64,0,0,Redstone,300,-1,false,false,true
-minecraft,gunpowder,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dark_prismarine_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dark_oak_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,campfire,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,elytra,1,0,432,Transportation,0,-1,false,false,false
-minecraft,iron_boots,1,9,195,Combat,0,-1,false,false,false
-minecraft,bowl,64,0,0,Miscellaneous,100,-1,false,false,false
-minecraft,skeleton_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,andesite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_gray_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_stem,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,green_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_tulip,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,jigsaw,64,0,0,None,0,-1,false,false,true
-minecraft,podzol,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,birch_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,orange_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stripped_crimson_hyphae,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cyan_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,azure_bluet,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_mushroom_block,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,feather,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,purple_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,red_nether_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_andesite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,melon,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,mossy_stone_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,diamond_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dragon_head,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,diorite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_gray_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,infested_chiseled_stone_bricks,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,polished_andesite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,iron_door,64,0,0,Redstone,0,-1,false,false,true
-minecraft,lime_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,polished_basalt,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,diamond,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,black_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,ender_chest,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dark_oak_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,iron_helmet,1,9,165,Combat,0,-1,false,false,false
-minecraft,brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,black_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,villager_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,mutton,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,stone_axe,1,5,131,Tools,0,-1,false,false,false
-minecraft,orange_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,lilac,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,respawn_anchor,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,nether_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,acacia_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,jack_o_lantern,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_diorite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,firework_rocket,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cactus,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,purple_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,pink_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,crimson_door,64,0,0,Redstone,0,-1,false,false,true
-minecraft,shulker_shell,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,twisting_vines,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_chestplate,1,9,240,Combat,0,-1,false,false,false
-minecraft,elder_guardian_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,blue_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brain_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,sandstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,player_head,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,smoker,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,acacia_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,large_fern,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,magenta_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,purple_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,nether_brick_fence,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,emerald,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,nether_star,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,light_blue_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,note_block,64,0,0,Redstone,300,-1,false,false,true
-minecraft,dead_bubble_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,petrified_oak_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,slime_ball,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,brown_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,cooked_cod,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,soul_soil,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,granite_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,sticky_piston,64,0,0,Redstone,0,-1,false,false,true
-minecraft,red_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,snow,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cyan_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_shovel,1,14,250,Tools,0,-1,false,false,false
-minecraft,crimson_nylium,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,birch_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,diamond_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cod,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,acacia_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,dead_bush,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,farmland,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bedrock,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,phantom_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,infested_mossy_stone_bricks,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,hoglin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,brick,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,wooden_axe,1,15,59,Tools,200,-1,false,false,false
-minecraft,activator_rail,64,0,0,Transportation,0,-1,false,false,true
-minecraft,nether_brick,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,oak_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,smooth_quartz,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,glowstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spawner,64,0,0,None,0,-1,false,false,true
-minecraft,light_gray_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,white_tulip,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dark_oak_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,tube_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,wooden_sword,1,15,59,Combat,200,-1,false,false,false
-minecraft,potion,1,0,0,Brewing,0,-1,true,false,false
-minecraft,husk_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,music_disc_blocks,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,blaze_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,light_blue_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,purple_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,tripwire_hook,64,0,0,Redstone,0,-1,false,false,true
-minecraft,black_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,salmon,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,spruce_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,chipped_anvil,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,prismarine_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,book,64,1,0,Miscellaneous,0,-1,false,false,false
-minecraft,stone_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gold_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,birch_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,blue_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,baked_potato,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,polished_blackstone_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,rabbit,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,daylight_detector,64,0,0,Redstone,300,-1,false,false,true
-minecraft,pink_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cooked_porkchop,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,mule_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,quartz_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,fire_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,bone,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,coal_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,creeper_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,jungle_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,bucket,16,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,stone_hoe,1,5,131,Tools,0,-1,false,false,false
-minecraft,bread,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,carrot,64,0,0,Foodstuffs,0,-1,false,true,true
-minecraft,blue_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,diamond_boots,1,10,429,Combat,0,-1,false,false,false
-minecraft,diamond_horse_armor,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,zombie_horse_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,spruce_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,bee_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cobblestone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,jungle_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,powered_rail,64,0,0,Transportation,0,-1,false,false,true
-minecraft,cod_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,writable_book,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,stripped_dark_oak_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,brown_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,snowball,16,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,command_block,64,0,0,None,0,-1,false,false,true
-minecraft,llama_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,honeycomb_block,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gray_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,smooth_sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chainmail_boots,1,12,195,Combat,0,-1,false,false,false
-minecraft,blast_furnace,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,horn_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,beehive,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,fox_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,piglin_brute_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,pink_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,lapis_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cut_red_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,anvil,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,obsidian,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_sandstone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,purple_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chiseled_stone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,clay,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,beetroot_seeds,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,soul_campfire,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gray_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_roots,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,yellow_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,yellow_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,pig_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chainmail_helmet,1,12,165,Combat,0,-1,false,false,false
-minecraft,compass,64,0,0,Tools,0,-1,false,false,false
-minecraft,dead_tube_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,acacia_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,red_sand,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cow_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,oak_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,cake,1,0,0,Foodstuffs,0,-1,false,false,true
-minecraft,sunflower,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,crimson_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,enchanting_table,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cut_sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lantern,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cobblestone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,poppy,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,white_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,redstone_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,seagrass,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,jungle_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,turtle_egg,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,cooked_chicken,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,cut_red_sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_door,64,0,0,Redstone,200,-1,false,false,true
-minecraft,leather_leggings,1,15,75,Combat,0,-1,false,false,false
-minecraft,filled_map,64,0,0,None,0,-1,false,false,false
-minecraft,jungle_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,oak_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,ancient_debris,64,0,0,Building Blocks,0,-1,true,false,true
-minecraft,dark_prismarine,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spruce_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,white_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,golden_shovel,1,22,32,Tools,0,-1,false,false,false
-minecraft,acacia_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,peony,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,sweet_berries,64,0,0,Foodstuffs,0,-1,false,true,true
-minecraft,sea_lantern,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,skeleton_skull,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,ghast_tear,64,0,0,Brewing,0,-1,false,false,false
-minecraft,mossy_cobblestone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,white_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,squid_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,blue_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,purple_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_blackstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,golden_apple,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,cooked_mutton,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,end_rod,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,allium,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,magenta_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,prismarine_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chainmail_chestplate,1,12,240,Combat,0,-1,false,false,false
-minecraft,crafting_table,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,warped_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,green_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,blaze_powder,64,0,0,Brewing,0,-1,false,false,false
-minecraft,golden_boots,1,25,91,Combat,0,-1,false,false,false
-minecraft,magenta_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,creeper_head,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dried_kelp_block,64,0,0,Building Blocks,4001,-1,false,false,true
-minecraft,red_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,dark_oak_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,wooden_hoe,1,15,59,Tools,200,-1,false,false,false
-minecraft,prismarine_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_fungus,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,pumpkin,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,barrel,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,oak_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,jungle_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,blue_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bookshelf,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,stone_sword,1,5,131,Combat,0,-1,false,false,false
-minecraft,polished_blackstone_button,64,0,0,Redstone,0,-1,false,false,true
-minecraft,dead_fire_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,netherite_leggings,1,15,555,Combat,0,-1,true,false,false
-minecraft,magma_cream,64,0,0,Brewing,0,-1,false,false,false
-minecraft,red_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chiseled_red_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,knowledge_book,1,0,0,None,0,-1,false,false,false
-minecraft,leather_chestplate,1,15,80,Combat,0,-1,false,false,false
-minecraft,sea_pickle,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,green_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,brown_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,witch_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cyan_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,blackstone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,popped_chorus_fruit,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,orange_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,golden_leggings,1,25,105,Combat,0,-1,false,false,false
-minecraft,green_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,polished_blackstone_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,pufferfish,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,polished_blackstone_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stick,64,0,0,Miscellaneous,100,-1,false,false,false
-minecraft,piston,64,0,0,Redstone,0,-1,false,false,true
-minecraft,purple_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,ink_sac,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,tube_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,orange_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,spruce_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,magenta_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,pillager_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,smooth_sandstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gilded_blackstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,netherrack,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,nether_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,prismarine_crystals,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,yellow_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cave_spider_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,gray_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,crimson_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,purple_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,blue_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bee_nest,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,furnace,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,smithing_table,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,iron_trapdoor,64,0,0,Redstone,0,-1,false,false,true
-minecraft,bone_meal,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,grindstone,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,lime_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,white_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brewing_stand,64,0,0,Brewing,0,-1,false,false,true
-minecraft,bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stripped_spruce_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,red_sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spruce_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,smooth_red_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,pink_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cracked_polished_blackstone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,jungle_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,pufferfish_bucket,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chain,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,bat_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_tube_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,jungle_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,rail,64,0,0,Transportation,0,-1,false,false,true
-minecraft,purple_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,spruce_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,trader_llama_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,paper,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,prismarine_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spider_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,vine,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_mushroom_block,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,piglin_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,pink_tulip,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_blue_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,rabbit_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,wooden_shovel,1,15,59,Tools,200,-1,false,false,false
-minecraft,trapped_chest,64,0,0,Redstone,300,-1,false,false,true
-minecraft,dropper,64,0,0,Redstone,0,-1,false,false,true
-minecraft,pink_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,fire_charge,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,music_disc_cat,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,chest,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,spruce_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,red_nether_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cauldron,64,0,0,Brewing,0,-1,false,false,true
-minecraft,infested_stone_bricks,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,painting,64,0,0,Decoration Blocks,0,-1,false,false,false
-minecraft,chiseled_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_granite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dispenser,64,0,0,Redstone,0,-1,false,false,true
-minecraft,polished_blackstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,jungle_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,light_gray_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,acacia_sapling,64,0,0,Decoration Blocks,100,-1,false,false,true
-minecraft,infested_cobblestone,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,warped_fence_gate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,warped_sign,16,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,granite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,wet_sponge,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cracked_stone_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,yellow_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,leather_boots,1,15,65,Combat,0,-1,false,false,false
-minecraft,blaze_rod,64,0,0,Miscellaneous,2400,-1,false,false,false
-minecraft,beetroot_soup,1,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,warped_trapdoor,64,0,0,Redstone,0,-1,false,false,true
-minecraft,heavy_weighted_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,redstone_block,64,0,0,Redstone,0,-1,false,false,true
-minecraft,mojang_banner_pattern,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_horn_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,polished_granite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,yellow_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,piglin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,shield,1,0,336,Combat,0,-1,false,false,false
-minecraft,netherite_shovel,1,15,2031,Tools,0,-1,true,false,false
-minecraft,netherite_scrap,64,0,0,Miscellaneous,0,-1,true,false,false
-minecraft,turtle_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,red_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,rose_bush,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,sponge,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,mooshroom_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,phantom_membrane,64,0,0,Brewing,0,-1,false,false,false
-minecraft,golden_sword,1,22,32,Combat,0,-1,false,false,false
-minecraft,fermented_spider_eye,64,0,0,Brewing,0,-1,false,false,false
-minecraft,diamond_helmet,1,10,363,Combat,0,-1,false,false,false
-minecraft,crimson_button,64,0,0,Redstone,0,-1,false,false,true
-minecraft,stone_pickaxe,1,5,131,Tools,0,1,false,false,false
-minecraft,prismarine_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cyan_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_mushroom,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gray_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,spruce_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,repeater,64,0,0,Redstone,0,-1,false,false,true
-minecraft,andesite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,music_disc_mellohi,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,magenta_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,pufferfish_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,crimson_hyphae,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gray_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,horn_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,diamond_leggings,1,10,495,Combat,0,-1,false,false,false
-minecraft,golden_chestplate,1,25,112,Combat,0,-1,false,false,false
-minecraft,spruce_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,dandelion,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,mossy_cobblestone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cookie,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,parrot_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,crying_obsidian,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oxeye_daisy,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,cooked_salmon,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,zombie_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,light_blue_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,cyan_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,music_disc_chirp,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,redstone,64,0,0,Redstone,0,-1,false,false,true
-minecraft,wheat_seeds,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,stone_pressure_plate,64,0,0,Redstone,0,-1,false,false,true
-minecraft,wither_rose,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,wolf_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,shears,1,0,238,Tools,0,-1,false,false,false
-minecraft,dark_oak_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,prismarine_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,rabbit_hide,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cyan_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lime_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gray_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cocoa_beans,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,orange_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,structure_void,64,0,0,None,0,-1,false,false,true
-minecraft,stonecutter,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,iron_nugget,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,light_gray_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,skeleton_horse_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,smooth_red_sandstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,granite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,suspicious_stew,1,0,0,None,0,-1,false,true,false
-minecraft,diamond_pickaxe,1,10,1561,Tools,0,3,false,false,false
-minecraft,cobblestone_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,sheep_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,polished_diorite,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,orange_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,music_disc_ward,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,mushroom_stew,1,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,white_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,chiseled_polished_blackstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,mushroom_stem,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,nether_brick_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,hay_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,purpur_pillar,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,carrot_on_a_stick,1,0,25,Transportation,0,-1,false,false,false
-minecraft,netherite_pickaxe,1,15,2031,Tools,0,3,true,false,false
-minecraft,netherite_ingot,64,0,0,Miscellaneous,0,-1,true,false,false
-minecraft,slime_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,wheat,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dark_oak_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,mossy_cobblestone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,vindicator_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_brain_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,jukebox,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,stripped_jungle_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,orange_tulip,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,ice,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,snow_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,crimson_fence,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,blue_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,infested_cracked_stone_bricks,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,birch_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,crimson_planks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,grass_path,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dragon_breath,64,0,0,Brewing,0,-1,false,false,false
-minecraft,blue_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,horn_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,structure_block,64,0,0,None,0,-1,false,false,true
-minecraft,nether_quartz_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,lime_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,acacia_trapdoor,64,0,0,Redstone,300,-1,false,false,true
-minecraft,magenta_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,nether_gold_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,mossy_stone_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,lodestone,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,yellow_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,netherite_helmet,1,15,407,Combat,0,-1,true,false,false
-minecraft,quartz_pillar,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,drowned_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,milk_bucket,1,0,0,Miscellaneous,0,-1,false,TRUE,false
-minecraft,acacia_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,target,64,0,0,Redstone,0,-1,false,false,true
-minecraft,jungle_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,glass_bottle,64,0,0,Brewing,0,-1,false,false,false
-minecraft,spruce_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,magenta_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dolphin_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,ender_pearl,16,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,soul_lantern,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,honey_block,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,diamond_shovel,1,10,1561,Tools,0,-1,false,false,false
-minecraft,leather_helmet,1,15,55,Combat,0,-1,false,false,false
-minecraft,music_disc_far,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cracked_nether_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gray_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,donkey_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_tube_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,string,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,rabbit_foot,64,0,0,Brewing,0,-1,false,false,false
-minecraft,nether_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,purple_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,oak_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,polished_blackstone_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,blue_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,gold_nugget,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,green_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,magenta_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,diorite_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stone_button,64,0,0,Redstone,0,-1,false,false,true
-minecraft,diamond_sword,1,10,1561,Combat,0,-1,false,false,false
-minecraft,diamond_axe,1,10,1561,Tools,0,-1,false,false,false
-minecraft,brown_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,birch_boat,1,0,0,Transportation,1200,-1,false,false,false
-minecraft,nether_sprouts,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gold_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,yellow_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,debug_stick,1,0,0,None,0,-1,false,false,false
-minecraft,detector_rail,64,0,0,Transportation,0,-1,false,false,true
-minecraft,enderman_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,flint,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,birch_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,purple_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,lead,64,0,0,Tools,0,-1,false,false,false
-minecraft,chicken_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,shulker_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,strider_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,acacia_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,bone_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,black_stained_glass,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,pink_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,yellow_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,netherite_chestplate,1,15,592,Combat,0,-1,true,false,false
-minecraft,blackstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,hopper,64,0,0,Redstone,0,-1,false,false,true
-minecraft,fern,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,green_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,mossy_stone_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,orange_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,orange_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,bow,1,1,384,Combat,300,-1,false,false,false
-minecraft,chiseled_nether_bricks,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,pumpkin_pie,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,black_bed,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brain_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,redstone_lamp,64,0,0,Redstone,0,-1,false,false,true
-minecraft,dark_oak_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,quartz_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,warped_fungus_on_a_stick,1,0,100,Transportation,0,-1,false,false,false
-minecraft,blue_orchid,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,chorus_plant,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,oak_leaves,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stone_brick_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,flint_and_steel,1,0,64,Tools,0,-1,false,false,false
-minecraft,dragon_egg,64,0,0,None,0,-1,false,false,true
-minecraft,red_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,glowstone_dust,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,yellow_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,music_disc_wait,1,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dark_oak_pressure_plate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,cat_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,fishing_rod,1,1,64,Tools,300,-1,false,false,false
-minecraft,pink_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,guardian_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,cyan_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,stripped_acacia_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,spruce_fence_gate,64,0,0,Redstone,300,-1,false,false,true
-minecraft,pink_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,totem_of_undying,1,0,0,Combat,0,-1,false,false,false
-minecraft,blackstone_slab,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,enchanted_golden_apple,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,netherite_axe,1,15,2031,Tools,0,-1,true,false,false
-minecraft,spruce_stairs,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,nether_wart,64,0,0,Miscellaneous,0,-1,false,false,true
-minecraft,salmon_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dead_fire_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,light_blue_concrete_powder,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,soul_sand,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,cornflower,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,creeper_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,nether_wart_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,turtle_helmet,1,9,275,Combat,0,-1,false,false,false
-minecraft,crossbow,1,1,326,Combat,300,-1,false,false,false
-minecraft,green_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,lime_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,black_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,map,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,dried_kelp,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,birch_button,64,0,0,Redstone,100,-1,false,false,true
-minecraft,cyan_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,acacia_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,warped_door,64,0,0,Redstone,0,-1,false,false,true
-minecraft,chorus_fruit,64,0,0,Miscellaneous,0,-1,false,true,false
-minecraft,horse_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,purpur_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,blue_banner,16,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,clock,64,0,0,Tools,0,-1,false,false,false
-minecraft,infested_stone,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,lapis_lazuli,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,stripped_birch_log,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,lingering_potion,1,0,0,Brewing,0,-1,false,false,false
-minecraft,ravager_spawn_egg,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,torch,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,crimson_stem,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,blue_wool,64,0,0,Building Blocks,100,-1,false,false,true
-minecraft,andesite_stairs,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,command_block_minecart,1,0,0,None,0,-1,false,false,false
-minecraft,fire_coral_fan,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,dead_horn_coral,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,coal_block,64,0,0,Building Blocks,16000,-1,false,false,true
-minecraft,golden_helmet,1,25,77,Combat,0,-1,false,false,false
-minecraft,spectral_arrow,64,0,0,Combat,0,-1,false,false,false
-minecraft,yellow_concrete,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,packed_ice,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,red_terracotta,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stripped_warped_hyphae,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,stripped_oak_wood,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,emerald_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,birch_slab,64,0,0,Building Blocks,150,-1,false,false,true
-minecraft,smooth_sandstone,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,water_bucket,1,0,0,Miscellaneous,0,-1,false,TRUE,false
-minecraft,iron_bars,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,melon_slice,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,bamboo,64,0,0,Decoration Blocks,50,-1,false,false,true
-minecraft,mycelium,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,oak_sign,16,0,0,Decoration Blocks,200,-1,false,false,true
-minecraft,gray_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,gray_carpet,64,0,0,Decoration Blocks,67,-1,false,false,true
-minecraft,sugar_cane,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,brown_shulker_box,1,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,red_nether_brick_wall,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,poisonous_potato,64,0,0,Foodstuffs,0,-1,false,true,false
-minecraft,oak_fence,64,0,0,Decoration Blocks,300,-1,false,false,true
-minecraft,dark_oak_planks,64,0,0,Building Blocks,300,-1,false,false,true
-minecraft,light_gray_dye,64,0,0,Miscellaneous,0,-1,false,false,false
-minecraft,tall_grass,64,0,0,Decoration Blocks,0,-1,false,false,true
-minecraft,charcoal,64,0,0,Miscellaneous,1600,-1,false,false,false
-minecraft,emerald_ore,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,dead_bubble_coral_block,64,0,0,Building Blocks,0,-1,false,false,true
-minecraft,netherite_sword,1,15,2031,Combat,0,-1,true,false,false
+namespace,name,maxStackSize,enchantability,durability,creativeTab,fuelTime,harvestLevel,fireproof,food,block,snapshot
+minecraft,cod_bucket,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,iron_leggings,1,9,225,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,ghast_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,name_tag,64,0,0,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,andesite_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,flower_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,golden_horse_armor,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,warped_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_hoe,1,22,32,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stone_shovel,1,5,131,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,jungle_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,beetroot,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,chainmail_leggings,1,12,225,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crimson_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,saddle,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,lily_pad,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,apple,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,zoglin_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blackstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,observer,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_fence,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bubble_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pink_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,skull_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,granite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,melon_seeds,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fire_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,endermite_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blue_ice,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polar_bear_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_horn_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_sword,1,14,250,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,loom,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_carrot,64,0,0,Brewing,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,lime_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,firework_star,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,beacon,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_crimson_stem,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,quartz,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,written_book,16,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,honey_bottle,16,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,dead_brain_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diorite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,zombie_head,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rabbit_stew,1,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,tipped_arrow,64,0,0,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pumpkin_seeds,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,gray_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_acacia_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,tropical_fish_bucket,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chiseled_quartz_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diorite_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_hoe,1,15,2031,Tools,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,lever,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,mossy_stone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,tnt,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_sign,16,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,end_stone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_horse_armor,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,birch_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_stone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,air,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,arrow,64,0,0,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,end_stone_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_birch_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chest_minecart,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,warped_nylium,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,bubble_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wither_skeleton_skull,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_axe,1,14,250,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,light_weighted_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,end_portal_frame,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_boots,1,15,481,Combat,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,purpur_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magma_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cobblestone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_nether_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,coal,64,0,0,Miscellaneous,1600,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,zombie_villager_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_fire_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_fungus,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,repeating_command_block,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dirt,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_dark_oak_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stray_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,armor_stand,16,0,0,Decoration Blocks,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,green_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pink_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cut_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,evoker_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_pigstep,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,black_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,porkchop,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,end_stone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wither_skeleton_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,yellow_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_sandstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chicken,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,salmon_bucket,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,yellow_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_bubble_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,carved_pumpkin,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,redstone_torch,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_hoe,1,10,1561,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,end_stone_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,black_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,soul_torch,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_cobblestone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,trident,1,1,250,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,golden_axe,1,22,32,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,prismarine_shard,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,jungle_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magma_cube_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,barrier,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,scute,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_oak_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_beef,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,crimson_roots,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_jungle_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ladder,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nautilus_shell,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,basalt,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,item_frame,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,slime_block,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,tropical_fish_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,minecart,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,clay_ball,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,sugar,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,lapis_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,prismarine,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bell,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gravel,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_strad,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,light_gray_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,vex_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_prismarine_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_pickaxe,1,22,32,Tools,0,0,FALSE,FALSE,FALSE,FALSE
+minecraft,orange_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,conduit,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wandering_trader_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brain_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,hopper_minecart,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,coarse_dirt,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_mushroom,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_warped_stem,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_trapdoor,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,glistering_melon_slice,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brown_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,lime_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_brain_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,grass_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_block,64,0,0,Building Blocks,0,-1,TRUE,FALSE,TRUE,FALSE
+minecraft,iron_ingot,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,tnt_minecart,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,rotten_flesh,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,iron_hoe,1,14,250,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,leather_horse_armor,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,smooth_red_sandstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_andesite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,flower_pot,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,quartz_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,shroomlight,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_chestplate,1,10,528,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,smooth_quartz_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,furnace_minecart,1,0,0,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cobweb,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,weeping_vines,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_spruce_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_hyphae,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,scaffolding,64,0,0,Decoration Blocks,400,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cartography_table,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,potato,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,TRUE,FALSE
+minecraft,lime_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,panda_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spruce_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,egg,16,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crimson_fence_gate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,splash_potion,1,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stone_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_oak_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,silverfish_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,red_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,damaged_anvil,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,enchanted_book,1,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,lily_of_the_valley,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,honeycomb,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,end_stone_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_rabbit,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,purple_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_11,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spider_eye,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,iron_pickaxe,1,14,250,Tools,0,2,FALSE,FALSE,FALSE,FALSE
+minecraft,tropical_fish,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,music_disc_13,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,bubble_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gold_ingot,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brown_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,leather,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,kelp,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sandstone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_stal,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,smooth_stone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,quartz_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,end_crystal,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,polished_diorite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,experience_bottle,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,black_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,comparator,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ender_eye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chain_command_block,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,grass,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_wart_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,tube_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,zombified_piglin_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,birch_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,heart_of_the_sea,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,beef,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,green_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sand,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purpur_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_button,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,globe_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,warped_planks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fletching_table,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_quartz_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_granite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ocelot_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,composter,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chorus_flower,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wooden_pickaxe,1,15,59,Tools,200,0,FALSE,FALSE,FALSE,FALSE
+minecraft,magenta_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lava_bucket,1,0,0,Miscellaneous,20000,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_mall,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,lectern,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gunpowder,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_prismarine_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,campfire,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,elytra,1,0,432,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,iron_boots,1,9,195,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,bowl,64,0,0,Miscellaneous,100,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,skeleton_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,andesite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_stem,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_tulip,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jigsaw,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,podzol,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_crimson_hyphae,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,azure_bluet,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_mushroom_block,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,feather,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,purple_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_nether_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_andesite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,melon,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_stone_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dragon_head,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diorite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,infested_chiseled_stone_bricks,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_andesite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_door,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_basalt,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,black_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ender_chest,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_helmet,1,9,165,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,villager_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,mutton,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,stone_axe,1,5,131,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,orange_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lilac,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,respawn_anchor,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jack_o_lantern,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_diorite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,firework_rocket,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cactus,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_door,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,shulker_shell,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,twisting_vines,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_chestplate,1,9,240,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,elder_guardian_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blue_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brain_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sandstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,player_head,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smoker,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,large_fern,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_brick_fence,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,emerald,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,nether_star,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,light_blue_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,note_block,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_bubble_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,petrified_oak_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,slime_ball,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brown_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_cod,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,soul_soil,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,granite_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sticky_piston,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,snow,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_shovel,1,14,250,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crimson_nylium,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cod,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,acacia_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_bush,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,farmland,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bedrock,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,phantom_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,infested_mossy_stone_bricks,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,hoglin_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brick,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,wooden_axe,1,15,59,Tools,200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,activator_rail,64,0,0,Transportation,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_brick,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,oak_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_quartz,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,glowstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spawner,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_tulip,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,tube_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wooden_sword,1,15,59,Combat,200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,potion,1,0,0,Brewing,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,husk_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_blocks,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blaze_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,light_blue_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,tripwire_hook,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,salmon,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,spruce_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chipped_anvil,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,prismarine_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,book,64,1,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stone_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gold_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,baked_potato,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,polished_blackstone_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rabbit,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,daylight_detector,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_porkchop,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,mule_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,quartz_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fire_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bone,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,coal_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,creeper_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,jungle_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bucket,16,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stone_hoe,1,5,131,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,bread,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,carrot,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,TRUE,FALSE
+minecraft,blue_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_boots,1,10,429,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,diamond_horse_armor,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,zombie_horse_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spruce_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bee_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cobblestone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,powered_rail,64,0,0,Transportation,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cod_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,writable_book,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stripped_dark_oak_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,snowball,16,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,command_block,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,llama_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,honeycomb_block,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chainmail_boots,1,12,195,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blast_furnace,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,horn_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,beehive,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fox_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,piglin_brute_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pink_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lapis_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cut_red_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,anvil,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,obsidian,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_sandstone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chiseled_stone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,clay,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,beetroot_seeds,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,soul_campfire,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_roots,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pig_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chainmail_helmet,1,12,165,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,compass,64,0,0,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_tube_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_sand,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cow_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,oak_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cake,1,0,0,Foodstuffs,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sunflower,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,enchanting_table,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cut_sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lantern,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cobblestone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,poppy,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,redstone_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,seagrass,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,turtle_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_chicken,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,cut_red_sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_door,64,0,0,Redstone,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,leather_leggings,1,15,75,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,filled_map,64,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,jungle_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ancient_debris,64,0,0,Building Blocks,0,-1,TRUE,FALSE,TRUE,FALSE
+minecraft,dark_prismarine,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_shovel,1,22,32,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,acacia_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,peony,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sweet_berries,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,TRUE,FALSE
+minecraft,sea_lantern,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,skeleton_skull,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ghast_tear,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,mossy_cobblestone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,squid_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blue_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_apple,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,cooked_mutton,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,end_rod,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,allium,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,prismarine_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chainmail_chestplate,1,12,240,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crafting_table,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blaze_powder,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,golden_boots,1,25,91,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,magenta_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,creeper_head,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dried_kelp_block,64,0,0,Building Blocks,4001,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wooden_hoe,1,15,59,Tools,200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,prismarine_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_fungus,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pumpkin,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,barrel,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bookshelf,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_sword,1,5,131,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,polished_blackstone_button,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_fire_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_leggings,1,15,555,Combat,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,magma_cream,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,red_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chiseled_red_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,knowledge_book,1,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,leather_chestplate,1,15,80,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,sea_pickle,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,witch_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blackstone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,popped_chorus_fruit,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,orange_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_leggings,1,25,105,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,green_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pufferfish,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,polished_blackstone_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stick,64,0,0,Miscellaneous,100,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,piston,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ink_sac,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,tube_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spruce_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pillager_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,smooth_sandstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gilded_blackstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherrack,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,prismarine_crystals,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,yellow_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cave_spider_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,gray_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bee_nest,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,furnace,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smithing_table,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_trapdoor,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bone_meal,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,grindstone,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,white_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brewing_stand,64,0,0,Brewing,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_spruce_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_red_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cracked_polished_blackstone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pufferfish_bucket,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chain,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bat_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_tube_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rail,64,0,0,Transportation,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,trader_llama_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,paper,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,prismarine_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spider_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,vine,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_mushroom_block,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,piglin_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pink_tulip,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rabbit_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,wooden_shovel,1,15,59,Tools,200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,trapped_chest,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dropper,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fire_charge,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_cat,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chest,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_nether_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cauldron,64,0,0,Brewing,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,infested_stone_bricks,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,painting,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chiseled_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_granite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dispenser,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_sapling,64,0,0,Decoration Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,infested_cobblestone,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_fence_gate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_sign,16,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,granite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wet_sponge,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cracked_stone_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,leather_boots,1,15,65,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blaze_rod,64,0,0,Miscellaneous,2400,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,beetroot_soup,1,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,warped_trapdoor,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,heavy_weighted_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,redstone_block,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mojang_banner_pattern,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_horn_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_granite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,piglin_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,shield,1,0,336,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,netherite_shovel,1,15,2031,Tools,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,netherite_scrap,64,0,0,Miscellaneous,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,turtle_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,red_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rose_bush,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sponge,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mooshroom_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,phantom_membrane,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,golden_sword,1,22,32,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,fermented_spider_eye,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,diamond_helmet,1,10,363,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crimson_button,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_pickaxe,1,5,131,Tools,0,1,FALSE,FALSE,FALSE,FALSE
+minecraft,prismarine_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_mushroom,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,repeater,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,andesite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_mellohi,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,magenta_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pufferfish_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crimson_hyphae,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,horn_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_leggings,1,10,495,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,golden_chestplate,1,25,112,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spruce_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dandelion,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_cobblestone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cookie,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,parrot_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crying_obsidian,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oxeye_daisy,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cooked_salmon,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,zombie_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_chirp,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,redstone,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wheat_seeds,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_pressure_plate,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wither_rose,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,wolf_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,shears,1,0,238,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_oak_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,prismarine_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rabbit_hide,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cyan_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cocoa_beans,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,structure_void,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stonecutter,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,iron_nugget,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,light_gray_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,skeleton_horse_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,smooth_red_sandstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,granite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,suspicious_stew,1,0,0,None,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,diamond_pickaxe,1,10,1561,Tools,0,3,FALSE,FALSE,FALSE,FALSE
+minecraft,cobblestone_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sheep_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,polished_diorite,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,music_disc_ward,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,mushroom_stew,1,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,white_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chiseled_polished_blackstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mushroom_stem,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_brick_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,hay_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purpur_pillar,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,carrot_on_a_stick,1,0,25,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,netherite_pickaxe,1,15,2031,Tools,0,3,TRUE,FALSE,FALSE,FALSE
+minecraft,netherite_ingot,64,0,0,Miscellaneous,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,slime_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,wheat,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_oak_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_cobblestone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,vindicator_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_brain_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jukebox,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_jungle_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_tulip,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,ice,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,snow_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_fence,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,infested_cracked_stone_bricks,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_planks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,grass_path,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dragon_breath,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blue_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,horn_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,structure_block,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_quartz_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_trapdoor,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_gold_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_stone_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lodestone,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_helmet,1,15,407,Combat,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,quartz_pillar,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,drowned_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,milk_bucket,1,0,0,Miscellaneous,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,acacia_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,target,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,jungle_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,glass_bottle,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spruce_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dolphin_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,ender_pearl,16,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,soul_lantern,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,honey_block,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_shovel,1,10,1561,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,leather_helmet,1,15,55,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_far,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cracked_nether_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,donkey_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_tube_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,string,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,rabbit_foot,64,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,nether_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,oak_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,polished_blackstone_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gold_nugget,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,green_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,magenta_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diorite_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_button,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,diamond_sword,1,10,1561,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,diamond_axe,1,10,1561,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,brown_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_boat,1,0,0,Transportation,1200,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,nether_sprouts,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gold_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,debug_stick,1,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,detector_rail,64,0,0,Transportation,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,enderman_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,flint,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,birch_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,purple_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lead,64,0,0,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chicken_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,shulker_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,strider_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,acacia_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bone_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_stained_glass,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,yellow_stained_glass_pane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_chestplate,1,15,592,Combat,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,blackstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,hopper,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,fern,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,green_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mossy_stone_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,orange_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,bow,1,1,384,Combat,300,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,chiseled_nether_bricks,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pumpkin_pie,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,black_bed,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brain_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,redstone_lamp,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,quartz_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_fungus_on_a_stick,1,0,100,Transportation,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blue_orchid,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chorus_plant,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_leaves,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stone_brick_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,flint_and_steel,1,0,64,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dragon_egg,64,0,0,None,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,glowstone_dust,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,yellow_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,music_disc_wait,1,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dark_oak_pressure_plate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cat_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,fishing_rod,1,1,64,Tools,300,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,pink_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,guardian_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,cyan_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_acacia_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,spruce_fence_gate,64,0,0,Redstone,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,pink_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,totem_of_undying,1,0,0,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,blackstone_slab,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,enchanted_golden_apple,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,netherite_axe,1,15,2031,Tools,0,-1,TRUE,FALSE,FALSE,FALSE
+minecraft,spruce_stairs,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,nether_wart,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,salmon_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dead_fire_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_blue_concrete_powder,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,soul_sand,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cornflower,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,creeper_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,nether_wart_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,turtle_helmet,1,9,275,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,crossbow,1,1,326,Combat,300,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,green_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lime_glazed_terracotta,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,black_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,map,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,dried_kelp,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,birch_button,64,0,0,Redstone,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,cyan_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,acacia_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,warped_door,64,0,0,Redstone,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,chorus_fruit,64,0,0,Miscellaneous,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,horse_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,purpur_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_banner,16,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,clock,64,0,0,Tools,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,infested_stone,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lapis_lazuli,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,stripped_birch_log,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,lingering_potion,1,0,0,Brewing,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,ravager_spawn_egg,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,torch,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,crimson_stem,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,blue_wool,64,0,0,Building Blocks,100,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,andesite_stairs,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,command_block_minecart,1,0,0,None,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,fire_coral_fan,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_horn_coral,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,coal_block,64,0,0,Building Blocks,16000,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,golden_helmet,1,25,77,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,spectral_arrow,64,0,0,Combat,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,yellow_concrete,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,packed_ice,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_terracotta,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_warped_hyphae,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,stripped_oak_wood,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,emerald_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,birch_slab,64,0,0,Building Blocks,150,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,smooth_sandstone,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,water_bucket,1,0,0,Miscellaneous,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,iron_bars,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,melon_slice,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,bamboo,64,0,0,Decoration Blocks,50,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,mycelium,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,oak_sign,16,0,0,Decoration Blocks,200,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,gray_carpet,64,0,0,Decoration Blocks,67,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,sugar_cane,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,brown_shulker_box,1,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,red_nether_brick_wall,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,poisonous_potato,64,0,0,Foodstuffs,0,-1,FALSE,TRUE,FALSE,FALSE
+minecraft,oak_fence,64,0,0,Decoration Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dark_oak_planks,64,0,0,Building Blocks,300,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,light_gray_dye,64,0,0,Miscellaneous,0,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,tall_grass,64,0,0,Decoration Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,charcoal,64,0,0,Miscellaneous,1600,-1,FALSE,FALSE,FALSE,FALSE
+minecraft,emerald_ore,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,dead_bubble_coral_block,64,0,0,Building Blocks,0,-1,FALSE,FALSE,TRUE,FALSE
+minecraft,netherite_sword,1,15,2031,Combat,0,-1,TRUE,FALSE,FALSE,FALSE

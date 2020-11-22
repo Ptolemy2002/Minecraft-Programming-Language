@@ -15,7 +15,7 @@ def numberCast(i):
   except:
     return -math.inf
 
-def genTag(file, packName, packId):
+def genTag(file, packName, packId, useSnapshots):
   print(f'loading file "{file}"')
   name = file[:file.index(".mctag")]
   result = []
@@ -66,7 +66,7 @@ def genTag(file, packName, packId):
             if not (f"{argString[1:]}.mctag" in done):
               with open(f"tags/{argString[1:]}.mctag", "r") as data:
                 print(f'file "{argString[1:]}.mctag" must be loaded before continuing.')
-                workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId))
+                workingList.extend(genTag(f"{argString[1:]}.mctag", packName, packId, useSnapshots))
                 print(f'continuing to load "{file}"')
             else:
               def getEntries(path):
@@ -128,13 +128,13 @@ def genTag(file, packName, packId):
               value = match.group("value")
               if operation == "==":
                 for i in options:
-                  if i[key] == value:
+                  if i[key] == value.lower():
                     li.append(i["namespace"] + ":" + i["name"])
                   else:
                     li.remove(i["namespace"] + ":" + i["name"])
               elif operation == "!=":
                 for i in options:
-                  if not i[key] == value:
+                  if not i[key] == value.lower():
                     li.append(i["namespace"] + ":" + i["name"])
                   elif (i["namespace"] + ":" + i["name"]) in li:
                     li.remove(i["namespace"] + ":" + i["name"])
@@ -270,6 +270,12 @@ def genTag(file, packName, packId):
       argString = main.groups(line, [["(",")"]], False)[0]
       result = result[:min(len(result),int(numberCast(argString)))]
 
+  if not useSnapshots:
+    for entry in result:
+      option = getOption(options, entry)
+      if option != None and "snapshot" in option and option["snapshot"].lower() == "true":
+        result.remove(entry)
+
   name_split = re.split(r"(/|\\)", name)
 
   if len(name_split) > 1:
@@ -302,7 +308,7 @@ def clean():
     while os.path.isfile(f) or os.path.isdir(f):
       shutil.rmtree(f)
 
-def start(packName, packId, packDesc):
+def start(packName, packId, packDesc, useSnapshots):
   print("Creating necessary file paths")
   os.makedirs("tags", exist_ok=True)
   os.makedirs(".saved/tags/blocks", exist_ok = True)
@@ -319,10 +325,10 @@ def start(packName, packId, packDesc):
       path = os.path.relpath(os.path.join(subdir, file))
       if sys.platform == "win32":
         if file.endswith(".mctag") and not path[path.index("\\") + 1:] in done:
-          genTag(path[path.index("\\") + 1:], packName, packId)
+          genTag(path[path.index("\\") + 1:], packName, packId, useSnapshots)
       else:
         if file.endswith(".mctag") and not path[path.index("/") + 1:] in done:
-          genTag(path[path.index("/") + 1:], packName, packId)
+          genTag(path[path.index("/") + 1:], packName, packId, useSnapshots)
       
 if __name__ == "__main__":
-  start(main.packName, main.packId, main.packDesc)
+  start(main.packName, main.packId, main.packDesc, main.useSnapshots)
