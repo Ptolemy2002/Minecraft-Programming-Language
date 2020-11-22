@@ -2,6 +2,7 @@ import os
 import json
 import tags
 import shutil
+import re
 #import convert
 
 """
@@ -152,9 +153,11 @@ class Comment(Statement):
     self.parentFunction.append("#" + self.text)
 
 class Function:
-  def __init__(self, namespace, name, desc):
+  def __init__(self, namespace, name, desc, priority):
     self.name = name
+    self.path = "/".join(name.split("/")[:-1])
     self.namespace = namespace
+    self.priority = priority
     self.code = []
     Comment(desc, self).implement()
   
@@ -171,14 +174,47 @@ packDesc = "Data pack generated from a Minecraft Programming Language compiler"
 defaultPackInfo = False
 useSnapshots = False
 
-initFunction = Function(packId, "load", "This function is run when the datapack is loaded.")
-uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed")
-tickFunction = Function(packId, "tick", "This function is run every tick after this datapack is loaded.")
-customFunctions = {"test": Function("example_pack", "test", "this is a test.")}
+initFunction = Function(packId, "internal/load", "This function is run when the datapack is loaded.", 0)
+uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed", 0)
+tickFunction = Function(packId, "internal/tick", "This function is run every tick after this datapack is loaded.", 0)
+customFunctions = {}
+listeners = {}
+internalListeners = ["load", "tick", "uninstall"]
 
-def generateCode(code, function):
-  #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
-  pass
+def generateCode(code, function, path, file):
+  global listeners
+  if function == None:
+    #Top-level statements: Variables and function declarations
+    for line in code:
+      match = re.match(r'(priority\=(?P<priority>[+-]?\d+) )?on (?P<name>[a-z_0-9\.]+)', line)
+      if match != None:
+        name = match.group("name")
+        priority = match.group("priority")
+        if not name in listeners:
+          listeners[name] = []
+        version = len(listeners[name]) + 1
+        function = None
+        if priority == None:
+          function = Function(packId, f"listeners/{name}/{name}-{version}", f"This function is called for every {name} event.", 0)
+        else:
+          priority = int(priority)
+          function = Function(packId, f"listeners/{name}/{name}-{version}", f"This function is called for every {name} event. with {priority} priority", priority)
+        
+        statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
+        customFunctions[function.name] = function
+        generateCode(statements, function, function.path, f"{name}-{version}.mcscript")
+      else:
+        match = re.match(r'function (?P<name>[a-z_]+)\(\)', line)
+        if match != None:
+          name = match.group("name")
+          function = Function(packId, f"{path}/{name}", f"The function defined with the name {name} in the file {path}/{file}", 0)
+          statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
+          generateCode(statements, function, function.path, f"{path}/{name}.mcscript")
+        else:
+          pass
+  else:
+    #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
+    pass
 
 def main():
   print("Start")
@@ -211,7 +247,6 @@ def main():
     print(f'no pack info specified. Default values will be used (name "{packName}" id {packId})')
     defaultPackInfo = True
 
-  print(os.path.isdir(f".generated/packs/{packName}"))
   if os.path.isdir(f".generated/packs/{packName}"):
     print("Cleaning up previous generation files")
     while os.path.isdir(f".generated/packs/{packName}"):
@@ -220,9 +255,9 @@ def main():
   print("Populating default function statements")
 
   if defaultPackInfo:
-    generateCode(mainCode[1:], None)
+    generateCode(mainCode[1:], None, "", "main.mcscript")
   else:
-    generateCode(mainCode, None)
+    generateCode(mainCode, None, "", "main.mcscript")
 
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
@@ -233,7 +268,7 @@ def main():
         print(f"found file \"{path}\"")
         with open(path) as data:
           print("Converting to data pack form")
-          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True), None)
+          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
@@ -251,6 +286,7 @@ def main():
   tags.start(packName, packId, packDesc, useSnapshots)
 
   print("setting up data pack files")
+  #Test
   os.makedirs(f".generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/functions/internal', exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/blocks', exist_ok = True)
@@ -261,18 +297,19 @@ def main():
   with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
     json.dump({"pack":{"pack_format":7 if useSnapshots else 6,"description": packDesc}}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:internal/{initFunction.name}"]}, file,indent=4)
+    json.dump({"replace": False, "values":[f"{packId}:{initFunction.name}"]}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:internal/{tickFunction.name}"]}, file,indent=4)
+    json.dump({"replace": False, "values":[f"{packId}:{tickFunction.name}"]}, file,indent=4)
 
   print("Writing init function to data pack")
-  initFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/internal/{initFunction.name}.mcfunction")
+  initFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{initFunction.name}.mcfunction")
   print("Writing uninstall function to data pack")
   uninstallFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{uninstallFunction.name}.mcfunction")
   print("Writing tick function to data pack")
-  tickFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/internal/{tickFunction.name}.mcfunction")
+  tickFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{tickFunction.name}.mcfunction")
   for name in customFunctions:
     print(f'Writing "{name}" function to data pack')
+    os.makedirs(f".generated/packs/{packName}/data/{packId}/functions/{customFunctions[name].path}")
     customFunctions[name].implement(f".generated/packs/{packName}/data/{packId}/functions/{name}.mcfunction")
   
   print("Done")
