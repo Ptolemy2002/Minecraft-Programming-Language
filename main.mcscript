@@ -26,26 +26,27 @@ on load {
 
 #Priority setting to customize the order in which tick functions are called
 priority=-1 on tick {
-    #execute clause - will execute as the nearest player
-    as @p {
-        #increments x by one for the player executed as
-        x++;
-    };
-    
-    #will execute if the literal command succeeds
-    if (/literal command) {
-        /say "test passed";
-        str = "hello";
-    };
-    
-    at @p {
-        #switch statement syntax
-        switch (x) {
-        	case 1:
-        	    /fill ~ ~ ~ stone;
-        	break;
-        };
-    };
+  comment("This comment will appear in the generated data pack.")
+  #execute clause - will execute as the nearest player
+  as @p {
+      #increments x by one for the player executed as
+      x++;
+  };
+  
+  #will execute if the literal command succeeds
+  if (/literal command) {
+      /say "test passed";
+      str = "hello";
+  };
+  
+  at @p {
+      #switch statement syntax
+      switch (x) {
+        case 1:
+            /fill ~ ~ ~ stone;
+        break;
+      };
+  };
 };
 
 #Add a listener for carrot on a sick use. Compatible with any editable scoreboard statistic.
