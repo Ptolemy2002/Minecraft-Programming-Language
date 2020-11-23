@@ -239,7 +239,7 @@ tickFunction = Function(packId, "internal/tick", "This function is run every tic
 customFunctions = {}
 listeners = {}
 externalFunctions = []
-internalListeners = ["load", "tick", "uninstall"]
+internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
 
 def generateCode(code, function, path, file):
@@ -398,7 +398,14 @@ def main():
   if "uninstall" in listeners:
     listeners["uninstall"].sort(key=lambda x: x.priority)
     for function in listeners["uninstall"]:
-      Statement(f"function {function.namespace}:{function.name}", initFunction).implement()
+      Statement(f"function {function.namespace}:{function.name}", uninstallFunction).implement()
+  if "spawn" in listeners:
+    listeners["spawn"].sort(key=lambda x: x.priority)
+    for function in listeners["spawn"]:
+      Statement(f"execute as @e[tag=!\"{packId}_spawned\"] run function {function.namespace}:{function.name}", tickFunction).implement()
+  
+  #The "spawned" tag will be used by some other parts of the generator.
+  Statement(f"tag @e[tag=!\"{packId}_spawned\"] add {packId}_spawned", tickFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
