@@ -381,7 +381,7 @@ def main():
           #Initialization and manipulation are covered by other lines.
           Variable(packId, function.scoreId, "entity", "int", "0", f"Used for listener {function.listenerId}", False)
 
-        Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] run function {function.namespace}:{function.name}', tickFunction).implement()
+        Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] at @s run function {function.namespace}:{function.name}', tickFunction).implement()
         scoresToReset.append(function.scoreId[:min([len(function.scoreId), 16])])
 
       for score in scoresToReset:
@@ -402,7 +402,7 @@ def main():
   if "spawn" in listeners:
     listeners["spawn"].sort(key=lambda x: x.priority)
     for function in listeners["spawn"]:
-      Statement(f"execute as @e[tag=!\"{packId}_spawned\"] run function {function.namespace}:{function.name}", tickFunction).implement()
+      Statement(f"execute as @e[tag=!\"{packId}_spawned\"] at @s run function {function.namespace}:{function.name}", tickFunction).implement()
   
   #The "spawned" tag will be used by some other parts of the generator.
   Statement(f"tag @e[tag=!\"{packId}_spawned\"] add {packId}_spawned", tickFunction).implement()
