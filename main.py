@@ -236,6 +236,7 @@ customFunctions = {}
 listeners = {}
 externalFunctions = []
 internalListeners = ["load", "tick", "uninstall"]
+variables = {}
 
 def generateCode(code, function, path, file):
   global listeners
@@ -256,10 +257,10 @@ def generateCode(code, function, path, file):
         version = len(listeners[name]) + 1
         function = None
         if priority == None:
-          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event with 0 priority", 0)
+          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}{version}", f"This function is called for every {name} event with 0 priority", 0)
         else:
           priority = int(priority)
-          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event with {priority} priority", priority)
+          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}{version}", f"This function is called for every {name} event with {priority} priority", priority)
         
         function.listenerId = match.group("name")
         function.scoreId = name
@@ -296,6 +297,7 @@ def generateCode(code, function, path, file):
               desc = match.group("desc")
               variable = Variable(packId, name, modifier, t, value, desc)
               print(f'Defining variable "{variable.name}"')
+              variables[name] = variable
               DefineVariable(variable, initFunction).implement()
             else:
               pass
@@ -309,6 +311,7 @@ def main():
   global packName
   global useSnapshots
   global packDesc
+  global variables
 
   print("Start")
 
@@ -366,10 +369,19 @@ def main():
   print("Setting up listener calls")
   for key in listeners:
     if not key in internalListeners:
+      scoresToReset = []
       listeners[key].sort(key=lambda x: x.priority)
       for function in listeners[key]:
-        Statement(f'scoreboard objectives add {function.scoreId[:min([len(function.scoreId), 16])]} {function.listenerId}', initFunction).implement()
+        if not function.scoreId in variables:
+          Comment(f"Used for listener {function.listenerId}", initFunction).implement()
+          Statement(f'scoreboard objectives add {function.scoreId[:min([len(function.scoreId), 16])]} {function.listenerId}', initFunction).implement()
+          variables[function.scoreId] = Variable(packId, function.scoreId, "entity", "int", "0", f"Used for listener {function.listenerId}")
+
         Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] run function {function.namespace}:{function.name}', tickFunction).implement()
+        scoresToReset.append(function.scoreId[:min([len(function.scoreId), 16])])
+
+      for score in scoresToReset:
+        Statement(f"scoreboard players set @e {score} 0", tickFunction).implement()
 
   if "tick" in listeners:
     listeners["tick"].sort(key=lambda x: x.priority)
