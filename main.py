@@ -241,6 +241,7 @@ listeners = {}
 externalFunctions = []
 internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
+playerPreference = "both"
 
 def generateCode(code, function, path, file):
   global listeners
@@ -314,6 +315,7 @@ def main():
   global useSnapshots
   global packDesc
   global variables
+  global playerPreference
 
   print("Start")
 
@@ -339,6 +341,7 @@ def main():
       print("Snapshots have been enabled. Pack format changed to 7.")
     else:
       print("No snapshots are in use. Pack format is 6.")
+    playerPreference = info[4].lower()
     defaultPackInfo = False
     print("Converting to data pack form")
   else:
@@ -351,6 +354,21 @@ def main():
       shutil.rmtree(f".generated/packs/{packName}")
 
   print("Populating default function statements")
+  Statement(f"scoreboard objectives add {packId}_temp dummy", initFunction).implement()
+  if playerPreference == "single":
+    Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling it."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches 2.. run datapack disable {packId}', initFunction).implement()
+    Comment("Should fail and stop this function", initFunction).implement()
+    Statement(f"execute if score {packId} {packId}_temp matches 2.. as THIS_GUY_IS_FAKE", initFunction).implement()
+  elif playerPreference == "multi":
+    Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling it."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_temp matches ..1 run datapack disable {packId}', initFunction).implement()
+    Comment("Should fail and stop this function", initFunction).implement()
+    Statement(f"execute if score {packId} {packId}_temp matches ..1 as THIS_GUY_IS_FAKE", initFunction).implement()
 
   if defaultPackInfo:
     generateCode(mainCode[1:], None, "", "main.mcscript")
