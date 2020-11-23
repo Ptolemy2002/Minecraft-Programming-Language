@@ -8,7 +8,7 @@ global int x = 1;
 #All references to y will be replaced by a literal for the value in the datapack.
 constant int y = 3;
 #Variables that are not of type "int" will be stored as nbt.
-global string str = "Hi";
+global desc="variable description" string str = "Hi";
 #Decimal precision specified in the diamond
 entity float<2> f = 0.53f;
 #Use tags for entity arrays

@@ -152,6 +152,57 @@ class Comment(Statement):
   def implement(self):
     self.parentFunction.append("#" + self.text)
 
+class Variable:
+  def __init__(self, namespace, name, modifier, t, value, desc):
+    value = value.strip()
+
+    self.namespace = namespace
+    self.modifier = modifier
+    self.type = t
+
+    if segment("float", 0, self.type):
+      if "[]" in self.type:
+        self.type = "float[]"
+      else:
+        self.type = "float"
+      
+    self.name = name
+    self.precision = None
+    self.value = value
+    self.desc = desc
+    
+    if "float" in self.type:
+      match = re.match(r"float(\<(?P<precision>\d+)\>)?(\[\])?", t)
+      self.precision = int(match.group("precision"))
+    
+    if value != None:
+      if self.type == "int":
+        self.value = int(self.value)
+      elif self.type == "float":
+        self.value = float(self.value[:-1])
+      elif self.type == "string":
+        self.value = groups(self.value, [['"', '"', True], ["'", "'", True]], False)[0]
+      elif "[]" in self.type:
+        self.value = []
+        for item in value[1:-1].split(","):
+          item = item.strip()
+          if "int" in self.type:
+            self.value.append(int(item))
+          elif "float" in self.type:
+            self.value.append(float(item[:-1]))
+          elif "string" in self.type:
+            self.value.append(groups(item, [['"', '"', True], ["'", "'", True]], False)[0])
+          else:
+            self.value.append(value)
+
+class DefineVariable(Statement):
+  def __init__(self, variable, parentFunction):
+    if variable.desc != None:
+      Comment(variable.desc, parentFunction).implement()
+
+    text = ""
+    super().__init__(text, parentFunction)
+
 class Function:
   def __init__(self, namespace, name, desc, priority):
     self.name = name
@@ -205,11 +256,11 @@ def generateCode(code, function, path, file):
           priority = int(priority)
           function = Function(packId, f"listeners/{name}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event. with {priority} priority", priority)
         
-        statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
+        statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
         customFunctions[function.name] = function
         generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
       else:
-        match = re.match(r'function (desc="(?P<desc>[^\"]+)")? (?P<name>[a-z_]+)\(\)', line)
+        match = re.match(r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)', line)
         if match != None:
           name = match.group("name")
           desc = match.group("desc")
@@ -218,7 +269,7 @@ def generateCode(code, function, path, file):
             function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", f"The function defined with the name '{name}' in the file '{path}/{file}'", 0)
           else:
             function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", desc, 0)
-          statements = words(";", groups(line, [["{", "}"]], False)[0], [["\"", "\"", True], ["{", "}"]], False, True)
+          statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
           customFunctions[function.name] = function
           generateCode(statements, function, function.path, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}.mcscript")
         else:
@@ -226,7 +277,18 @@ def generateCode(code, function, path, file):
           if match != None:
             externalFunctions.append(Function(match.group("namespace"), match.group("name"), "", 0))
           else:
-            pass
+            match = re.match(r'(?P<modifier>global|entity|constant)\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<type>(?:entity|int|float|string|bool)(?:\<\d+\>)?(?:\[\])?)\s+(?P<name>[a-zA-Z_]+)(\s*\=\s*(?P<value>.+))?', line)
+            if match != None:
+              modifier = match.group("modifier")
+              t = match.group("type")
+              name = match.group("name")
+              value = match.group("value")
+              desc = match.group("desc")
+              variable = Variable(packId, name, modifier, t, value, desc)
+              print(f'Defining variable "{variable.name}"')
+              DefineVariable(variable, initFunction).implement()
+            else:
+              pass
   else:
     #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
     pass
@@ -245,14 +307,14 @@ def main():
     print("found main file")
     codeList = noComments(data)
     #A list of each separate statement or definition without any new lines or tabs
-    mainCode = words(";", "".join(codeList), [["\"", "\"", True], ["{", "}"]], False, True)
+    mainCode = words(";", "".join(codeList), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
   
   """print("main file contents:")
   for i in range(0,len(mainCode)):
     print(f"\t{i}: {mainCode[i]}")"""
 
   if segment("pack-info: ", 0, mainCode[0]):
-    info = packId = words(" ", mainCode[0], [['"', '"', True]], False, False)[1:]
+    info = packId = words(" ", mainCode[0], [['"', '"', True], ["'", "'", True]], False, False)[1:]
     packName = info[0]
     packId = info[1]
     packDesc = info[2]
@@ -289,7 +351,7 @@ def main():
         print(f"found file \"{path}\"")
         with open(path) as data:
           print("Converting to data pack form")
-          generateCode(words(";", "".join(noComments(data)), [["\"", "\"", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+          generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
