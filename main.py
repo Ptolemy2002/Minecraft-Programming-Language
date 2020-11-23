@@ -300,8 +300,7 @@ def generateCode(code, function, path, file):
               value = match.group("value")
               desc = match.group("desc")
               print(f'Defining variable "{name}"')
-              variable = Variable(packId, name, modifier, t, value, desc, True)
-              DefineVariable(variable, initFunction).implement()
+              Variable(packId, name, modifier, t, value, desc, True)
             else:
               pass
   else:
