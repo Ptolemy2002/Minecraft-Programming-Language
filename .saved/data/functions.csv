@@ -2,8 +2,9 @@ namespace,name
 example_pack,internal/load
 example_pack,internal/tick
 example_pack,uninstall
-example_pack,listeners/load/load-1
-example_pack,listeners/tick/tick-1
-example_pack,listeners/item.use/item_use-1
-example_pack,go
+example_pack,listeners/load/main/load-1
+example_pack,listeners/tick/main/tick-1
+example_pack,listeners/item.use/main/item_use-1
+example_pack,main/go
+example_pack,listeners/tick/test/test/tick-2
 hp,update

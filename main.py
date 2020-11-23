@@ -209,6 +209,8 @@ class Function:
     self.path = "/".join(name.split("/")[:-1])
     self.namespace = namespace
     self.priority = priority
+    if self.priority == None:
+      self.priority = 0
     self.code = []
     Comment(desc, self).implement()
   
@@ -251,13 +253,14 @@ def generateCode(code, function, path, file):
         version = len(listeners[name]) + 1
         function = None
         if priority == None:
-          function = Function(packId, f"listeners/{name}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event.", 0)
+          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event with 0 priority", 0)
         else:
           priority = int(priority)
-          function = Function(packId, f"listeners/{name}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event. with {priority} priority", priority)
+          function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event with {priority} priority", priority)
         
         statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
         customFunctions[function.name] = function
+        listeners[name].append(function)
         generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
       else:
         match = re.match(r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)', line)
@@ -266,12 +269,12 @@ def generateCode(code, function, path, file):
           desc = match.group("desc")
           function = None
           if desc == None:
-            function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", f"The function defined with the name '{name}' in the file '{path}/{file}'", 0)
+            function = Function(packId, f"{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}", f"The function defined with the name '{name}' in the file '{path}/{file}'", 0)
           else:
-            function = Function(packId, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}", desc, 0)
+            function = Function(packId, f"{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}", desc, 0)
           statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
           customFunctions[function.name] = function
-          generateCode(statements, function, function.path, f"{path}{'/' if path != '' else ''}{name.replace('.', '_')}.mcscript")
+          generateCode(statements, function, function.path, function.name)
         else:
           match  = re.match(r'def (?P<namespace>[a-z_\/]+):(?P<name>[a-z_]+)', line)
           if match != None:
@@ -352,6 +355,16 @@ def main():
         with open(path) as data:
           print("Converting to data pack form")
           generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+
+  print("Setting up listener calls")
+  if "tick" in listeners:
+    listeners["tick"].sort(key=lambda x: x.priority)
+    for function in listeners["tick"]:
+      Statement(f"function {function.namespace}:{function.name}", tickFunction).implement()
+  if "load" in listeners:
+    listeners["load"].sort(key=lambda x: x.priority)
+    for function in listeners["load"]:
+      Statement(f"function {function.namespace}:{function.name}", initFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
