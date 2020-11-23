@@ -391,6 +391,10 @@ def main():
     listeners["load"].sort(key=lambda x: x.priority)
     for function in listeners["load"]:
       Statement(f"function {function.namespace}:{function.name}", initFunction).implement()
+  if "uninstall" in listeners:
+    listeners["uninstall"].sort(key=lambda x: x.priority)
+    for function in listeners["uninstall"]:
+      Statement(f"function {function.namespace}:{function.name}", initFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
   initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
