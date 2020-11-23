@@ -4,7 +4,7 @@ example_pack,internal/tick
 example_pack,uninstall
 example_pack,listeners/load/main/load-1
 example_pack,listeners/tick/main/tick-1
-example_pack,listeners/item.use/main/item_use-1
+example_pack,listeners/used_carrot_on_a_stick/main/used_carrot_on_a_stick-1
 example_pack,main/go
 example_pack,listeners/tick/test/test/tick-2
 hp,update

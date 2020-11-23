@@ -1,0 +1,1 @@
+#This function is called for every used_carrot_on_a_stick event with 0 priority
