@@ -153,7 +153,7 @@ class Comment(Statement):
     self.parentFunction.append("#" + self.text)
 
 class Variable:
-  def __init__(self, namespace, name, modifier, t, value, desc):
+  def __init__(self, namespace, name, modifier, t, value, desc, define):
     value = value.strip()
 
     self.namespace = namespace
@@ -194,6 +194,10 @@ class Variable:
             self.value.append(groups(item, [['"', '"', True], ["'", "'", True]], False)[0])
           else:
             self.value.append(value)
+
+    variables[self.name] = self
+    if define:
+      DefineVariable(self, initFunction).implement()
 
 class DefineVariable(Statement):
   def __init__(self, variable, parentFunction):
@@ -295,9 +299,8 @@ def generateCode(code, function, path, file):
               name = match.group("name")
               value = match.group("value")
               desc = match.group("desc")
-              variable = Variable(packId, name, modifier, t, value, desc)
-              print(f'Defining variable "{variable.name}"')
-              variables[name] = variable
+              print(f'Defining variable "{name}"')
+              variable = Variable(packId, name, modifier, t, value, desc, True)
               DefineVariable(variable, initFunction).implement()
             else:
               pass
@@ -375,7 +378,9 @@ def main():
         if not function.scoreId in variables:
           Comment(f"Used for listener {function.listenerId}", initFunction).implement()
           Statement(f'scoreboard objectives add {function.scoreId[:min([len(function.scoreId), 16])]} {function.listenerId}', initFunction).implement()
-          variables[function.scoreId] = Variable(packId, function.scoreId, "entity", "int", "0", f"Used for listener {function.listenerId}")
+          #This line is only here so that the variable will register itself as visible to the rest of the program.
+          #Initialization and manipulation are covered by other lines.
+          Variable(packId, function.scoreId, "entity", "int", "0", f"Used for listener {function.listenerId}", False)
 
         Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] run function {function.namespace}:{function.name}', tickFunction).implement()
         scoresToReset.append(function.scoreId[:min([len(function.scoreId), 16])])
