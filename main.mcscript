@@ -49,7 +49,7 @@ priority=-1 on tick {
 };
 
 #Add a listener for carrot on a sick use. Compatible with any editable scoreboard statistic.
-on used:carrot_on_a_stick {
+id="used_c_stick" on used:carrot_on_a_stick {
     #For loop.
     for (i,1,5) {
         #"<i>" will be replaced by the current value of i.

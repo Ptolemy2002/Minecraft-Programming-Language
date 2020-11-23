@@ -213,6 +213,7 @@ class Function:
       self.priority = 0
     self.code = []
     self.listenerId = None
+    self.scoreId = None
     Comment(desc, self).implement()
   
   def append(self, value):
@@ -245,9 +246,10 @@ def generateCode(code, function, path, file):
   if function == None:
     #Top-level statements: Variables and function declarations
     for line in code:
-      match = re.match(r'(priority\=(?P<priority>[+-]?\d+) )?on (?P<name>[a-z_0-9\.\:]+)', line)
+      match = re.match(r'(priority\=(?P<priority>[+-]?\d+)\s+)?(id="(?P<id>[^\"]+)"\s+)?on\s+(?P<name>[a-z_0-9\.\:]+)', line)
       if match != None:
         name = match.group("name").replace(":", "_")
+        id = match.group("id")
         priority = match.group("priority")
         if not name in listeners:
           listeners[name] = []
@@ -258,8 +260,11 @@ def generateCode(code, function, path, file):
         else:
           priority = int(priority)
           function = Function(packId, f"listeners/{name}/{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}-{version}", f"This function is called for every {name} event with {priority} priority", priority)
-
+        
         function.listenerId = match.group("name")
+        function.scoreId = name
+        if id != None:
+          function.scoreId = id
         statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
         customFunctions[function.name] = function
         listeners[name].append(function)
@@ -363,8 +368,8 @@ def main():
     if not key in internalListeners:
       listeners[key].sort(key=lambda x: x.priority)
       for function in listeners[key]:
-        Statement(f'scoreboard objectives add {function.listenerId.replace(":", "_")[:min([len(function.listenerId), 16])]} {function.listenerId}', initFunction).implement()
-        Statement(f'execute as @e[scores={{{function.listenerId.replace(":", "_")[:min([len(function.listenerId), 16])]}=1..}}] run function {function.namespace}:{function.name}', tickFunction).implement()
+        Statement(f'scoreboard objectives add {function.scoreId[:min([len(function.scoreId), 16])]} {function.listenerId}', initFunction).implement()
+        Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] run function {function.namespace}:{function.name}', tickFunction).implement()
 
   if "tick" in listeners:
     listeners["tick"].sort(key=lambda x: x.priority)
