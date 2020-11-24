@@ -484,7 +484,7 @@ def main():
   tags.start(packName, packId, packDesc, useSnapshots)
 
   print("setting up data pack files")
-  #Test
+  
   os.makedirs(f".generated/packs/{packName}/data/minecraft/tags/functions", exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/functions/internal', exist_ok = True)
   os.makedirs(f'.generated/packs/{packName}/data/{packId}/tags/blocks', exist_ok = True)
