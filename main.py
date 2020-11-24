@@ -368,12 +368,12 @@ def main():
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable "file/{packName}"', initFunction).implement()
-    Statement(f'execute store success storage {packShort} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
+    Statement(f'execute store success storage {packShort} isCompatible int 1 if score {packId} {packShort}_temp matches ..1', initFunction).implement()
   elif playerPreference == "multi":
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable "file/{packName}"', initFunction).implement()
-    Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches 2..', initFunction).implement()
+    Statement(f'execute store success storage {packId} isCompatible int 1 if score {packId} {packShort}_temp matches 2..', initFunction).implement()
 
   if defaultPackInfo:
     generateCode(mainCode[1:], None, "", "main.mcscript")
@@ -434,10 +434,11 @@ def main():
   Statement(f"tag @e[tag=!{packId}_spawned] add {packId}_spawned", tickFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
-  Statement(f"execute store result score {packId} {packShort}_t run data get storage {packId} isCompatible", initFunction).implement()
-  initFunction.append(f'execute if score {packId} {packShort}_t matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
+  Comment("Uninstall if incompatible", initFunction).implement()
+  Statement(f"execute store result score {packId} {packShort}_temp run data get storage {packId} isCompatible", initFunction).implement()
+  initFunction.append(f'execute if score {packId} {packShort}_temp matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   Comment("Uninstall the pack if it is incompatible", initFunction).implement()
-  Statement(f"execute if score {packId} {packShort}_t matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
+  Statement(f"execute if score {packId} {packShort}_temp matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   os.makedirs(f".saved/data", exist_ok = True)
