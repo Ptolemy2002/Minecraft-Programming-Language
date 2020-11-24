@@ -360,17 +360,18 @@ def main():
   Statement(f"scoreboard objectives add {packShort}_temp dummy", initFunction).implement()
   Statement(f"scoreboard objectives remove {packShort}_temp", uninstallFunction).implement()
   Statement(f"scoreboard players set {packId} {packShort}_temp 0", initFunction).implement()
+  #This line is only here so that the variable will register itself as visible to the rest of the program.
+  #Initialization and manipulation are covered by other lines.
+  Variable(packId, f"{packShort}_temp", "entity", "int", "0", f"Temporary score for this pack.", False)
   if playerPreference == "single":
     Comment("Ensure the game is run in singleplayer", initFunction).implement()
-    Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable {packId}', initFunction).implement()
     Statement(f'execute store success storage {packShort} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
   elif playerPreference == "multi":
-    Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable {packId}', initFunction).implement()
     Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches 2..', initFunction).implement()
 
@@ -433,11 +434,11 @@ def main():
   Statement(f"tag @e[tag=!{packId}_spawned] add {packId}_spawned", tickFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
-  Statement(f"execute store result score {packId} {packId}_t run data get storage {packId} isCompatible", initFunction).implement()
-  initFunction.append(f'execute if score {packId} {packId}_t matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
+  Statement(f"execute store result score {packId} {packShort}_t run data get storage {packId} isCompatible", initFunction).implement()
+  initFunction.append(f'execute if score {packId} {packShort}_t matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   Comment("Uninstall the pack if it is incompatible", initFunction).implement()
-  Statement(f"execute if score {packId} {packId}_t matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
-  uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
+  Statement(f"execute if score {packId} {packShort}_t matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
+  uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   os.makedirs(f".saved/data", exist_ok = True)
   print("Saving functions for use in tags")
