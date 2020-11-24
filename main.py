@@ -475,7 +475,7 @@ def main():
   Statement(f"execute if score {packId} {packShort}_temp matches 1 run function {packId}:{tickFunction.name}", initFunction).implement()
   Statement("", tickFunction).implement()
   Comment("Start the tick function again next tick", tickFunction).implement()
-  Statement(f"schedule {packId}:{tickFunction.name} 1t replace", tickFunction).implement()
+  Statement(f"schedule function {packId}:{tickFunction.name} 1t replace", tickFunction).implement()
 
   os.makedirs(f".saved/data", exist_ok = True)
   print("Saving functions for use in tags")
