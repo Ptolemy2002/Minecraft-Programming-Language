@@ -1,12 +1,12 @@
 #This function is run when the datapack is loaded.
-scoreboard objectives add example_pack_t dummy
-scoreboard players set example_pack example_pack_t 0
+scoreboard objectives add ep_temp dummy
+scoreboard players set example_pack ep_temp 0
 #Ensure the game is run in singleplayer
 execute as @a run scoreboard players add example_pack example_pack_temp 1
-execute if score example_pack example_pack_t matches 2.. run tellraw @a [{"text":"The pack "},{"text":"\"example pack\"","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack\nExample pack used for debugging"}]}},{"text":" is only compatible with singleplayer.\nDisabling the pack to avoid unexpected behavior."}]
-execute if score example_pack example_pack_t matches 2.. run scoreboard objectives remove example_pack_temp
-execute if score example_pack example_pack_t matches 2.. run datapack disable example_pack
-execute store success storage example_pack isCompatible int if score example_pack example_pack_t matches ..1
+execute if score example_pack ep_temp matches 2.. run tellraw @a [{"text":"The pack "},{"text":"\"example pack\"","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack\nExample pack used for debugging"}]}},{"text":" is only compatible with singleplayer.\nDisabling the pack to avoid unexpected behavior."}]
+execute if score example_pack ep_temp matches 2.. run scoreboard objectives remove example_pack_temp
+execute if score example_pack ep_temp matches 2.. run datapack disable example_pack
+execute store success storage ep isCompatible int if score example_pack example_pack_t matches ..1
 
 
 
@@ -20,4 +20,4 @@ function example_pack:listeners/load/main/load1
 execute store result score example_pack example_pack_t run data get storage example_pack isCompatible
 execute if score example_pack example_pack_t matches 1 run tellraw @a [{"text":"The pack "},{"text":"\"example pack\" ","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack\nExample pack used for debugging"}]}},{"text":"has been sucessfully (re)loaded."}]
 #Uninstall the pack if it is incompatible
-execute if score example_pack example_pack_t matches 0 run function uninstall
+execute if score example_pack example_pack_t matches 0 run function example_pack:uninstall

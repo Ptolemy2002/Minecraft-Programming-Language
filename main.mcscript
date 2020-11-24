@@ -1,4 +1,4 @@
-pack-info: "example pack" "example_pack" "Example pack used for debugging" true single; #Partial comment
+pack-info: "example pack" "example_pack" "ep" "Example pack used for debugging" true single; #Partial comment
 def hp:update;
 
 #This will set up a simple scoreboard objective.

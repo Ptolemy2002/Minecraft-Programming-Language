@@ -230,6 +230,7 @@ class Function:
 packName = "Generated Data Pack"
 packId = "generated_data_pack"
 packDesc = "Data pack generated from a Minecraft Programming Language compiler"
+packShort = "gdp"
 defaultPackInfo = False
 useSnapshots = False
 
@@ -316,6 +317,7 @@ def main():
   global packDesc
   global variables
   global playerPreference
+  global packShort
 
   print("Start")
 
@@ -334,14 +336,15 @@ def main():
     info = packId = words(" ", mainCode[0], [['"', '"', True], ["'", "'", True]], False, False)[1:]
     packName = info[0]
     packId = info[1]
-    packDesc = info[2]
+    packShort = info[2]
+    packDesc = info[3]
     print(f'got pack name "{packName}" with id "{packId}"')
-    useSnapshots = bool(info[3].lower().capitalize())
-    if useSnapshots:
+    useSnapshots = info[4].lower().capitalize()
+    if useSnapshots == "True":
       print("Snapshots have been enabled. Pack format changed to 7.")
     else:
       print("No snapshots are in use. Pack format is 6.")
-    playerPreference = info[4].lower()
+    playerPreference = info[5].lower()
     defaultPackInfo = False
     print("Converting to data pack form")
   else:
@@ -354,21 +357,21 @@ def main():
       shutil.rmtree(f".generated/packs/{packName}")
 
   print("Populating default function statements")
-  Statement(f"scoreboard objectives add {packId}_t dummy", initFunction).implement()
-  Statement(f"scoreboard objectives remove {packId}_t", uninstallFunction).implement()
-  Statement(f"scoreboard players set {packId} {packId}_t 0", initFunction).implement()
+  Statement(f"scoreboard objectives add {packShort}_temp dummy", initFunction).implement()
+  Statement(f"scoreboard objectives remove {packShort}_temp", uninstallFunction).implement()
+  Statement(f"scoreboard players set {packId} {packShort}_temp 0", initFunction).implement()
   if playerPreference == "single":
     Comment("Ensure the game is run in singleplayer", initFunction).implement()
     Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches 2.. run datapack disable {packId}', initFunction).implement()
-    Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable {packId}', initFunction).implement()
+    Statement(f'execute store success storage {packShort} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
   elif playerPreference == "multi":
     Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_t matches ..1 run datapack disable {packId}', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable {packId}', initFunction).implement()
     Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches 2..', initFunction).implement()
 
   if defaultPackInfo:
@@ -433,7 +436,7 @@ def main():
   Statement(f"execute store result score {packId} {packId}_t run data get storage {packId} isCompatible", initFunction).implement()
   initFunction.append(f'execute if score {packId} {packId}_t matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   Comment("Uninstall the pack if it is incompatible", initFunction).implement()
-  Statement(f"execute if score {packId} {packId}_t matches 0 run function {uninstallFunction.name}", initFunction).implement()
+  Statement(f"execute if score {packId} {packId}_t matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   os.makedirs(f".saved/data", exist_ok = True)
@@ -441,7 +444,7 @@ def main():
   with open(".saved/data/functions.csv", "w+") as file:
     data = ["namespace,name",f"{packId},internal/load", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
-      print(f"Function {customFunctions[i].namespace}:{customFunctions[i].name} is defined. Adding it to the data.")
+      print(f"Function \"{customFunctions[i].namespace}:{customFunctions[i].name}\" is defined. Adding it to the data.")
       data.append(f"{customFunctions[i].namespace},{customFunctions[i].name}")
     for i in externalFunctions:
       print(f'External function "{i.namespace}:{i.name}" is defined. Adding it to the data.')
