@@ -366,13 +366,13 @@ def main():
   if playerPreference == "single":
     Comment("Ensure the game is run in singleplayer", initFunction).implement()
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse /datapack enable file/{packId} to reenable."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable "file/{packId}"', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable "file/{packName}"', initFunction).implement()
     Statement(f'execute store success storage {packShort} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
   elif playerPreference == "multi":
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse /datapack enable file/{packId} to reenable."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable "file/{packId}"', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable "file/{packName}"', initFunction).implement()
     Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches 2..', initFunction).implement()
 
   if defaultPackInfo:
