@@ -360,7 +360,6 @@ def main():
   print("Populating default function statements")
   Statement(f"schedule function {packId}:{initFunction.name} 1s replace", preinitFunction).implement()
 
-  Statement(f'datapack enable "file/{packName}"', initFunction).implement()
   Statement(f"scoreboard objectives add {packShort}_temp dummy", initFunction).implement()
   Statement(f"scoreboard objectives remove {packShort}_temp", uninstallFunction).implement()
   Statement(f"scoreboard players set {packId} {packShort}_temp 0", initFunction).implement()
