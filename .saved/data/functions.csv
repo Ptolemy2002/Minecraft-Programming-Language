@@ -1,5 +1,6 @@
 namespace,name
 example_pack,internal/load
+example_pack,internal/preload
 example_pack,internal/tick
 example_pack,uninstall
 example_pack,listeners/load/main/load1

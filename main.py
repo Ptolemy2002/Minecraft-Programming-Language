@@ -234,6 +234,7 @@ packShort = "gdp"
 defaultPackInfo = False
 useSnapshots = False
 
+preinitFunction = Function(packId, "internal/preload", "This function is run before the datapack is loaded.", 0)
 initFunction = Function(packId, "internal/load", "This function is run when the datapack is loaded.", 0)
 uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed", 0)
 tickFunction = Function(packId, "internal/tick", "This function is run every tick after this datapack is loaded.", 0)
@@ -357,6 +358,9 @@ def main():
       shutil.rmtree(f".generated/packs/{packName}")
 
   print("Populating default function statements")
+  Statement(f"schedule function {packId}:{initFunction.name} 1s replace", preinitFunction).implement()
+
+  Statement(f'datapack enable "file/{packName}"', initFunction).implement()
   Statement(f"scoreboard objectives add {packShort}_temp dummy", initFunction).implement()
   Statement(f"scoreboard objectives remove {packShort}_temp", uninstallFunction).implement()
   Statement(f"scoreboard players set {packId} {packShort}_temp 0", initFunction).implement()
@@ -467,11 +471,17 @@ def main():
   #Add a new line to the function
   Statement("", uninstallFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
+  Statement("", initFunction).implement()
+  Comment("Start the tick function", initFunction).implement()
+  Statement(f"execute if score {packId} {packShort}_temp matches 1 run function {packId}:{tickFunction.name}", initFunction).implement()
+  Statement("", tickFunction).implement()
+  Comment("Start the tick function again next tick", tickFunction).implement()
+  Statement(f"schedule {packId}:{tickFunction.name} 1t replace", tickFunction).implement()
 
   os.makedirs(f".saved/data", exist_ok = True)
   print("Saving functions for use in tags")
   with open(".saved/data/functions.csv", "w+") as file:
-    data = ["namespace,name",f"{packId},internal/load", f"{packId},internal/tick", f"{packId},uninstall"]
+    data = ["namespace,name",f"{packId},internal/load",f"{packId},internal/preload", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
       print(f"Function \"{customFunctions[i].namespace}:{customFunctions[i].name}\" is defined. Adding it to the data.")
       data.append(f"{customFunctions[i].namespace},{customFunctions[i].name}")
@@ -495,10 +505,10 @@ def main():
   with open(f".generated/packs/{packName}/pack.mcmeta", "w+") as file:
     json.dump({"pack":{"pack_format":7 if useSnapshots else 6,"description": packDesc}}, file,indent=4)
   with open(f".generated/packs/{packName}/data/minecraft/tags/functions/load.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:{initFunction.name}"]}, file,indent=4)
-  with open(f".generated/packs/{packName}/data/minecraft/tags/functions/tick.json", "w+") as file:
-    json.dump({"replace": False, "values":[f"{packId}:{tickFunction.name}"]}, file,indent=4)
+    json.dump({"replace": False, "values":[f"{packId}:{preinitFunction.name}"]}, file,indent=4)
 
+  print("Writing preinit function to data pack")
+  preinitFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{preinitFunction.name}.mcfunction")
   print("Writing init function to data pack")
   initFunction.implement(f".generated/packs/{packName}/data/{packId}/functions/{initFunction.name}.mcfunction")
   print("Writing uninstall function to data pack")

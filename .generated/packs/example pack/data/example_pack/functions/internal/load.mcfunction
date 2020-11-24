@@ -1,4 +1,5 @@
 #This function is run when the datapack is loaded.
+datapack enable "file/example pack"
 scoreboard objectives add ep_temp dummy
 scoreboard players set example_pack ep_temp 0
 
@@ -26,3 +27,6 @@ execute store result score example_pack ep_temp run data get storage example_pac
 execute if score example_pack ep_temp matches 1 run tellraw @a [{"text":"The pack "},{"text":"\"example pack\" ","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack - ep\nExample pack used for debugging"}]}},{"text":"has been sucessfully (re)loaded."}]
 #Uninstall the pack if it is incompatible
 execute if score example_pack ep_temp matches 0 run function example_pack:uninstall
+
+#Start the tick function
+execute if score example_pack ep_temp matches 1 run function example_pack:internal/tick
