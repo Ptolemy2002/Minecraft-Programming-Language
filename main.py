@@ -364,16 +364,22 @@ def main():
   #Initialization and manipulation are covered by other lines.
   Variable(packId, f"{packShort}_temp", "entity", "int", "0", f"Temporary score for this pack.", False)
   if playerPreference == "single":
+    Statement("", initFunction).implement()
     Comment("Ensure the game is run in singleplayer", initFunction).implement()
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable "file/{packName}"', initFunction).implement()
     Statement(f'execute store success storage {packShort} isCompatible int 1 if score {packId} {packShort}_temp matches ..1', initFunction).implement()
   elif playerPreference == "multi":
+    Statement("", initFunction).implement()
+    Comment("Ensure the game is run in multiplayer", initFunction).implement()
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches ..1 run datapack disable "file/{packName}"', initFunction).implement()
     Statement(f'execute store success storage {packId} isCompatible int 1 if score {packId} {packShort}_temp matches 2..', initFunction).implement()
+
+  #Add a new line to the function
+  Statement("", initFunction).implement()
 
   if defaultPackInfo:
     generateCode(mainCode[1:], None, "", "main.mcscript")
@@ -404,28 +410,45 @@ def main():
           #Initialization and manipulation are covered by other lines.
           Variable(packId, function.scoreId, "entity", "int", "0", f"Used for listener {function.listenerId}", False)
 
+        Statement("", tickFunction).implement()
+        Comment("Run listeners", tickFunction).implement()
         Statement(f'execute as @e[scores={{{function.scoreId[:min([len(function.scoreId), 16])]}=1..}}] at @s run function {function.namespace}:{function.name}', tickFunction).implement()
         scoresToReset.append(function.scoreId[:min([len(function.scoreId), 16])])
 
+      if len(scoresToReset) > 0:
+        Statement("", tickFunction).implement()
+        Comment("Reset listener scores", tickFunction).implement()
       for score in scoresToReset:
-        #Reset tje score
+        #Reset the score
         Statement(f"scoreboard players set @e {score} 0", tickFunction).implement()
         #Remove the score on uninstall
         Statement(f"scoreboard objectives remove {score}", uninstallFunction).implement()
 
   if "tick" in listeners:
+    #Add a new line to the function
+    Statement("", tickFunction).implement()
+    Comment("Run tick listeners", tickFunction).implement()
     listeners["tick"].sort(key=lambda x: x.priority)
     for function in listeners["tick"]:
       Statement(f"function {function.namespace}:{function.name}", tickFunction).implement()
   if "load" in listeners:
+    #Add a new line to the function
+    Statement("", initFunction).implement()
+    Comment("Run listeners", initFunction).implement()
     listeners["load"].sort(key=lambda x: x.priority)
     for function in listeners["load"]:
       Statement(f"function {function.namespace}:{function.name}", initFunction).implement()
   if "uninstall" in listeners:
+    #Add a new line to the function
+    Statement("", uninstallFunction).implement()
+    Comment("Run listeners", uninstallFunction).implement()
     listeners["uninstall"].sort(key=lambda x: x.priority)
     for function in listeners["uninstall"]:
       Statement(f"function {function.namespace}:{function.name}", uninstallFunction).implement()
   if "spawn" in listeners:
+    #Add a new line to the function
+    Statement("", tickFunction).implement()
+    Comment("Run spawn listeners", tickFunction).implement()
     listeners["spawn"].sort(key=lambda x: x.priority)
     for function in listeners["spawn"]:
       Statement(f"execute as @e[tag=!{packId}_spawned] at @s run function {function.namespace}:{function.name}", tickFunction).implement()
@@ -434,11 +457,15 @@ def main():
   Statement(f"tag @e[tag=!{packId}_spawned] add {packId}_spawned", tickFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
+  #Add a new line to the function
+  Statement("", initFunction).implement()
   Comment("Uninstall if incompatible", initFunction).implement()
   Statement(f"execute store result score {packId} {packShort}_temp run data get storage {packId} isCompatible", initFunction).implement()
   initFunction.append(f'execute if score {packId} {packShort}_temp matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   Comment("Uninstall the pack if it is incompatible", initFunction).implement()
   Statement(f"execute if score {packId} {packShort}_temp matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
+  #Add a new line to the function
+  Statement("", uninstallFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   os.makedirs(f".saved/data", exist_ok = True)
