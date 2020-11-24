@@ -404,6 +404,7 @@ def main():
         scoresToReset.append(function.scoreId[:min([len(function.scoreId), 16])])
 
       for score in scoresToReset:
+        #Reset tje score
         Statement(f"scoreboard players set @e {score} 0", tickFunction).implement()
         #Remove the score on uninstall
         Statement(f"scoreboard objectives remove {score}", uninstallFunction).implement()
