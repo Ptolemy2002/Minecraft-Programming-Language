@@ -234,7 +234,7 @@ packShort = "gdp"
 defaultPackInfo = False
 useSnapshots = False
 
-preinitFunction = Function(packId, "internal/preload", "This function is run before the datapack is loaded.", 0)
+preinitFunction = Function(packId, "internal/preload", "It is necessary to delay the load function by 1 second so that it may be run on world load correctly.", 0)
 initFunction = Function(packId, "internal/load", "This function is run when the datapack is loaded.", 0)
 uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed", 0)
 tickFunction = Function(packId, "internal/tick", "This function is run every tick after this datapack is loaded.", 0)

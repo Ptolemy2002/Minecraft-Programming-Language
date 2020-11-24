@@ -12,4 +12,4 @@ function example_pack:listeners/tick/main/tick1
 tag @e[tag=!example_pack_spawned] add example_pack_spawned
 
 #Start the tick function again next tick
-schedule example_pack:internal/tick 1t replace
+schedule function example_pack:internal/tick 1t replace

@@ -1,5 +1,4 @@
 #This function is run when the datapack is loaded.
-datapack enable "file/example pack"
 scoreboard objectives add ep_temp dummy
 scoreboard players set example_pack ep_temp 0
 
