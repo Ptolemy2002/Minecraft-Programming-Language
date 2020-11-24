@@ -354,21 +354,22 @@ def main():
       shutil.rmtree(f".generated/packs/{packName}")
 
   print("Populating default function statements")
-  Statement(f"scoreboard objectives add {packId}_temp dummy", initFunction).implement()
+  Statement(f"scoreboard objectives add {packId}_t dummy", initFunction).implement()
+  Statement(f"scoreboard objectives remove {packId}_t", uninstallFunction).implement()
+  Statement(f"scoreboard players set {packId} {packId}_t 0", initFunction).implement()
   if playerPreference == "single":
+    Comment("Ensure the game is run in singleplayer", initFunction).implement()
     Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling it."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches 2.. run datapack disable {packId}', initFunction).implement()
-    Comment("Should fail and stop this function", initFunction).implement()
-    Statement(f"execute if score {packId} {packId}_temp matches 2.. as THIS_GUY_IS_FAKE", initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches 2.. run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches 2.. run datapack disable {packId}', initFunction).implement()
+    Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches ..1', initFunction).implement()
   elif playerPreference == "multi":
     Statement(f"execute as @a run scoreboard players add {packId} {packId}_temp 1", initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling it."}}]', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
-    Statement(f'execute if score {packId} {packId}_temp matches ..1 run datapack disable {packId}', initFunction).implement()
-    Comment("Should fail and stop this function", initFunction).implement()
-    Statement(f"execute if score {packId} {packId}_temp matches ..1 as THIS_GUY_IS_FAKE", initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches ..1 run tellraw @a [{{"text":"The pack "}},{{"text":"{packName}","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with multiplayer.\\nDisabling the pack to avoid unexpected behavior."}}]', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches ..1 run scoreboard objectives remove {packId}_temp', initFunction).implement()
+    Statement(f'execute if score {packId} {packId}_t matches ..1 run datapack disable {packId}', initFunction).implement()
+    Statement(f'execute store success storage {packId} isCompatible int if score {packId} {packId}_t matches 2..', initFunction).implement()
 
   if defaultPackInfo:
     generateCode(mainCode[1:], None, "", "main.mcscript")
@@ -404,6 +405,8 @@ def main():
 
       for score in scoresToReset:
         Statement(f"scoreboard players set @e {score} 0", tickFunction).implement()
+        #Remove the score on uninstall
+        Statement(f"scoreboard objectives remove {score}", uninstallFunction).implement()
 
   if "tick" in listeners:
     listeners["tick"].sort(key=lambda x: x.priority)
@@ -420,13 +423,16 @@ def main():
   if "spawn" in listeners:
     listeners["spawn"].sort(key=lambda x: x.priority)
     for function in listeners["spawn"]:
-      Statement(f"execute as @e[tag=!\"{packId}_spawned\"] at @s run function {function.namespace}:{function.name}", tickFunction).implement()
+      Statement(f"execute as @e[tag=!{packId}_spawned] at @s run function {function.namespace}:{function.name}", tickFunction).implement()
   
   #The "spawned" tag will be used by some other parts of the generator.
-  Statement(f"tag @e[tag=!\"{packId}_spawned\"] add {packId}_spawned", tickFunction).implement()
+  Statement(f"tag @e[tag=!{packId}_spawned] add {packId}_spawned", tickFunction).implement()
 
   print('Adding "datapack loaded/unloaded" notification')
-  initFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
+  Statement(f"execute store result score {packId} {packId}_t run data get storage {packId} isCompatible", initFunction).implement()
+  initFunction.append(f'execute if score {packId} {packId}_t matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
+  Comment("Uninstall the pack if it is incompatible", initFunction).implement()
+  Statement(f"execute if score {packId} {packId}_t matches 0 run function {uninstallFunction.name}", initFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
 
   os.makedirs(f".saved/data", exist_ok = True)
