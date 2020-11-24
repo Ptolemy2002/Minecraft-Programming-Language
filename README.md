@@ -3,6 +3,7 @@
 # Minecraft-Programming-Language
 
 **This is not a compiler. The generator assumes that your code is valid before you run it. Doing something obviously wrong (like mispelling a function name) will trigger a python error, but minor mistakes will not be caught.**
+
 This is a project that, when finished, will allow for the creation of data packs and data pack tags through a simple programming language syntax that resembles object oriented languages such as Java. This is intended to be much more powerful and user friendly than typing a series of commands like you do in regular development. Here are the planned features (checked features are implemented, while unchecked are works in progress):
 
  - [x] [Basic Use](#how-to-use)
