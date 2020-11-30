@@ -14,6 +14,8 @@ entity float<2> f = 0.53f;
 #Use tags for entity arrays
 global entity[] enemies = [@e[type=zombie], someones_username];
 
+require fake_pack;
+
 "\"escaped string\" <--this should be part of that";
 "#this is not a comment.";
 single-line {this is a single-line statement};

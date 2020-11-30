@@ -238,9 +238,10 @@ preinitFunction = Function(packId, "internal/preload", "It is necessary to delay
 initFunction = Function(packId, "internal/load", "This function is run when the datapack is loaded.", 0)
 uninstallFunction = Function(packId, "uninstall", "Can be called to remove the pack and any trace it was ever installed", 0)
 tickFunction = Function(packId, "internal/tick", "This function is run every tick after this datapack is loaded.", 0)
-customFunctions = {}
+customFunctions = {"exists": Function(packId, "exists", "If you can successfully run this function, the pack exists.", 0)}
 listeners = {}
 externalFunctions = []
+requiredPacks = []
 internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
 playerPreference = "both"
@@ -249,6 +250,7 @@ def generateCode(code, function, path, file):
   global listeners
   global externalFunctions
   global customFunctions
+  global requiredPacks
   global packId
 
   if function == None:
@@ -305,7 +307,11 @@ def generateCode(code, function, path, file):
               print(f'Defining variable "{name}"')
               Variable(packId, name, modifier, t, value, desc, True)
             else:
-              pass
+              match  = re.match(r'require\s+(?P<namespace>[a-z_]+)', line)
+              if match != None:
+                requiredPacks.append(match.group("namespace"))
+              else:
+                pass
   else:
     #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
     pass
@@ -319,6 +325,7 @@ def main():
   global variables
   global playerPreference
   global packShort
+  global requiredPacks
 
   print("Start")
 
@@ -372,7 +379,7 @@ def main():
     Statement(f"execute as @a run scoreboard players add {packId} {packShort}_temp 1", initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":" is only compatible with singleplayer.\\nDisabling the pack to avoid unexpected behavior.\\nUse "}},{{"text":"/datapack enable \\"file/{packName}\\"","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"Click to copy this command to the chat bar."}}]}},"clickEvent":{{"action":"suggest_command","value":"/datapack enable \\"file/{packName}\\""}}}},{{"text":" To reenable."}}]', initFunction).implement()
     Statement(f'execute if score {packId} {packShort}_temp matches 2.. run datapack disable "file/{packName}"', initFunction).implement()
-    Statement(f'execute store success storage {packShort} isCompatible int 1 if score {packId} {packShort}_temp matches ..1', initFunction).implement()
+    Statement(f'execute store success storage {packId} isCompatible int 1 if score {packId} {packShort}_temp matches ..1', initFunction).implement()
   elif playerPreference == "multi":
     Statement("", initFunction).implement()
     Comment("Ensure the game is run in multiplayer", initFunction).implement()
@@ -399,6 +406,16 @@ def main():
         with open(path) as data:
           print("Converting to data pack form")
           generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+
+  print("Requiring packs...")
+  if len(requiredPacks) > 0:
+    Comment("Ensure all required packs are installed.", initFunction).implement()
+    for pack in requiredPacks:
+      Statement(f"execute if data storage {packId} {{isCompatible:1}} store success score {packId} {packShort}_temp run function {pack}:exists", initFunction).implement()
+      Statement(f'execute if score {packId} {packShort}_temp matches 0 run tellraw @a {{"text":"The required pack \"{pack}\" was not detected to exist.\\n Disabling to avoid unexpected behavior.","color":"red"}}', initFunction).implement()
+      Statement(f'execute if score {packId} {packShort}_temp matches 0 run datapack disable "file/{packName}"', initFunction).implement()
+      Statement(f'execute store success storage {packId} isCompatible int 1 if score {packId} {packShort}_temp matches 1', initFunction).implement()
+      Statement("", initFunction).implement()
 
   print("Setting up listener calls")
   for key in listeners:
@@ -463,10 +480,9 @@ def main():
   #Add a new line to the function
   Statement("", initFunction).implement()
   Comment("Uninstall if incompatible", initFunction).implement()
-  Statement(f"execute store result score {packId} {packShort}_temp run data get storage {packId} isCompatible", initFunction).implement()
-  initFunction.append(f'execute if score {packId} {packShort}_temp matches 1 run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
+  initFunction.append(f'execute if data storage {packId} {{isCompatible:1}} run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]')
   Comment("Uninstall the pack if it is incompatible", initFunction).implement()
-  Statement(f"execute if score {packId} {packShort}_temp matches 0 run function {packId}:{uninstallFunction.name}", initFunction).implement()
+  Statement(f"execute if data storage {packId} {{isCompatible:0}} run function {packId}:{uninstallFunction.name}", initFunction).implement()
   #Add a new line to the function
   Statement("", uninstallFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
