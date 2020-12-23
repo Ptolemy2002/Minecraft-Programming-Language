@@ -1,0 +1,5 @@
+This file will be copied directly into the target datapack. All files will, except python.
+
+You can use it to add regular datapack assets or miscellaneous files to the pack.
+
+Empty directories will not be copied over.

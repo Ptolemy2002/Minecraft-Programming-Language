@@ -398,14 +398,24 @@ def main():
 
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
-    dirs[:] = [d for d in dirs if not d[0] == "."]
+    dirs[:] = [d for d in dirs if not d[0] == "." and not d == "__pycache__"]
     for file in files:
-      if file.endswith(".mcscript") and not file == "main.mcscript":
+      if not file == "main.mcscript":
         path = os.path.relpath(os.path.join(subdir, file))
-        print(f"found file \"{path}\"")
-        with open(path) as data:
-          print("Converting to data pack form")
-          generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+        if file.endswith(".mcscript"):
+          print(f"found file \"{path}\"")
+          with open(path) as data:
+            print("Converting to data pack form")
+            generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+        elif not file.endswith(".mctag") and not file.endswith(".py") and not path == "README.md":
+          print(f"found file \"{path}\"")
+          print("copying it to the datapack...")
+          if os.path.relpath(subdir)[0] =="#":
+            os.makedirs(f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}", exist_ok=True)
+            shutil.copyfile(path, f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}/{file}")
+          else:
+            os.makedirs(f".generated/packs/{packName}/{os.path.relpath(subdir)}", exist_ok=True)
+            shutil.copyfile(path, f".generated/packs/{packName}/{path}")
 
   print("Requiring packs...")
   if len(requiredPacks) > 0:
