@@ -410,6 +410,7 @@ def main():
         elif not file.endswith(".mctag") and not file.endswith(".py") and not path == "README.md":
           print(f"found file \"{path}\"")
           print("copying it to the datapack...")
+          
           if os.path.relpath(subdir)[0] =="#":
             os.makedirs(f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}/{file}")
