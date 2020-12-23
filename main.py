@@ -293,7 +293,7 @@ def generateCode(code, function, path, file):
           customFunctions[function.name] = function
           generateCode(statements, function, function.path, function.name)
         else:
-          match  = re.match(r'def (?P<namespace>[a-z_\/]+):(?P<name>[a-z_]+)', line)
+          match  = re.match(r'def (?P<namespace>[a-z_]+):(?P<name>[a-z_\/]+)', line)
           if match != None:
             externalFunctions.append(Function(match.group("namespace"), match.group("name"), "", 0))
           else:

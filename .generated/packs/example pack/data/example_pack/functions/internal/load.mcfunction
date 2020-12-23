@@ -15,12 +15,6 @@ execute store success storage example_pack isCompatible int 1 if score example_p
 
 
 
-#Ensure all required packs are installed.
-execute if data storage example_pack {isCompatible:1} store success score example_pack ep_temp run function fake_pack:exists
-execute if score example_pack ep_temp matches 0 run tellraw @a {"text":"The required pack "fake_pack" was not detected to exist.\n Disabling to avoid unexpected behavior.","color":"red"}
-execute if score example_pack ep_temp matches 0 run datapack disable "file/example pack"
-execute store success storage example_pack isCompatible int 1 if score example_pack ep_temp matches 1
-
 #Used for listener used:carrot_on_a_stick
 scoreboard objectives add used_c_stick used:carrot_on_a_stick
 

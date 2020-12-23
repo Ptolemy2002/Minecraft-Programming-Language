@@ -1,5 +1,5 @@
 pack-info: "example pack" "example_pack" "ep" "Example pack used for debugging" true single; #Partial comment
-def hp:update;
+#def hp:update;
 
 #This will set up a simple scoreboard objective.
 entity int score = 0;
@@ -14,7 +14,7 @@ entity float<2> f = 0.53f;
 #Use tags for entity arrays
 global entity[] enemies = [@e[type=zombie], someones_username];
 
-require fake_pack;
+#require fake_pack;
 
 "\"escaped string\" <--this should be part of that";
 "#this is not a comment.";
