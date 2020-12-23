@@ -1,5 +1,6 @@
 
 
+
 # Minecraft-Programming-Language
 
 **This is not a compiler. The generator assumes that your code is valid before you run it. Doing something obviously wrong (like mispelling a function name) will trigger a python error, but minor mistakes will not be caught.**
@@ -30,9 +31,14 @@ This is a project that, when finished, will allow for the creation of data packs
 			 - [x] [default tags](#default-block-tags)
 		 - [x] [items](#item-data)
 			 - [x] [default tags](#default-item-tags)
+ - [x] Data pack Development
+	 - [x] Require either single or multiplayer
+	 - [x] Require another pack
+	 - [x] Copy miscellaneous files into the pack
+	 - [x] Load another pack as a library
 
 # How To Use
-Download both "main.py" and "tags.py" and put them in your chosen project root directory. Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). Copy the ".saved" directory into your root (you can delete any file that doesn't begin with "minecraft" in ".saved/tags") In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
+Download both "main.py" and "tags.py" and put them in your chosen project root directory. Copy the "#lib" directory to your root (contains necessary library files). Create a directory called "tags" (where your tags go) and create your files (files can be present in any subdirectory that does not have "." at the beginning of it). Copy the ".saved" directory into your root (you can delete any file that doesn't begin with "minecraft" in ".saved/tags") In your "main.mcscript" file (create one if you don't have it; must be in root directory), add the following line to specify your pack details:
 
     pack-info: "[Pack name]" "[Pack ID (used for namespace)]" "[Pack short (used for score)]" "[Pack description]" [Use snapshots (true or false)] [Player Preference (single, multi, or both)];
 
