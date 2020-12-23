@@ -3,3 +3,4 @@ scoreboard objectives remove ep_temp
 scoreboard objectives remove used_c_stick
 
 tellraw @a [{"text":"The pack "},{"text":"\"example pack\" ","color":"green","hoverEvent":{"action":"show_text","contents":[{"text":"example_pack - ep\nExample pack used for debugging"}]}},{"text":"has been sucessfully unloaded."}]
+datapack disable "file/example pack"

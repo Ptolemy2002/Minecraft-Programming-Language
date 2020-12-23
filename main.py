@@ -497,6 +497,7 @@ def main():
   #Add a new line to the function
   Statement("", uninstallFunction).implement()
   uninstallFunction.append(f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]')
+  Statement(f'datapack disable "file/{packName}"', uninstallFunction).implement()
   Statement("", initFunction).implement()
   Comment("Start the tick function", initFunction).implement()
   Statement(f"execute if score {packId} {packShort}_temp matches 1 run function {packId}:{tickFunction.name}", initFunction).implement()
