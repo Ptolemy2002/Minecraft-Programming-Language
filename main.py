@@ -126,14 +126,19 @@ Return a list of elements separated by {separator} in {string}, grouping using t
 def words(separator, string, ignoreChars, separatorInclusive, ignoreCharInclusive):
   result = [""]
   ignoreInds = ignoreIndexes(string, ignoreChars, True)
+  skip = 0
 
   for i in range(0, len(string)):
-    if (not inAny(i, ignoreInds)) and string[i] == separator:
-      if separatorInclusive:
+    if skip > 0:
+      skip -= 1
+    else:
+      if (not inAny(i, ignoreInds)) and segment(separator, i, string):
+        if separatorInclusive:
+          result[-1] += separator
+        result.append("")
+        skip = len(separator) - 1
+      elif ignoreCharInclusive or not (i >= 2 and inAny(string[i], ignoreChars) and not (string[i - 1] == "\\" and not string[i - 2] == "\\")):
         result[-1] += string[i]
-      result.append("")
-    elif ignoreCharInclusive or not (i >= 2 and inAny(string[i], ignoreChars) and not (string[i - 1] == "\\" and not string[i - 2] == "\\")):
-      result[-1] += string[i]
 
   if result[-1] == "":
     result = result[:len(result) - 1]
@@ -218,14 +223,17 @@ class Function:
     self.code = []
     self.listenerId = None
     self.scoreId = None
-    Comment(desc, self).implement()
+
+    if desc != None:
+      Comment(desc, self).implement()
   
   def append(self, value):
     self.code.append(value)
   
   def implement(self, filePath):
-    with open(filePath, "w+") as file:
-      file.write("\n".join(self.code))
+    if len(self.code) > 0:
+      with open(filePath, "w+") as file:
+        file.write("\n".join(self.code))
 
 packName = "Generated Data Pack"
 packId = "generated_data_pack"
