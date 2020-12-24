@@ -167,6 +167,10 @@ class Comment(Statement):
   def implement(self):
     self.parentFunction.append("#" + self.text)
 
+class LiteralCommand(Statement):
+  def implement(self):
+    self.parentFunction.append(self.text[1:])
+
 class Variable:
   def __init__(self, namespace, name, modifier, t, value, desc, define):
     value = value.strip()
@@ -222,6 +226,7 @@ class DefineVariable(Statement):
     text = ""
     super().__init__(text, parentFunction)
 
+
 class Function:
   def __init__(self, namespace, name, desc, priority):
     self.name = name
@@ -274,6 +279,7 @@ def generateCode(code, function, path, file):
   if function == None:
     #Top-level statements: Variables and function declarations
     for line in code:
+      #Listener definition
       match = re.match(r'(priority\=(?P<priority>[+-]?\d+)\s+)?(id="(?P<id>[^\"]+)"\s+)?on\s+(?P<name>[a-z_0-9\.\:]+)', line)
       if match != None:
         name = match.group("name").replace(":", "_")
@@ -295,11 +301,11 @@ def generateCode(code, function, path, file):
           function.scoreId = id
 
         statements = words(";", groups(line, [["{", "}"], ['"', '"', True]], False, requiredPair=["{", "}"])[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
-        print(statements)
         customFunctions[function.name] = function
         listeners[name].append(function)
         generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
       else:
+        #Function definition
         match = re.match(r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)', line)
         if match != None:
           name = match.group("name")
@@ -313,10 +319,12 @@ def generateCode(code, function, path, file):
           customFunctions[function.name] = function
           generateCode(statements, function, function.path, function.name)
         else:
+          #External function definition
           match  = re.match(r'def (?P<namespace>[a-z_]+):(?P<name>[a-z_\/]+)', line)
           if match != None:
             externalFunctions.append(Function(match.group("namespace"), match.group("name"), "", 0))
           else:
+            #Variable definition
             match = re.match(r'(?P<modifier>global|entity|constant)\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<type>(?:entity|int|float|string|bool)(?:\<\d+\>)?(?:\[\])?)\s+(?P<name>[a-zA-Z_]+)(\s*\=\s*(?P<value>.+))?', line)
             if match != None:
               modifier = match.group("modifier")
@@ -327,6 +335,7 @@ def generateCode(code, function, path, file):
               print(f'Defining variable "{name}"')
               Variable(packId, name, modifier, t, value, desc, True)
             else:
+              #Required pack definition
               match  = re.match(r'require\s+(?P<namespace>[a-z_]+)', line)
               if match != None:
                 requiredPacks.append(match.group("namespace"))
@@ -335,8 +344,9 @@ def generateCode(code, function, path, file):
   else:
     #Lower level satements - Instructions
     for line in code:
+      #Literal command
       if line[0] =="/":
-        Statement(line[1:], function).implement()
+        LiteralCommand(line, function).implement()
       else:
         pass
 
