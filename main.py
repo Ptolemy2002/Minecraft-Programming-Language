@@ -3,6 +3,7 @@ import json
 import tags
 import shutil
 import re
+import sys
 #import convert
 
 """
@@ -445,12 +446,20 @@ def main():
           print(f"found file \"{path}\"")
           print("copying it to the datapack...")
           
-          if os.path.relpath(subdir)[0] =="#":
-            os.makedirs(f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}", exist_ok=True)
-            shutil.copyfile(path, f".generated/packs/{packName}/data/{os.path.relpath(subdir)[1:]}/{file}")
+          if path[0] == "#":
+            pathList = []
+            if sys.platform == "win32":
+              pathList = path.split("\\")[:-1]
+            else:
+              pathList = path.split("/")[:-1]
+            pathList[0] = pathList[0][1:]
+            if len(pathList) > 1:
+              pathList[0], pathList[1] = pathList[1], pathList[0]
+            os.makedirs(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}", exist_ok=True)
+            shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}")
           else:
-            os.makedirs(f".generated/packs/{packName}/{os.path.relpath(subdir)}", exist_ok=True)
-            shutil.copyfile(path, f".generated/packs/{packName}/{path}")
+            os.makedirs(f".generated/packs/{packName}/data/{packId}/{os.path.relpath(subdir)}", exist_ok=True)
+            shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{path}")
 
   print("Requiring packs...")
   if len(requiredPacks) > 0:
