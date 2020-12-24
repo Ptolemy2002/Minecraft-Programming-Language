@@ -80,11 +80,21 @@ def ignoreIndexes(string, ignoreChars, inclusive):
 """
 Get the strings associated with a specific call of ignoreIndexes
 """
-def groups(string, ignoreChars, inclusive):
+def groups(string, ignoreChars, inclusive, requiredPair=None):
   result = []
-  indexes = ignoreIndexes(string, ignoreChars, inclusive)
+  indexes = ignoreIndexes(string, ignoreChars, True)
   for r in indexes:
     result.append(string[r[0]:r[-1] + 1])
+
+  if requiredPair != None:
+    for s in result:
+      if not (s[0] == requiredPair[0] and s[-1] == requiredPair[-1]):
+        result.remove(s)
+
+  if not inclusive:
+    for i in range(0, len(result)):
+      result[i] = result[i][1:-1]
+
   return result
 
 """
@@ -283,7 +293,9 @@ def generateCode(code, function, path, file):
         function.scoreId = name
         if id != None:
           function.scoreId = id
-        statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
+
+        statements = words(";", groups(line, [["{", "}"], ['"', '"', True]], False, requiredPair=["{", "}"])[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
+        print(statements)
         customFunctions[function.name] = function
         listeners[name].append(function)
         generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
@@ -321,8 +333,12 @@ def generateCode(code, function, path, file):
               else:
                 pass
   else:
-    #TODO: Convert each line of code to an instance of Statement or Variable that can then be converted to datapack form.
-    pass
+    #Lower level satements - Instructions
+    for line in code:
+      if line[0] =="/":
+        Statement(line[1:], function).implement()
+      else:
+        pass
 
 def main():
   global packId
