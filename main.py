@@ -183,7 +183,8 @@ class CallFunction(LiteralCommand):
 
 class Variable:
   def __init__(self, namespace, name, modifier, t, value, desc, define):
-    value = value.strip()
+    if value != None:
+      value = value.strip()
 
     self.namespace = namespace
     self.modifier = modifier
@@ -230,10 +231,23 @@ class Variable:
 
 class DefineVariable(Statement):
   def __init__(self, variable, parentFunction):
+    text = ""
     if variable.desc != None:
       Comment(variable.desc, parentFunction).implement()
+    if variable.value != None:
+      if variable.modifier == "constant":
+        if not "entity" in variable.type:
+          stringForm = f'"{variable.value}"'
+          text = f'data modify storage {packId} constants.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
+        else:
+          text = f"tag {variable.value} add {packId}_{variable.name}"
+      elif variable.modifier == "global":
+        if not "entity" in variable.type:
+          stringForm = f'"{variable.value}"'
+          text = f'data modify storage {packId} vars.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
+    else:
+      text = f"#The {variable.modifier} variable \"{variable.name}\" is defined, but has no initializing value."
 
-    text = ""
     super().__init__(text, parentFunction)
 
 

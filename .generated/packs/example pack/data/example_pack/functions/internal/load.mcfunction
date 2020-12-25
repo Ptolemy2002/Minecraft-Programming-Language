@@ -9,12 +9,15 @@ execute if score example_pack ep_temp matches 2.. run datapack disable "file/exa
 execute store success storage example_pack isCompatible int 1 if score example_pack ep_temp matches ..1
 
 
-
-
+data modify storage example_pack vars.x set value 1
+data modify storage example_pack constants.y set value 3
+data modify storage example_pack constants.s set value "hello"
 #variable description
+data modify storage example_pack vars.str set value "Hi"
 
+data modify storage example_pack constants.fl set value 0.5
 
-
+#The global variable "e" is defined, but has no initializing value.
 #Used for listener used:carrot_on_a_stick
 scoreboard objectives add used_c_stick used:carrot_on_a_stick
 

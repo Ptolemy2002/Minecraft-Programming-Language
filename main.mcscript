@@ -7,12 +7,17 @@ entity int score = 0;
 global int x = 1;
 #All references to y will be replaced by a literal for the value in the datapack.
 constant int y = 3;
+#Literal string
+constant string s = "hello";
 #Variables that are not of type "int" will be stored as nbt.
 global desc="variable description" string str = "Hi";
 #Decimal precision specified in the diamond
 entity float<2> f = 0.53f;
+#Different Precision
+constant float<1> fl = 0.5f;
 #Use tags for entity arrays
 global entity[] enemies = [@e[type=zombie], someones_username];
+global entity e;
 
 #require fake_pack;
 
