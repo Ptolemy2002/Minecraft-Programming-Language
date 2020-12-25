@@ -177,6 +177,10 @@ class LiteralCommand(Statement):
     else:
       self.parentFunction.append(self.text)
 
+class CallFunction(LiteralCommand):
+  def __init__(self, functionName, parentFunction):
+    super().__init__("/function " + functionName, parentFunction)
+
 class Variable:
   def __init__(self, namespace, name, modifier, t, value, desc, define):
     value = value.strip()
@@ -275,7 +279,7 @@ internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
 playerPreference = "both"
 
-def generateCode(code, function, path, file):
+def generateCode(code, function, path, file, parentScript):
   global listeners
   global externalFunctions
   global customFunctions
@@ -309,7 +313,7 @@ def generateCode(code, function, path, file):
         statements = words(";", groups(line, [["{", "}"], ['"', '"', True]], False, requiredPair=["{", "}"])[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
         customFunctions[function.name] = function
         listeners[name].append(function)
-        generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript")
+        generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript", parentScript)
       else:
         #Function definition
         match = re.match(r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)', line)
@@ -323,7 +327,7 @@ def generateCode(code, function, path, file):
             function = Function(packId, f"{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}", desc, 0)
           statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
           customFunctions[function.name] = function
-          generateCode(statements, function, function.path, function.name)
+          generateCode(statements, function, function.path, function.name, parentScript)
         else:
           #External function definition
           match  = re.match(r'def (?P<namespace>[a-z_]+):(?P<name>[a-z_\/]+)', line)
@@ -359,7 +363,22 @@ def generateCode(code, function, path, file):
           message = groups(match.group("message"), [['"', '"', True]], False)[0]
           Comment(message, function).implement()
         else:
-          pass 
+          match = re.match(r'(?P<function>[a-z_0-9\.]+(:)?[a-z_0-9\.]+)(?<!\.)\(\)', line)
+          if match != None:
+            f = match.group("function")
+            functionList = f.split(":")
+            if len(functionList) < 2:
+              functionList = f.split(".")
+              if len(functionList) == 1:
+                CallFunction(f"{packId}:{parentScript}/{functionList[0]}", function).implement()
+              else:
+                CallFunction(f"{packId}:{'/'.join(functionList)}", function).implement()
+            else:
+              namespace = functionList[0]
+              functionList = functionList[1].split(".")
+              CallFunction(f"{namespace}:{'/'.join(functionList)}", function).implement()
+          else:
+            pass
 
 def main():
   global packId
@@ -437,9 +456,9 @@ def main():
   Statement("", initFunction).implement()
 
   if defaultPackInfo:
-    generateCode(mainCode[1:], None, "", "main.mcscript")
+    generateCode(mainCode[1:], None, "", "main.mcscript", "main")
   else:
-    generateCode(mainCode, None, "", "main.mcscript")
+    generateCode(mainCode, None, "", "main.mcscript", "main")
 
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
@@ -451,7 +470,7 @@ def main():
           print(f"found file \"{path}\"")
           with open(path) as data:
             print("Converting to data pack form")
-            generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file)
+            generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file, file.split(".")[:-1])
         elif not file.endswith(".mctag") and not file.endswith(".py") and not path == "README.md":
           print(f"found file \"{path}\"")
           print("copying it to the datapack...")

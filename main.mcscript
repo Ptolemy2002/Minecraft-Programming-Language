@@ -22,6 +22,11 @@ single-line {this is a single-line statement};
 
 #Run when the data pack is loaded or reloaded
 on load {
+  #Try calling the same function in different ways
+  go();
+  main.go();
+  example_pack:main.go();
+
   #Insert a literal command into the datapack
   /say "example pack loaded!}";
 };
