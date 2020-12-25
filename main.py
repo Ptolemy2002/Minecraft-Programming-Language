@@ -50,7 +50,6 @@ def ignoreIndexes(string, ignoreChars, inclusive):
       continue
     
     c = string[i]
-
     if not ignore:
       for l in ignoreChars:
         if c == l[0] and not inAny(i, altInds):
@@ -89,7 +88,7 @@ def groups(string, ignoreChars, inclusive, requiredPair=None):
 
   if requiredPair != None:
     for s in result:
-      if not (s[0] == requiredPair[0] and s[-1] == requiredPair[-1]):
+      if not (s[0] == requiredPair[0] and s[-1] == requiredPair[1]):
         result.remove(s)
 
   if not inclusive:
@@ -166,11 +165,17 @@ class Statement:
 
 class Comment(Statement):
   def implement(self):
-    self.parentFunction.append("#" + self.text)
+    if self.text[0] == "#":
+      self.parentFunction.append(self.text)
+    else:
+      self.parentFunction.append("#" + self.text)
 
 class LiteralCommand(Statement):
   def implement(self):
-    self.parentFunction.append(self.text[1:])
+    if self.text[0] == "/":
+      self.parentFunction.append(self.text[1:])
+    else:
+      self.parentFunction.append(self.text)
 
 class Variable:
   def __init__(self, namespace, name, modifier, t, value, desc, define):
@@ -349,7 +354,12 @@ def generateCode(code, function, path, file):
       if line[0] =="/":
         LiteralCommand(line, function).implement()
       else:
-        pass
+        match = re.match(r'comment((?P<message>.+))(\)$)', line)
+        if match != None:
+          message = groups(match.group("message"), [['"', '"', True]], False)[0]
+          Comment(message, function).implement()
+        else:
+          pass 
 
 def main():
   global packId

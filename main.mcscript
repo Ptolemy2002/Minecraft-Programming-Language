@@ -36,7 +36,7 @@ priority=-1 on tick {
   };
   
   #will execute if the literal command succeeds
-  if (/literal command) {
+  if (/literal command;) {
       /say "test passed";
       str = "hello";
   };
