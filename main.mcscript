@@ -16,8 +16,8 @@ entity float<2> f = 0.53f;
 #Different Precision
 constant float<1> fl = 0.5f;
 #Use tags for entity arrays
-global entity[] enemies = [@e[type=zombie], someones_username];
-global entity e;
+constant  entity[] enemies = [@e[type=zombie], someones_username];
+constant entity e = @e[sort=nearest];
 
 #require fake_pack;
 

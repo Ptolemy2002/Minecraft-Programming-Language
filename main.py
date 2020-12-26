@@ -233,8 +233,9 @@ class Variable:
       elif self.type == "string":
         self.value = groups(self.value, [['"', '"', True], ["'", "'", True]], False)[0]
       elif "[]" in self.type:
+        print(f"\t{value}")
         self.value = []
-        for item in value[1:-1].split(","):
+        for item in words(",", value[1:-1], [['"', '"', True], ["'", "'", True], ["{", "}"], ["[", "]"], ["(", ")"]], False, True):
           item = item.strip()
           if "int" in self.type:
             self.value.append(int(item))
@@ -243,7 +244,7 @@ class Variable:
           elif "string" in self.type:
             self.value.append(groups(item, [['"', '"', True], ["'", "'", True]], False)[0])
           else:
-            self.value.append(value)
+            self.value.append(item)
 
     variables[self.name] = self
     if define:
@@ -254,17 +255,58 @@ class DefineVariable(Statement):
     text = ""
     if variable.desc != None:
       Comment(variable.desc, parentFunction).implement()
+
     if variable.value != None:
       if variable.modifier == "constant":
         if not "entity" in variable.type:
           stringForm = f'"{variable.value}"'
           text = f'data modify storage {packId} constants.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
-        else:
+        elif variable.type == "entity[]":
+          if len(variable.value) > 0:
+            text = f'#variable "{variable.name}" Initialization index 0'
+            text += f"\ntag {variable.value[0]} add in_{packId}_{variable.name}"
+            if len(variable.value) > 1:
+              index = 1
+              for i in variable.value[1:]:
+                text += f"\n#variable \"{variable.name}\" Initialization index {index}\ntag {i} add in_{packId}_{variable.name}"
+                index += 1
+        elif variable.type == "entity":
+          #Ensure the limit is 1
+          args = groups(variable.value, [["[", "]"]], False)
+          if len(args) > 0:
+            args = args[0]
+            argList = words(",", args, [['"', '"', True], ["'", "'", True], ["(", ")"], ["{", "}"], ["[", "]"]], False, True)
+            if not "limit=1" in argList:
+              variable.value = variable.value.replace(args, args + ",limit=1")
+          elif variable.value[0] == "@":
+            variable.value += "[limit=1]"
+          
           text = f"tag {variable.value} add {packId}_{variable.name}"
       elif variable.modifier == "global":
         if not "entity" in variable.type:
           stringForm = f'"{variable.value}"'
           text = f'data modify storage {packId} vars.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
+        elif variable.type == "entity[]":
+          if len(variable.value) > 0:
+            text = f'#variable "{variable.name}" Initialization index 0'
+            text += f"\ntag {variable.value[0]} add in_{packId}_{variable.name}"
+            if len(variable.value) > 1:
+              index = 1
+              for i in variable.value[1:]:
+                text += f"\n#variable \"{variable.name}\" Initialization index {index}\ntag {i} add in_{packId}_{variable.name}"
+                index += 1
+        elif variable.type == "entity":
+          #Ensure the limit is 1
+          args = groups(variable.value, [["[", "]"]], False)
+          if len(args) > 0:
+            args = args[0]
+            argList = words(",", args, [['"', '"', True], ["'", "'", True], ["(", ")"], ["{", "}"], ["[", "]"]], False, True)
+            if not "limit=1" in argList:
+              variable.value = variable.value.replace(args, args + ",limit=1")
+          elif variable.value[0] == "@":
+            variable.value += "[limit=1]"
+          
+          text = f"tag {variable.value} add {packId}_{variable.name}"
     else:
       text = f"#The {variable.modifier} variable \"{variable.name}\" is defined, but has no initializing value."
 

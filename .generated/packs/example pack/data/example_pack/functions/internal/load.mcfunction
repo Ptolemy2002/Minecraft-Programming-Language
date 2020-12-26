@@ -16,8 +16,11 @@ data modify storage example_pack constants.s set value "hello"
 data modify storage example_pack vars.str set value "Hi"
 
 data modify storage example_pack constants.fl set value 0.5
-
-#The global variable "e" is defined, but has no initializing value.
+#variable "enemies" Initialization index 0
+tag @e[type=zombie] add in_example_pack_enemies
+#variable "enemies" Initialization index 1
+tag someones_username add in_example_pack_enemies
+tag @e[sort=nearest,limit=1] add example_pack_e
 #Used for listener used:carrot_on_a_stick
 scoreboard objectives add used_c_stick used:carrot_on_a_stick
 
