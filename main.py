@@ -494,6 +494,8 @@ def main():
   else:
     generateCode(mainCode, None, "", "main.mcscript", "main")
 
+  libraryFiles = []
+  libraryNamespaces = []
   print("looking for other files")
   for subdir, dirs, files in os.walk(os.getcwd()):
     dirs[:] = [d for d in dirs if not d[0] == "." and not d == "__pycache__"]
@@ -518,15 +520,22 @@ def main():
               pathList = path.split("/")[:-1]
             pathList[0] = pathList[0][1:]
             name = pathList[0]
+            if not name in libraryNamespaces:
+              libraryNamespaces.append(name)
             if len(pathList) > 1:
               pathList[0], pathList[1] = pathList[1], pathList[0]
             os.makedirs(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}")
-            print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
-            update_namespace(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}", f"{name}:", f"{packId}:{name}/")
+            if not f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}" in libraryFiles:
+              libraryFiles.append(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}")
           else:
             os.makedirs(f".generated/packs/{packName}/data/{packId}/{os.path.relpath(subdir)}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{path}")
+
+  for name in libraryNamespaces:
+    print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
+    for path in libraryFiles:
+      update_namespace(path, f"{name}:", f"{packId}:{name}/")
 
   print("Requiring packs")
   if len(requiredPacks) > 0:
