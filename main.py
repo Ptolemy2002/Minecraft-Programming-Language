@@ -6,6 +6,26 @@ import re
 import sys
 #import convert
 
+def update_namespace(file_path, pattern, subst):
+  from tempfile import mkstemp
+  from shutil import move, copymode
+  from os import fdopen, remove
+  #Create temp file
+  fh, abs_path = mkstemp()
+  with fdopen(fh,'w') as new_file:
+      with open(file_path) as old_file:
+          for line in old_file:
+            if not line.strip()[0] == "#":
+              new_file.write(line.replace(pattern, subst))
+            else:
+              new_file.write(line)
+  #Copy the file permissions from the old file to the new file
+  copymode(file_path, abs_path)
+  #Remove original file
+  remove(file_path)
+  #Move new file
+  move(abs_path, file_path)
+
 """
 Given a list of lists (or ranges) [li], return if [x] is included in any of them
 """
@@ -487,24 +507,28 @@ def main():
             generateCode(words(";", "".join(noComments(data)), [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True), None, "/".join(path.split("/")[:-1]), file, file.split(".")[:-1])
         elif not file.endswith(".mctag") and not file.endswith(".py") and not path == "README.md":
           print(f"found file \"{path}\"")
-          print("copying it to the datapack...")
+          print("copying it to the datapack")
           
           if path[0] == "#":
+            print("copying as library file")
             pathList = []
             if sys.platform == "win32":
               pathList = path.split("\\")[:-1]
             else:
               pathList = path.split("/")[:-1]
             pathList[0] = pathList[0][1:]
+            name = pathList[0]
             if len(pathList) > 1:
               pathList[0], pathList[1] = pathList[1], pathList[0]
             os.makedirs(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}")
+            print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
+            update_namespace(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}", f"{name}:", f"{packId}:{name}/")
           else:
             os.makedirs(f".generated/packs/{packName}/data/{packId}/{os.path.relpath(subdir)}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{path}")
 
-  print("Requiring packs...")
+  print("Requiring packs")
   if len(requiredPacks) > 0:
     Comment("Ensure all required packs are installed.", initFunction).implement()
     for pack in requiredPacks:
@@ -596,8 +620,10 @@ def main():
   with open(".saved/data/functions.csv", "w+") as file:
     data = ["namespace,name",f"{packId},internal/load",f"{packId},internal/preload", f"{packId},internal/tick", f"{packId},uninstall"]
     for i in customFunctions:
+      customFunctions[i].namespace = packId
       print(f"Function \"{customFunctions[i].namespace}:{customFunctions[i].name}\" is defined. Adding it to the data.")
       data.append(f"{customFunctions[i].namespace},{customFunctions[i].name}")
+
     for i in externalFunctions:
       print(f'External function "{i.namespace}:{i.name}" is defined. Adding it to the data.')
       data.append(f"{i.namespace},{i.name}")

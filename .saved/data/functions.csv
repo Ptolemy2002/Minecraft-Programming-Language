@@ -3,7 +3,7 @@ example_pack,internal/load
 example_pack,internal/preload
 example_pack,internal/tick
 example_pack,uninstall
-generated_data_pack,exists
+example_pack,exists
 example_pack,listeners/load/main/load1
 example_pack,listeners/tick/main/tick1
 example_pack,listeners/used_carrot_on_a_stick/main/used_carrot_on_a_stick1
