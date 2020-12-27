@@ -254,7 +254,9 @@ class DefineVariable(Statement):
   def __init__(self, variable, parentFunction):
     text = ""
     if variable.desc != None:
-      Comment(variable.desc, parentFunction).implement()
+      Comment(f'variable "{variable.name}": {variable.desc}', parentFunction).implement()
+    else:
+      Comment(f'variable "{variable.name}"', parentFunction).implement()
 
     if variable.value != None:
       if variable.modifier == "constant":
@@ -557,15 +559,21 @@ def main():
             print("copying as library file")
             pathList = []
             if sys.platform == "win32":
-              pathList = path.split("\\")[:-1]
+              pathList = path.split("\\")
             else:
-              pathList = path.split("/")[:-1]
+              pathList = path.split("/")
+
             pathList[0] = pathList[0][1:]
             name = pathList[0]
             if not name in libraryNamespaces:
               libraryNamespaces.append(name)
-            if len(pathList) > 1:
+            if len(pathList) > 2:
               pathList[0], pathList[1] = pathList[1], pathList[0]
+              p = "/".join(pathList[1:-1]) + "/" + pathList[-1].split(".")[0]
+              if pathList[0] == "functions" and pathList[-1].endswith(".mcfunction"):
+                customFunctions[p] = Function(packId, p, "Imported from a library", 0)
+
+            pathList = pathList[:-1]
             os.makedirs(f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}", exist_ok=True)
             shutil.copyfile(path, f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}")
             if not f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}" in libraryFiles:
