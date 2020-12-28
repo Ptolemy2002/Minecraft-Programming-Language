@@ -3,3 +3,4 @@ function example_pack:main/go
 function example_pack:main/go
 function example_pack:main/go
 say "example pack loaded 3! <f>}"
+say "3<5"

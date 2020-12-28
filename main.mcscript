@@ -34,6 +34,7 @@ on load {
 
   #Insert a literal command into the datapack
   /say "example pack loaded <y>! <<f>>}";
+  /say "3<<5"
 };
 
 #Priority setting to customize the order in which tick functions are called
