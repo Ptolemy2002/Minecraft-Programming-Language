@@ -193,7 +193,7 @@ class Comment(Statement):
 class LiteralCommand(Statement):
   def implement(self):
     global constantVariables
-    for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', self.text):
+    for match in re.finditer(r'(?<=..)(?<![^\\]\\)(<(?P<variable>[a-z0-9_]+)>)', self.text):
       name = match.group("variable")
       print(f'Found variable "{name}" called in command "{self.text}"')
       if name in constantVariables:
@@ -201,9 +201,9 @@ class LiteralCommand(Statement):
           value = constantVariables[name].value
           if constantVariables[name].type == "float":
             value += "f"
-          elif constantVariables[name].type == "string":
-            value = f'"{value}"'
           self.text = f"{self.text[:match.start()]}{value}{self.text[match.end():]}"
+    self.text = re.sub(r'(?<!\\)\\<(?P<variable>[a-z0-9_]+)>', r'<\1>', self.text)
+    self.text = self.text.replace("\\\\", "\\")
 
     if self.text[0] == "/":
       self.parentFunction.append(self.text[1:])
@@ -409,7 +409,7 @@ def generateCode(code, function, path, file, parentScript):
         if id != None:
           function.scoreId = id
 
-        statements = words(";", groups(line, [["{", "}"], ['"', '"', True]], False, requiredPair=["{", "}"])[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
+        statements = words(";", groups(line, [["{", "}"], ['"', '"', True]], False, requiredPair=["{", "}"])[0], [['"', '"', True], ["'", "'", True], ["{", "}"], ["[", "]"]], False, True)
         customFunctions[function.name] = function
         listeners[name].append(function)
         generateCode(statements, function, function.path, f"{name.replace('.', '_')}-{version}.mcscript", parentScript)
@@ -424,7 +424,7 @@ def generateCode(code, function, path, file, parentScript):
             function = Function(packId, f"{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}", f"The function defined with the name '{name}' in the file '{path}/{file}'", 0)
           else:
             function = Function(packId, f"{path}{'/' if path != '' else ''}{'.'.join(file.split('.')[:-1])}/{name.replace('.', '_')}", desc, 0)
-          statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"]], False, True)
+          statements = words(";", groups(line, [["{", "}"]], False)[0], [['"', '"', True], ["'", "'", True], ["{", "}"], ["[", "]"]], False, True)
           customFunctions[function.name] = function
           generateCode(statements, function, function.path, function.name, parentScript)
         else:

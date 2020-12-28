@@ -33,7 +33,7 @@ on load {
   example_pack:main.go();
 
   #Insert a literal command into the datapack
-  /say "example pack loaded <y>!}";
+  /say "example pack loaded <y>! \<f>}";
 };
 
 #Priority setting to customize the order in which tick functions are called
