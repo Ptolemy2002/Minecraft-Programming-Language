@@ -193,7 +193,8 @@ class Comment(Statement):
 class LiteralCommand(Statement):
   def implement(self):
     global constantVariables
-    for match in re.finditer(r'(?<=..)(?<![^\\]\\)(<(?P<variable>[a-z0-9_]+)>)', self.text):
+    self.text = self.text.replace("<<", "${open}").replace(">>", "${close}")
+    for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', self.text):
       name = match.group("variable")
       print(f'Found variable "{name}" called in command "{self.text}"')
       if name in constantVariables:
@@ -202,8 +203,10 @@ class LiteralCommand(Statement):
           if constantVariables[name].type == "float":
             value += "f"
           self.text = f"{self.text[:match.start()]}{value}{self.text[match.end():]}"
-    self.text = re.sub(r'(?<!\\)\\<(?P<variable>[a-z0-9_]+)>', r'<\1>', self.text)
-    self.text = self.text.replace("\\\\", "\\")
+      else:
+        self.text = f"{self.text[:match.start()]}{match.group()}{self.text[match.end():]}"
+
+    self.text = self.text.replace("${open}", "<").replace("${close}", ">")
 
     if self.text[0] == "/":
       self.parentFunction.append(self.text[1:])
