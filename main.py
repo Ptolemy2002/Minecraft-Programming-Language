@@ -186,9 +186,9 @@ class Statement:
 class Comment(Statement):
   def implement(self):
     if self.text[0] == "#":
-      self.parentFunction.append(self.text)
+      self.parentFunction.append(re.sub(r"(?<!\\)\\n", r"\n#", self.text))
     else:
-      self.parentFunction.append("#" + self.text)
+      self.parentFunction.append("#" + re.sub(r"(?<!\\)\\n", r"\n#", self.text))
 
 class LiteralCommand(Statement):
   def implement(self):
@@ -273,7 +273,8 @@ class DefineVariable(Statement):
   def __init__(self, variable, parentFunction):
     text = ""
     if variable.desc != None:
-      Comment(f'variable "{variable.name}": {variable.desc}', parentFunction).implement()
+      newDesc = re.sub(r"(?<!\\)\\n", r"\n#" + (" " * (len(variable.name) + 13)), variable.desc)
+      Comment(f'variable "{variable.name}": {newDesc}', parentFunction).implement()
     else:
       Comment(f'variable "{variable.name}"', parentFunction).implement()
 

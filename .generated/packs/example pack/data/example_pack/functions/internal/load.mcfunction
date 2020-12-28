@@ -17,6 +17,7 @@ data modify storage example_pack constants.y set value 3
 #variable "s"
 data modify storage example_pack constants.s set value "hello"
 #variable "str": variable description
+#                second line
 data modify storage example_pack vars.str set value "Hi"
 #variable "f"
 
