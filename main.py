@@ -192,6 +192,19 @@ class Comment(Statement):
 
 class LiteralCommand(Statement):
   def implement(self):
+    global constantVariables
+    for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', self.text):
+      name = match.group("variable")
+      print(f'Found variable "{name}" called in command "{self.text}"')
+      if name in constantVariables:
+        if not "entity" in constantVariables[name].type:
+          value = constantVariables[name].value
+          if constantVariables[name].type == "float":
+            value += "f"
+          elif constantVariables[name].type == "string":
+            value = f'"{value}"'
+          self.text = f"{self.text[:match.start()]}{value}{self.text[match.end():]}"
+
     if self.text[0] == "/":
       self.parentFunction.append(self.text[1:])
     else:
@@ -203,12 +216,17 @@ class CallFunction(LiteralCommand):
 
 class Variable:
   def __init__(self, namespace, name, modifier, t, value, desc, define):
+    global constantVariables
     if value != None:
       value = value.strip()
 
     self.namespace = namespace
     self.modifier = modifier
     self.type = t
+    self.name = name
+
+    if modifier == "constant":
+      constantVariables[self.name] = self
 
     if segment("float", 0, self.type):
       if "[]" in self.type:
@@ -216,7 +234,6 @@ class Variable:
       else:
         self.type = "float"
       
-    self.name = name
     self.precision = None
     self.value = value
     self.desc = desc
@@ -233,7 +250,6 @@ class Variable:
       elif self.type == "string":
         self.value = groups(self.value, [['"', '"', True], ["'", "'", True]], False)[0]
       elif "[]" in self.type:
-        print(f"\t{value}")
         self.value = []
         for item in words(",", value[1:-1], [['"', '"', True], ["'", "'", True], ["{", "}"], ["[", "]"], ["(", ")"]], False, True):
           item = item.strip()
@@ -263,6 +279,8 @@ class DefineVariable(Statement):
         if not "entity" in variable.type:
           stringForm = f'"{variable.value}"'
           text = f'data modify storage {packId} constants.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
+          if variable.type == "float":
+            text += "f"
         elif variable.type == "entity[]":
           if len(variable.value) > 0:
             text = f'#variable "{variable.name}" Initialization index 0'
@@ -288,6 +306,8 @@ class DefineVariable(Statement):
         if not "entity" in variable.type:
           stringForm = f'"{variable.value}"'
           text = f'data modify storage {packId} vars.{variable.name} set value {variable.value if variable.type != "string" else stringForm}'
+          if variable.type == "float":
+            text += "f"
         elif variable.type == "entity[]":
           if len(variable.value) > 0:
             text = f'#variable "{variable.name}" Initialization index 0'
@@ -355,6 +375,7 @@ externalFunctions = []
 requiredPacks = []
 internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
+constantVariables = {}
 playerPreference = "both"
 
 def generateCode(code, function, path, file, parentScript):

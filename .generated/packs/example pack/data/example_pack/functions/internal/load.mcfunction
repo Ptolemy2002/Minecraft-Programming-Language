@@ -21,7 +21,7 @@ data modify storage example_pack vars.str set value "Hi"
 #variable "f"
 
 #variable "fl"
-data modify storage example_pack constants.fl set value 0.5
+data modify storage example_pack constants.fl set value 0.5f
 #variable "enemies"
 #variable "enemies" Initialization index 0
 tag @e[type=zombie] add in_example_pack_enemies

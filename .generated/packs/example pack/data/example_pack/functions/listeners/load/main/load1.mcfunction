@@ -2,4 +2,4 @@
 function example_pack:main/go
 function example_pack:main/go
 function example_pack:main/go
-say "example pack loaded!}"
+say "example pack loaded 3!}"
