@@ -33,7 +33,7 @@ on load {
   example_pack:main.go();
 
   #Insert a literal command into the datapack
-  /say "example pack loaded <y>! <<f>>}";
+  /say "example pack loaded <y>! <<f>> <no_exist>}";
   /say "3<<5"
 };
 

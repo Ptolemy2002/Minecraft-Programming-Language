@@ -9,7 +9,8 @@ import sys
 def isUnescaped(string, index, escapeChar):
   if index < 0:
     index = len(string) + index
-  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}(?:{escapeChar}{{2}})*))?)({string[index]})"
+  ind = re.escape(string[index])
+  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}(?:{escapeChar}{{2}})*))?)({ind})"
   for match in re.finditer(regex, string[:index + 1]):
     if match.start(1) == index:
       return True
@@ -18,7 +19,8 @@ def isUnescaped(string, index, escapeChar):
 def isEscaped(string, index, escapeChar):
   if index < 0:
     index = len(string) + index
-  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}{{2}})*))({string[index]})"
+  ind = re.escape(string[index])
+  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}{{2}})*))({ind})"
   for match in re.finditer(regex, string[:index + 1]):
     if match.start(1) == index:
       return True
@@ -83,7 +85,7 @@ def ignoreIndexes(string, ignoreChars, inclusive):
   startIndex = -1
 
   for i in range(0,len(string)):
-    if (not ignoreList == None) and len(ignoreList) > 2 and ignoreList[2] == True and i > 0 and (string[i - 1] == "\\" and not string[i - 2] == "\\"):
+    if (not ignoreList == None) and len(ignoreList) > 2 and ignoreList[2] == True and isEscaped(string, i, r"\\"):
       #The character is escaped. Continue as if it wasn't there.
       continue
     
@@ -211,17 +213,19 @@ class Comment(Statement):
 class LiteralCommand(Statement):
   def implement(self):
     global constantVariables
-    for match in re.finditer(r'(?:(?<!<)(?:<(?:<(?:<{2})*))?)(<(?P<variable>[a-z0-9_]+)>)', self.text):
-      name = match.group("variable")
-      print(f'Found variable "{name}" called in command "{self.text}"')
-      if name in constantVariables:
-        if not "entity" in constantVariables[name].type:
-          value = constantVariables[name].value
-          if constantVariables[name].type == "float":
-            value += "f"
-          self.text = f"{self.text[:match.start()]}{value}{self.text[match.end():]}"
-      else:
-        self.text = f"{self.text[:match.start()]}{match.group()}{self.text[match.end():]}"
+    tempText = self.text[:]
+    for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', tempText):
+      if isUnescaped(tempText, match.start(), r"<"):
+        name = match.group("variable")
+        print(f'Found variable "{name}" called in command "{tempText}"')
+        if name in constantVariables:
+          if not "entity" in constantVariables[name].type:
+            value = str(constantVariables[name].value)
+            if constantVariables[name].type == "float":
+              value += "f"
+            self.text = self.text.replace(match.group(), value)
+        else:
+          print("variable does not exist, so value will be left as-is.")
     self.text = self.text.replace("<<", "<").replace(">>", ">")
 
     if self.text[0] == "/":

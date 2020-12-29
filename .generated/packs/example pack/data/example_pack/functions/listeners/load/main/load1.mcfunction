@@ -2,5 +2,5 @@
 function example_pack:main/go
 function example_pack:main/go
 function example_pack:main/go
-say "example pack loaded 3! <f>}"
+say "example pack loaded 3! <f> <no_exist>}"
 say "3<5"
