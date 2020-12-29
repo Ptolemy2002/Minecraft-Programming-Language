@@ -6,6 +6,24 @@ import re
 import sys
 #import convert
 
+def isUnescaped(string, index, escapeChar):
+  if index < 0:
+    index = len(string) + index
+  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}(?:{escapeChar}{{2}})*))?)({string[index]})"
+  for match in re.finditer(regex, string[:index + 1]):
+    if match.start(1) == index:
+      return True
+  return False
+
+def isEscaped(string, index, escapeChar):
+  if index < 0:
+    index = len(string) + index
+  regex = f"(?:(?<!{escapeChar})(?:{escapeChar}(?:{escapeChar}{{2}})*))({string[index]})"
+  for match in re.finditer(regex, string[:index + 1]):
+    if match.start(1) == index:
+      return True
+  return False
+
 def update_namespace(file_path, pattern, subst):
   from tempfile import mkstemp
   from shutil import move, copymode
@@ -186,15 +204,14 @@ class Statement:
 class Comment(Statement):
   def implement(self):
     if self.text[0] == "#":
-      self.parentFunction.append(re.sub(r"(?<!\\)\\n", r"\n#", self.text))
+      self.parentFunction.append(re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)", r"\n#", self.text))
     else:
-      self.parentFunction.append("#" + re.sub(r"(?<!\\)\\n", r"\n#", self.text))
+      self.parentFunction.append("#" + re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)", r"\n#", self.text))
 
 class LiteralCommand(Statement):
   def implement(self):
     global constantVariables
-    self.text = self.text.replace("<<", "${open}").replace(">>", "${close}")
-    for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', self.text):
+    for match in re.finditer(r'(?:(?<!<)(?:<(?:<(?:<{2})*))?)(<(?P<variable>[a-z0-9_]+)>)', self.text):
       name = match.group("variable")
       print(f'Found variable "{name}" called in command "{self.text}"')
       if name in constantVariables:
@@ -205,8 +222,7 @@ class LiteralCommand(Statement):
           self.text = f"{self.text[:match.start()]}{value}{self.text[match.end():]}"
       else:
         self.text = f"{self.text[:match.start()]}{match.group()}{self.text[match.end():]}"
-
-    self.text = self.text.replace("${open}", "<").replace("${close}", ">")
+    self.text = self.text.replace("<<", "<").replace(">>", ">")
 
     if self.text[0] == "/":
       self.parentFunction.append(self.text[1:])
@@ -273,7 +289,7 @@ class DefineVariable(Statement):
   def __init__(self, variable, parentFunction):
     text = ""
     if variable.desc != None:
-      newDesc = re.sub(r"(?<!\\)\\n", r"\n#" + (" " * (len(variable.name) + 13)), variable.desc)
+      newDesc = re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)", r"\n#" + (" " * (len(variable.name) + 13)), variable.desc)
       Comment(f'variable "{variable.name}": {newDesc}', parentFunction).implement()
     else:
       Comment(f'variable "{variable.name}"', parentFunction).implement()
