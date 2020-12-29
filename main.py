@@ -30,7 +30,7 @@ def isEscaped(string, index, escapeChar):
     return False
 
 
-def update_namespace(file_path, pattern, subst):
+def update_namespace(file_path, namespace, name):
     from tempfile import mkstemp
     from shutil import move, copymode
     from os import fdopen, remove
@@ -40,7 +40,12 @@ def update_namespace(file_path, pattern, subst):
         with open(file_path) as old_file:
             for line in old_file:
                 if not line.strip()[0] == "#":
-                    new_file.write(line.replace(pattern, subst))
+                    new_file.write(
+                        line.replace(
+                            f"{name}:", f"{namespace}:{name}/").replace(
+                                f"storage {name}",
+                                f"storage {namespace}_{name}").replace(
+                                    "${namespace}", namespace))
                 else:
                     new_file.write(line)
     #Copy the file permissions from the old file to the new file
@@ -242,10 +247,11 @@ class Comment(Statement):
         if self.text[0] == "#":
             self.parentFunction.append(
                 re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)", r"\n#",
-                       self.text))
+                       self.text.replace("\\\\", "\\")))
         else:
-            self.parentFunction.append("#" + re.sub(
-                r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)", r"\n#", self.text))
+            self.parentFunction.append(
+                "#" + re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)",
+                             r"\n#", self.text.replace("\\\\", "\\")))
 
 
 class LiteralCommand(Statement):
@@ -260,25 +266,26 @@ class LiteralCommand(Statement):
                 print(
                     f'Found variable "{name}" called in command "{self.text}"')
                 if name in constantVariables:
+                    print("filling in the value")
                     if not "entity" in constantVariables[name].type:
                         value = str(constantVariables[name].value)
                         if constantVariables[name].type == "float":
                             value += "f"
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
-                        offset = len(match.group()) - len(value)
+                        offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity[]":
                         obj = {"selector": f"@e[tag=in_{packId}_{name}]"}
                         value = json.dumps(obj)
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
-                        offset = len(match.group()) - len(value)
+                        offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity":
                         obj = {"selector": f"@e[tag={packId}_{name},limit=1]"}
                         value = json.dumps(obj)
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
-                        offset = len(match.group()) - len(value)
+                        offset += len(match.group()) - len(value)
                 else:
                     print(
                         "variable does not exist, so value will be left as-is."
@@ -361,7 +368,7 @@ class DefineVariable(Statement):
         if variable.desc != None:
             newDesc = re.sub(r"(?:(?<!\\)(?:\\(?:\\(?:\\{2})*))?)(\\n)",
                              r"\n#" + (" " * (len(variable.name) + 13)),
-                             variable.desc)
+                             variable.desc.replace("\\\\", "\\"))
             Comment(f'variable "{variable.name}": {newDesc}',
                     parentFunction).implement()
         else:
@@ -823,7 +830,7 @@ def main():
     for name in libraryNamespaces:
         print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
         for path in libraryFiles:
-            update_namespace(path, f"{name}:", f"{packId}:{name}/")
+            update_namespace(path, packId, name)
 
     print("Requiring packs")
     if len(requiredPacks) > 0:
