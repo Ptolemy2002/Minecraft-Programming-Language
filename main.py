@@ -45,7 +45,9 @@ def update_namespace(file_path, namespace, name):
                             f"{name}:", f"{namespace}:{name}/").replace(
                                 f"storage {name}",
                                 f"storage {namespace}_{name}").replace(
-                                    "${namespace}", namespace))
+                                    f'"storage":"{name}"',
+                                    f'"storage":"{namespace}_{name}"').replace(
+                                        "${namespace}", namespace))
                 else:
                     new_file.write(line)
     #Copy the file permissions from the old file to the new file
@@ -88,11 +90,12 @@ pairs. You may optionally provide a third argument that is a boolean defining wh
 """
 
 
-def ignoreIndexes(string, ignoreChars, inclusive):
+def ignoreIndexes(string, ignoreChars, inclusive, escapeChar=r"\\"):
     altInds = []
     if (len(ignoreChars) > 1):
         for i in ignoreChars:
-            altInds.extend(ignoreIndexes(string, [i], False))
+            altInds.extend(
+                ignoreIndexes(string, [i], False, escapeChar=escapeChar))
 
     result = []
     ignore = False
@@ -103,7 +106,7 @@ def ignoreIndexes(string, ignoreChars, inclusive):
     for i in range(0, len(string)):
         if (not ignoreList == None
             ) and len(ignoreList) > 2 and ignoreList[2] == True and isEscaped(
-                string, i, r"\\"):
+                string, i, escapeChar):
             #The character is escaped. Continue as if it wasn't there.
             continue
 
@@ -144,9 +147,10 @@ Get the strings associated with a specific call of ignoreIndexes
 """
 
 
-def groups(string, ignoreChars, inclusive, requiredPair=None):
+def groups(string, ignoreChars, inclusive, requiredPair=None, escapeChar="\\"):
     result = []
-    indexes = ignoreIndexes(string, ignoreChars, True)
+    indexes = ignoreIndexes(
+        string, ignoreChars, True, escapeChar=re.escape(escapeChar))
     for r in indexes:
         result.append(string[r[0]:r[-1] + 1])
 
@@ -159,6 +163,15 @@ def groups(string, ignoreChars, inclusive, requiredPair=None):
         for i in range(0, len(result)):
             result[i] = result[i][1:-1]
 
+    for i in range(0, len(result)):
+        for ignoreChar in ignoreChars:
+            if len(ignoreChar) > 2 and ignoreChar[2]:
+                result[i] = result[i].replace(
+                    f"{escapeChar}{ignoreChar[0]}",
+                    f"{ignoreChar[0]}").replace(f"{escapeChar}{ignoreChar[1]}",
+                                                f"{ignoreChar[1]}")
+        result[i] = result[i].replace(escapeChar * 2, escapeChar)
+
     return result
 
 
@@ -168,8 +181,9 @@ Return the first appearance of {character} in {string} that is not part of a gro
 """
 
 
-def indexOf(character, string, ignoreChars):
-    ignoreInds = ignoreIndexes(string, ignoreChars, True)
+def indexOf(character, string, ignoreChars, escapeChar="\\"):
+    ignoreInds = ignoreIndexes(
+        string, ignoreChars, True, escapeChar=re.escape(escapeChar))
 
     for i in range(0, len(string)):
         c = string[i]
@@ -207,10 +221,15 @@ Return a list of elements separated by {separator} in {string}, grouping using t
 """
 
 
-def words(separator, string, ignoreChars, separatorInclusive,
-          ignoreCharInclusive):
+def words(separator,
+          string,
+          ignoreChars,
+          separatorInclusive,
+          ignoreCharInclusive,
+          escapeChar="\\"):
     result = [""]
-    ignoreInds = ignoreIndexes(string, ignoreChars, True)
+    ignoreInds = ignoreIndexes(
+        string, ignoreChars, True, escapeChar=re.escape(escapeChar))
     skip = 0
 
     for i in range(0, len(string)):
@@ -223,12 +242,21 @@ def words(separator, string, ignoreChars, separatorInclusive,
                 result.append("")
                 skip = len(separator) - 1
             elif ignoreCharInclusive or not (
-                    i >= 2 and inAny(string[i], ignoreChars) and
-                    not (string[i - 1] == "\\" and not string[i - 2] == "\\")):
+                    i >= 2 and inAny(string[i], ignoreChars)
+                    and isUnescaped(string, i, re.escape(escapeChar))):
                 result[-1] += string[i]
 
     if result[-1] == "":
         result = result[:len(result) - 1]
+
+    for i in range(0, len(result)):
+        for ignoreChar in ignoreChars:
+            if len(ignoreChar) > 2 and ignoreChar[2]:
+                result[i] = result[i].replace(
+                    f"{escapeChar}{ignoreChar[0]}",
+                    f"{ignoreChar[0]}").replace(f"{escapeChar}{ignoreChar[1]}",
+                                                f"{ignoreChar[1]}")
+        result[i] = result[i].replace(escapeChar * 2, escapeChar)
 
     return result
 
@@ -286,6 +314,18 @@ class LiteralCommand(Statement):
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
+                elif name in variables:
+                    if variables[name].modifier == "entity":
+                        pass
+                    else:
+                        print("filling in the value")
+                        if not "entity" in variables[name].type:
+                            obj = {"nbt": f"vars.{name}", "storage": packId}
+                            value = json.dumps(obj)
+                            self.text = self.text[:match.start(
+                            ) - offset] + value + self.text[match.end() -
+                                                            offset:]
+                            offset += len(match.group()) - len(value)
                 else:
                     print(
                         "variable does not exist, so value will be left as-is."
@@ -337,8 +377,10 @@ class Variable:
             elif self.type == "float":
                 self.value = float(self.value[:-1])
             elif self.type == "string":
-                self.value = groups(
-                    self.value, [['"', '"', True], ["'", "'", True]], False)[0]
+                self.value = groups(self.value,
+                                    [['"', '"', True], ["'", "'", True]],
+                                    False)[0].replace("\\\\", "\\").replace(
+                                        '\\"', '"').replace("\\'", "'")
             elif "[]" in self.type:
                 self.value = []
                 for item in words(",", value[1:-1],
@@ -353,7 +395,8 @@ class Variable:
                     elif "string" in self.type:
                         self.value.append(
                             groups(item, [['"', '"', True], ["'", "'", True]],
-                                   False)[0])
+                                   False)[0].replace("\\\\", "\\").replace(
+                                       '\\"', '"').replace("\\'", "'"))
                     else:
                         self.value.append(item)
 
