@@ -338,6 +338,17 @@ class LiteralCommand(Statement):
             self.parentFunction.append(self.text)
 
 
+class ExecuteWrapper(LiteralCommand):
+    def __init__(self, conditions, command, parentFunction):
+        self.command = command
+        self.conditions = conditions
+        super().__init__(self.command.text, parentFunction)
+
+    def implement(self):
+        self.text = "/execute " + " ".join(self.conditions) + " run " + self.command.text
+        super().implement()
+
+
 class CallFunction(LiteralCommand):
     def __init__(self, functionName, parentFunction):
         super().__init__("/function " + functionName, parentFunction)
