@@ -552,6 +552,7 @@ internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
 constantVariables = {}
 playerPreference = "both"
+libraries = []
 
 
 def generateCode(code, function, path, file, parentScript):
@@ -560,6 +561,7 @@ def generateCode(code, function, path, file, parentScript):
     global customFunctions
     global requiredPacks
     global packId
+    global libraries
 
     if function == None:
         #Top-level statements: Variables and function declarations
@@ -728,8 +730,8 @@ def main():
                          [['"', '"', True], ["'", "'", True], ["{", "}"]],
                          False, True)
     """print("main file contents:")
-  for i in range(0,len(mainCode)):
-    print(f"\t{i}: {mainCode[i]}")"""
+    for i in range(0,len(mainCode)):
+      print(f"\t{i}: {mainCode[i]}")"""
 
     if segment("pack-info: ", 0, mainCode[0]):
         info = packId = words(" ", mainCode[0],
@@ -882,6 +884,7 @@ def main():
                         )
 
     for name in libraryNamespaces:
+        libraries.append(name)
         print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
         for path in libraryFiles:
             update_namespace(path, packId, name)
@@ -991,6 +994,11 @@ def main():
     Statement(
         f"execute if data storage {packId} {{isCompatible:0}} run function {packId}:{uninstallFunction.name}",
         initFunction).implement()
+
+    for lib in libraries:
+      uninstallFunction.append(
+        f'function {packId}:{lib}/uninstall'
+    )
     #Add a new line to the function
     Statement("", uninstallFunction).implement()
     uninstallFunction.append(
