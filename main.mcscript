@@ -46,6 +46,10 @@ priority=-1 on tick {
       x++;
   };
   
+  as entity @s {
+    /say hi;
+  }
+
   #will execute if the literal command succeeds
   if (/literal command;) {
       /say "test passed";

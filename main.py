@@ -338,17 +338,6 @@ class LiteralCommand(Statement):
             self.parentFunction.append(self.text)
 
 
-class ExecuteWrapper(LiteralCommand):
-    def __init__(self, conditions, command, parentFunction):
-        self.command = command
-        self.conditions = conditions
-        super().__init__(self.command.text, parentFunction)
-
-    def implement(self):
-        self.text = "/execute " + " ".join(self.conditions) + " run " + self.command.text
-        super().implement()
-
-
 class CallFunction(LiteralCommand):
     def __init__(self, functionName, parentFunction):
         super().__init__("/function " + functionName, parentFunction)
@@ -520,6 +509,17 @@ class Function:
             with open(filePath, "w+") as file:
                 file.write("\n".join(self.code))
 
+class ExecuteWrapper(Function):
+    def __init__(self, conditions, code, parentFunction):
+        self.conditions = conditions
+        self.parentFunction = parentFunction
+        super().__init__(parentFunction.namespace, parentFunction.name, None, None)
+
+    def implement(self):
+        for i in range(0,len(self.code)):
+          self.code[i] = "execute " + " ".join(
+              self.conditions) + " run " + self.code[i]
+          self.parentFunction.append(self.code[i])
 
 packName = "Generated Data Pack"
 packId = "generated_data_pack"
@@ -705,7 +705,41 @@ def generateCode(code, function, path, file, parentScript):
                                 f"{namespace}:{'/'.join(functionList)}",
                                 function).implement()
                     else:
-                        pass
+                        match = re.match(
+                            r'(?P<conditions>((if|unless|store|align|anchored|as|at|facing|positioned|rotated)(.)+?\s*)+?)\s*{(?P<code>(.|\s)*)}',
+                            line)
+                        if match != None:
+                            conditions = []
+                            conditionsWords = words(
+                                " ", match.group("conditions"),
+                                [['"', '"', True], ["'", "'", True],
+                                 ["(", ")"]], False, True)
+                            for condition in conditionsWords:
+                                if condition == "":
+                                    continue
+                                elif condition in [
+                                        "if", "unless", "store", "align",
+                                        "anchored", "as", "at", "facing",
+                                        "positioned", "rotated"
+                                ]:
+                                    conditions.append(condition)
+                                elif condition[0] == "(" and condition[
+                                        -1] == ")":
+                                    conditions[-1] += " " + condition[1:-1]
+                                else:
+                                    conditions[-1] += " " + condition
+
+                            statements = words(";", match.group("code"),
+                                         [['"', '"', True], ["'", "'", True],
+                                          ["(", ")"], ["[", "]"], ["{", "}"]],
+                                         False, True)
+
+                            if len(statements) == 1:
+                              wrapper = ExecuteWrapper(conditions, [], function)
+                              generateCode(statements, wrapper, path, file, parentScript)
+                              wrapper.implement()
+                        else:
+                            pass
 
 
 def main():
@@ -727,8 +761,8 @@ def main():
         codeList = noComments(data)
         #A list of each separate statement or definition without any new lines or tabs
         mainCode = words(";", "".join(codeList),
-                         [['"', '"', True], ["'", "'", True], ["{", "}"]],
-                         False, True)
+                         [['"', '"', True], ["'", "'", True], ["(", ")"],
+                          ["[", "]"], ["{", "}"]], False, True)
     """print("main file contents:")
     for i in range(0,len(mainCode)):
       print(f"\t{i}: {mainCode[i]}")"""
@@ -996,9 +1030,7 @@ def main():
         initFunction).implement()
 
     for lib in libraries:
-      uninstallFunction.append(
-        f'function {packId}:{lib}/uninstall'
-    )
+        uninstallFunction.append(f'function {packId}:{lib}/uninstall')
     #Add a new line to the function
     Statement("", uninstallFunction).implement()
     uninstallFunction.append(
