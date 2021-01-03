@@ -288,7 +288,7 @@ class LiteralCommand(Statement):
         global packId
 
         offset = 0
-        for match in re.finditer(r'<(?P<variable>[a-z0-9_]+)>', self.text):
+        for match in re.finditer(r'<\s*(?P<variable>[a-z0-9_]+)(\.json)?\s*>', self.text):
             if isUnescaped(self.text, match.start() - offset, r"<"):
                 name = match.group("variable")
                 print(
@@ -299,18 +299,25 @@ class LiteralCommand(Statement):
                         value = str(constantVariables[name].value)
                         if constantVariables[name].type == "float":
                             value += "f"
+                        if ".json" in match.group():
+                          print("Requested JSON value. Wrapping around JSON object")
+                          value = json.dumps({"text":value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity[]":
-                        obj = {"selector": f"@e[tag=in_{packId}_{name}]"}
-                        value = json.dumps(obj)
+                        value = f"@e[tag=in_{packId}_{name}]"
+                        if ".json" in match.group():
+                          print("Requested JSON value. Wrapping around JSON object")
+                          value = json.dumps({"selector":value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity":
-                        obj = {"selector": f"@e[tag={packId}_{name},limit=1]"}
-                        value = json.dumps(obj)
+                        value = f"@e[tag={packId}_{name},limit=1]"
+                        if ".json" in match.group():
+                          print("Requested JSON value. Wrapping around JSON object")
+                          value = json.dumps({"selector":value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
