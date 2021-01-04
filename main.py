@@ -44,10 +44,12 @@ def update_namespace(file_path, namespace, name):
                         line.replace(
                             f"{name}:", f"{namespace}:{name}/").replace(
                                 f"storage {name}",
-                                f"storage {namespace}_{name}").replace(
+                                f"storage {namespace}:{name}").replace(
                                     f'"storage":"{name}"',
-                                    f'"storage":"{namespace}_{name}"').replace(
-                                        "${namespace}", namespace))
+                                    f'"storage":"{namespace}:{name}"').replace(
+                                        f"tag={name}_",
+                                        f"tag={namespace}_{name}_").replace(
+                                            "${namespace}", namespace))
                 else:
                     new_file.write(line)
     #Copy the file permissions from the old file to the new file
@@ -288,7 +290,8 @@ class LiteralCommand(Statement):
         global packId
 
         offset = 0
-        for match in re.finditer(r'<\s*(?P<variable>[a-z0-9_]+)(\.json)?\s*>', self.text):
+        for match in re.finditer(r'<\s*(?P<variable>[a-z0-9_]+)(\.json)?\s*>',
+                                 self.text):
             if isUnescaped(self.text, match.start() - offset, r"<"):
                 name = match.group("variable")
                 print(
@@ -300,24 +303,30 @@ class LiteralCommand(Statement):
                         if constantVariables[name].type == "float":
                             value += "f"
                         if ".json" in match.group():
-                          print("Requested JSON value. Wrapping around JSON object")
-                          value = json.dumps({"text":value})
+                            print(
+                                "Requested JSON value. Wrapping around JSON object"
+                            )
+                            value = json.dumps({"text": value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity[]":
                         value = f"@e[tag=in_{packId}_{name}]"
                         if ".json" in match.group():
-                          print("Requested JSON value. Wrapping around JSON object")
-                          value = json.dumps({"selector":value})
+                            print(
+                                "Requested JSON value. Wrapping around JSON object"
+                            )
+                            value = json.dumps({"selector": value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif constantVariables[name].type == "entity":
                         value = f"@e[tag={packId}_{name},limit=1]"
                         if ".json" in match.group():
-                          print("Requested JSON value. Wrapping around JSON object")
-                          value = json.dumps({"selector":value})
+                            print(
+                                "Requested JSON value. Wrapping around JSON object"
+                            )
+                            value = json.dumps({"selector": value})
                         self.text = self.text[:match.start(
                         ) - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
@@ -516,17 +525,20 @@ class Function:
             with open(filePath, "w+") as file:
                 file.write("\n".join(self.code))
 
+
 class ExecuteWrapper(Function):
     def __init__(self, conditions, code, parentFunction):
         self.conditions = conditions
         self.parentFunction = parentFunction
-        super().__init__(parentFunction.namespace, parentFunction.name, None, None)
+        super().__init__(parentFunction.namespace, parentFunction.name, None,
+                         None)
 
     def implement(self):
-        for i in range(0,len(self.code)):
-          self.code[i] = "execute " + " ".join(
-              self.conditions) + " run " + self.code[i]
-          self.parentFunction.append(self.code[i])
+        for i in range(0, len(self.code)):
+            self.code[i] = "execute " + " ".join(
+                self.conditions) + " run " + self.code[i]
+            self.parentFunction.append(self.code[i])
+
 
 packName = "Generated Data Pack"
 packId = "generated_data_pack"
@@ -736,15 +748,18 @@ def generateCode(code, function, path, file, parentScript):
                                 else:
                                     conditions[-1] += " " + condition
 
-                            statements = words(";", match.group("code"),
-                                         [['"', '"', True], ["'", "'", True],
-                                          ["(", ")"], ["[", "]"], ["{", "}"]],
-                                         False, True)
+                            statements = words(
+                                ";", match.group("code"),
+                                [['"', '"', True], ["'", "'", True],
+                                 ["(", ")"], ["[", "]"], ["{", "}"]], False,
+                                True)
 
                             if len(statements) == 1:
-                              wrapper = ExecuteWrapper(conditions, [], function)
-                              generateCode(statements, wrapper, path, file, parentScript)
-                              wrapper.implement()
+                                wrapper = ExecuteWrapper(
+                                    conditions, [], function)
+                                generateCode(statements, wrapper, path, file,
+                                             parentScript)
+                                wrapper.implement()
                         else:
                             pass
 
