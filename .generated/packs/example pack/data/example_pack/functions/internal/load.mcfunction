@@ -8,28 +8,6 @@ execute if score example_pack ep_temp matches 2.. run tellraw @a [{"text":"The p
 execute if score example_pack ep_temp matches 2.. run datapack disable "file/example pack"
 execute store success storage example_pack isCompatible int 1 if score example_pack ep_temp matches ..1
 
-#variable "score"
-
-#variable "x"
-data modify storage example_pack vars.x set value 1
-#variable "y"
-data modify storage example_pack constants.y set value 3
-#variable "s"
-data modify storage example_pack constants.s set value "hello"
-#variable "str": variable description
-#                second line
-data modify storage example_pack vars.str set value "Hi"
-#variable "f"
-
-#variable "fl"
-data modify storage example_pack constants.fl set value 0.5f
-#variable "enemies"
-#variable "enemies" Initialization index 0
-tag @e[type=zombie] add in_example_pack_enemies
-#variable "enemies" Initialization index 1
-tag someones_username add in_example_pack_enemies
-#variable "e"
-tag @e[sort=nearest,limit=1] add example_pack_e
 #Used for listener used:carrot_on_a_stick
 scoreboard objectives add used_c_stick used:carrot_on_a_stick
 
