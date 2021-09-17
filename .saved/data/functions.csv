@@ -8,5 +8,5 @@ example_pack,listeners/load/main/load1
 example_pack,listeners/tick/main/tick1
 example_pack,listeners/used_carrot_on_a_stick/main/used_carrot_on_a_stick1
 example_pack,main/go
-example_pack,listeners/tick/test/test/tick2
 example_pack,lib/test
+example_pack,listeners/tick/test/tick2
