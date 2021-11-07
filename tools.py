@@ -82,8 +82,6 @@ multiple.
 Each item in the ignoreChars parameter is a pair of start and end values. Defining multiple items will add alternative
 pairs. You may optionally provide a third argument that is a boolean defining whether the pair characters may be escaped.
 """
-
-
 def ignoreIndexes(string, ignoreChars, inclusive, escapeChar=r"\\"):
     altInds = []
     if (len(ignoreChars) > 1):

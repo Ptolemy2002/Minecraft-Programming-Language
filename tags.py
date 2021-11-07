@@ -323,6 +323,14 @@ def start(packName, packId, packDesc, useSnapshots):
     dirs[:] = [d for d in dirs if not d[0] == "."]
     for file in files:
       path = os.path.relpath(os.path.join(subdir, file))
+      print(f"Saving file {file} to the datapack as a copy")
+      os.makedirs(
+          f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
+          exist_ok=True)
+      shutil.copyfile(
+          path,
+          f".generated/packs/{packName}/source/{path}"
+      )
       if sys.platform == "win32":
         if file.endswith(".mctag") and not path[path.index("\\") + 1:] in done:
           genTag(path[path.index("\\") + 1:], packName, packId, useSnapshots)

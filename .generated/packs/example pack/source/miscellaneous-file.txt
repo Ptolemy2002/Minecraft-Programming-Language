@@ -1,0 +1,8 @@
+This file will be copied directly into the target datapack. All files will, except python.
+
+You can use it to add regular datapack assets or miscellaneous files to the pack.
+
+Directories that begin with "#" are treated as libraries and are thus copied into the default namespace of the pack.
+Other files are copied as they appear in the root relative to the data pack.
+
+Empty directories will not be copied over.

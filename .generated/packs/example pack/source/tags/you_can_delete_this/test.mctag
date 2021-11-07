@@ -1,0 +1,28 @@
+type: entity_types
+
+#All hostile and passive mobs taller than 1 block (sorted from tallest to shortest)
++ all(namespace==minecraft,category!=neutral,category!=utility,category!=projectile,sort=height,reverse=true)
+- all(height <= 1) #partial line comment
+
+#Remove the 5 highest health entities
+- all(sort=health,reverse=true,limit=5)
+
++ potion
++ endermite
++ silverfish
+
+#remove all small
+- all(#you_can_delete_this/size/small)
+
+#Add all that contain the word "ball"
++ all(ball)
+
+#Add all arrows according to Minecraft
++ all(#minecraft:arrows)
+
+#Add all entries of some tags that are defined in another pack
++ all(#hp:no_hp)
++ all(#1.12:used)
+
+#Reverse the entire order
+reverse

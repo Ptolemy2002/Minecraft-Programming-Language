@@ -98,7 +98,7 @@ def generateCode(code, function, path, file, parentScript):
                              f"{name.replace('.', '_')}-{version}.mcscript",
                              parentScript)
             else:
-                #commands.Function definition
+                #Function definition
                 match = re.match(
                     r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)',
                     line)
@@ -163,12 +163,14 @@ def generateCode(code, function, path, file, parentScript):
             if line[0] == "/":
                 commands.LiteralCommand(line, function).implement()
             else:
+                #Comment
                 match = re.match(r'comment((?P<message>.+))(\)$)', line)
                 if match != None:
                     message = groups(
                         match.group("message"), [['"', '"', True]], False)[0]
                     commands.Comment(message, function).implement()
                 else:
+                    #Function call
                     match = re.match(
                         r'(?P<function>[a-z_0-9\.]+(:)?[a-z_0-9\.]+)(?<!\.)\(\)',
                         line)
@@ -192,6 +194,7 @@ def generateCode(code, function, path, file, parentScript):
                                 f"{namespace}:{'/'.join(functionList)}",
                                 function).implement()
                     else:
+                        #Execute clause
                         match = re.match(
                             r'(?P<conditions>((if|unless|store|align|anchored|as|at|facing|positioned|rotated)(.)+?\s*)+?)\s*{(?P<code>(.|\s)*)}',
                             line)
@@ -248,6 +251,7 @@ def main():
     mainCode = []
     with open("main.mcscript", "r") as data:
         print("found main file")
+        print("Saving the file as a copy in the datapack")
         codeList = noComments(data)
         #A list of each separate statement or definition without any new lines or tabs
         mainCode = words(";", "".join(codeList),
@@ -284,6 +288,15 @@ def main():
         print("Cleaning up previous generation files")
         while os.path.isdir(f".generated/packs/{packName}"):
             shutil.rmtree(f".generated/packs/{packName}")
+
+    print("Saving main.mcscript as a copy in the datapack")
+    os.makedirs(
+        f".generated/packs/{packName}/source",
+        exist_ok=True)
+    shutil.copyfile(
+        "main.mcscript",
+        f".generated/packs/{packName}/source/main.mcscript"
+    )
 
     print("Populating default function statements")
     commands.Statement(f"schedule function {packId}:{initFunction.name} 1s replace",
@@ -360,6 +373,15 @@ def main():
                                    ["{", "}"]], False, True), None, "/".join(
                                        path.split("/")[:-1]), file,
                             file.split(".")[:-1])
+
+                    print("Saving the file as a copy in the datapack")
+                    os.makedirs(
+                            f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
+                            exist_ok=True)
+                    shutil.copyfile(
+                        path,
+                        f".generated/packs/{packName}/source/{path}"
+                    )
                 elif not file.endswith(".mctag") and not file.endswith(
                         ".py") and not path == "README.md":
                     print(f"found file \"{path}\"")
@@ -374,6 +396,7 @@ def main():
                             pathList = path.split("/")
 
                         pathList[0] = pathList[0][1:]
+                        oldPathList = list(pathList)
                         name = pathList[0]
                         if not name in libraryNamespaces:
                             libraryNamespaces.append(name)
@@ -387,12 +410,21 @@ def main():
                                     packId, p, "Imported from a library", 0)
 
                         pathList = pathList[:-1]
+                        oldPathList = oldPathList[:-1]
                         os.makedirs(
                             f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}",
                             exist_ok=True)
                         shutil.copyfile(
                             path,
                             f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}"
+                        )
+                        print("Saving to the datapack as a copy")
+                        os.makedirs(
+                            f".generated/packs/{packName}/source/#{'/'.join(oldPathList)}",
+                            exist_ok=True)
+                        shutil.copyfile(
+                            path,
+                            f".generated/packs/{packName}/source/#{'/'.join(oldPathList)}/{file}"
                         )
                         if not f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}" in libraryFiles:
                             libraryFiles.append(
@@ -405,6 +437,15 @@ def main():
                         shutil.copyfile(
                             path,
                             f".generated/packs/{packName}/data/{packId}/{path}"
+                        )
+
+                        print("Saving the file as a copy in the datapack")
+                        os.makedirs(
+                                f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
+                                exist_ok=True)
+                        shutil.copyfile(
+                            path,
+                            f".generated/packs/{packName}/source/{path}"
                         )
 
     for name in libraryNamespaces:
