@@ -6,7 +6,8 @@ import re
 import sys
 import commands
 from tools import *
-#import convert
+
+# import convert
 
 packName = "Generated Data Pack"
 packId = "generated_data_pack"
@@ -20,7 +21,7 @@ preinitFunction = commands.Function(
     "It is necessary to delay the load function by 1 second so that it may be run on world load correctly.",
     0)
 initFunction = commands.Function(packId, "internal/load",
-                        "This function is run when the datapack is loaded.", 0)
+                                 "This function is run when the datapack is loaded.", 0)
 uninstallFunction = commands.Function(
     packId, "uninstall",
     "Can be called to remove the pack and any trace it was ever installed", 0)
@@ -29,8 +30,8 @@ tickFunction = commands.Function(
     "This function is run every tick after this datapack is loaded.", 0)
 customFunctions = {
     "exists":
-    commands.Function(packId, "exists",
-             "If you can successfully run this function, the pack exists.", 0)
+        commands.Function(packId, "exists",
+                          "If you can successfully run this function, the pack exists.", 0)
 }
 listeners = {}
 externalFunctions = []
@@ -39,7 +40,6 @@ internalListeners = ["load", "tick", "uninstall", "spawn"]
 variables = {}
 constantVariables = {}
 playerPreference = "both"
-libraries = []
 
 
 def generateCode(code, function, path, file, parentScript):
@@ -48,12 +48,12 @@ def generateCode(code, function, path, file, parentScript):
     global customFunctions
     global requiredPacks
     global packId
-    global libraries
+    global constantVariables
 
     if function == None:
-        #Top-level statements: Variables and function declarations
+        # Top-level statements: Variables and function declarations
         for line in code:
-            #Listener definition
+            # Listener definition
             match = re.match(
                 r'(priority\=(?P<priority>[+-]?\d+)\s+)?(id="(?P<id>[^\"]+)"\s+)?on\s+(?P<name>[a-z_0-9\.\:]+)',
                 line)
@@ -98,7 +98,7 @@ def generateCode(code, function, path, file, parentScript):
                              f"{name.replace('.', '_')}-{version}.mcscript",
                              parentScript)
             else:
-                #Function definition
+                # Function definition
                 match = re.match(
                     r'function\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<name>[a-z_]+)\(\)',
                     line)
@@ -125,7 +125,7 @@ def generateCode(code, function, path, file, parentScript):
                     generateCode(statements, function, function.path,
                                  function.name, parentScript)
                 else:
-                    #External function definition
+                    # External function definition
                     match = re.match(
                         r'def (?P<namespace>[a-z_]+):(?P<name>[a-z_\/]+)',
                         line)
@@ -135,9 +135,9 @@ def generateCode(code, function, path, file, parentScript):
                                 match.group("namespace"), match.group("name"),
                                 "", 0))
                     else:
-                        #Variable definition
+                        # Variable definition
                         match = re.match(
-                            r'(?P<modifier>global|entity|constant)\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<type>(?:entity|int|float|string|bool)(?:\<\d+\>)?(?:\[\])?)\s+(?P<name>[a-zA-Z_]+)(\s*\=\s*(?P<value>.+))?',
+                            r'(?P<modifier>global|entity|constant)\s+(desc="(?P<desc>[^\"]+)"\s+)?(?P<type>(?:entity|int|float|string|bool)(?:\<\d+\>)?(?:\[\])?)\s+(?P<name>[a-zA-Z_][a-zA-Z_0-9]*)(\s*\=\s*(?P<value>.+))?',
                             line)
                         if match != None:
                             modifier = match.group("modifier")
@@ -147,9 +147,9 @@ def generateCode(code, function, path, file, parentScript):
                             desc = match.group("desc")
                             print(f'Defining variable "{name}"')
                             commands.Variable(packId, name, modifier, t, value, desc,
-                                     True)
+                                              True)
                         else:
-                            #Required pack definition
+                            # Required pack definition
                             match = re.match(
                                 r'require\s+(?P<namespace>[a-z_]+)', line)
                             if match != None:
@@ -157,20 +157,20 @@ def generateCode(code, function, path, file, parentScript):
                             else:
                                 pass
     else:
-        #Lower level satements - Instructions
+        # Lower level satements - Instructions
         for line in code:
-            #Literal command
+            # Literal command
             if line[0] == "/":
                 commands.LiteralCommand(line, function).implement()
             else:
-                #Comment
+                # Comment
                 match = re.match(r'comment((?P<message>.+))(\)$)', line)
                 if match != None:
                     message = groups(
                         match.group("message"), [['"', '"', True]], False)[0]
                     commands.Comment(message, function).implement()
                 else:
-                    #Function call
+                    # Function call
                     match = re.match(
                         r'(?P<function>[a-z_0-9\.]+(:)?[a-z_0-9\.]+)(?<!\.)\(\)',
                         line)
@@ -194,7 +194,7 @@ def generateCode(code, function, path, file, parentScript):
                                 f"{namespace}:{'/'.join(functionList)}",
                                 function).implement()
                     else:
-                        #Execute clause
+                        # Execute clause
                         match = re.match(
                             r'(?P<conditions>((if|unless|store|align|anchored|as|at|facing|positioned|rotated)(.)+?\s*)+?)\s*{(?P<code>(.|\s)*)}',
                             line)
@@ -208,13 +208,13 @@ def generateCode(code, function, path, file, parentScript):
                                 if condition == "":
                                     continue
                                 elif condition in [
-                                        "if", "unless", "store", "align",
-                                        "anchored", "as", "at", "facing",
-                                        "positioned", "rotated"
+                                    "if", "unless", "store", "align",
+                                    "anchored", "as", "at", "facing",
+                                    "positioned", "rotated"
                                 ]:
                                     conditions.append(condition)
                                 elif condition[0] == "(" and condition[
-                                        -1] == ")":
+                                    -1] == ")":
                                     conditions[-1] += " " + condition[1:-1]
                                 else:
                                     conditions[-1] += " " + condition
@@ -253,7 +253,7 @@ def main():
         print("found main file")
         print("Saving the file as a copy in the datapack")
         codeList = noComments(data)
-        #A list of each separate statement or definition without any new lines or tabs
+        # A list of each separate statement or definition without any new lines or tabs
         mainCode = words(";", "".join(codeList),
                          [['"', '"', True], ["'", "'", True], ["(", ")"],
                           ["[", "]"], ["{", "}"]], False, True)
@@ -300,22 +300,22 @@ def main():
 
     print("Populating default function statements")
     commands.Statement(f"schedule function {packId}:{initFunction.name} 1s replace",
-              preinitFunction).implement()
+                       preinitFunction).implement()
 
     commands.Statement(f"scoreboard objectives add {packShort}_temp dummy",
-              initFunction).implement()
+                       initFunction).implement()
     commands.Statement(f"scoreboard objectives remove {packShort}_temp",
-              uninstallFunction).implement()
+                       uninstallFunction).implement()
     commands.Statement(f"scoreboard players set {packId} {packShort}_temp 0",
-              initFunction).implement()
-    #This line is only here so that the variable will register itself as visible to the rest of the program.
-    #Initialization and manipulation are covered by other lines.
+                       initFunction).implement()
+    # This line is only here so that the variable will register itself as visible to the rest of the program.
+    # Initialization and manipulation are covered by other lines.
     commands.Variable(packId, f"{packShort}_temp", "entity", "int", "0",
-             f"Temporary score for this pack.", False)
+                      f"Temporary score for this pack.", False)
     if playerPreference == "single":
         commands.Statement("", initFunction).implement()
         commands.Comment("Ensure the game is run in singleplayer",
-                initFunction).implement()
+                         initFunction).implement()
         commands.Statement(
             f"execute as @a run scoreboard players add {packId} {packShort}_temp 1",
             initFunction).implement()
@@ -331,7 +331,7 @@ def main():
     elif playerPreference == "multi":
         commands.Statement("", initFunction).implement()
         commands.Comment("Ensure the game is run in multiplayer",
-                initFunction).implement()
+                         initFunction).implement()
         commands.Statement(
             f"execute as @a run scoreboard players add {packId} {packShort}_temp 1",
             initFunction).implement()
@@ -345,16 +345,14 @@ def main():
             f'execute store success storage {packId} isCompatible int 1 if score {packId} {packShort}_temp matches 2..',
             initFunction).implement()
 
-    #Add a new line to the function
+    # Add a new line to the function
     commands.Statement("", initFunction).implement()
-    
+
     if defaultPackInfo:
         generateCode(mainCode[1:], None, "", "main.mcscript", "main")
     else:
         generateCode(mainCode, None, "", "main.mcscript", "main")
 
-    libraryFiles = []
-    libraryNamespaces = []
     print("looking for other files")
     for subdir, dirs, files in os.walk(os.getcwd()):
         dirs[:] = [
@@ -371,13 +369,13 @@ def main():
                             words(";", "".join(noComments(data)),
                                   [['"', '"', True], ["'", "'", True],
                                    ["{", "}"]], False, True), None, "/".join(
-                                       path.split("/")[:-1]), file,
+                                path.split("/")[:-1]), file,
                             file.split(".")[:-1])
 
                     print("Saving the file as a copy in the datapack")
                     os.makedirs(
-                            f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
-                            exist_ok=True)
+                        f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
+                        exist_ok=True)
                     shutil.copyfile(
                         path,
                         f".generated/packs/{packName}/source/{path}"
@@ -386,78 +384,27 @@ def main():
                         ".py") and not path == "README.md":
                     print(f"found file \"{path}\"")
                     print("copying it to the datapack")
+                    os.makedirs(
+                        f".generated/packs/{packName}/data/{packId}/{os.path.relpath(subdir)}",
+                        exist_ok=True)
+                    shutil.copyfile(
+                        path,
+                        f".generated/packs/{packName}/data/{packId}/{path}"
+                    )
 
-                    if path[0] == "#":
-                        print("copying as library file")
-                        pathList = []
-                        if sys.platform == "win32":
-                            pathList = path.split("\\")
-                        else:
-                            pathList = path.split("/")
-
-                        pathList[0] = pathList[0][1:]
-                        oldPathList = list(pathList)
-                        name = pathList[0]
-                        if not name in libraryNamespaces:
-                            libraryNamespaces.append(name)
-                        if len(pathList) > 2:
-                            pathList[0], pathList[1] = pathList[1], pathList[0]
-                            p = "/".join(pathList[1:-1]
-                                         ) + "/" + pathList[-1].split(".")[0]
-                            if pathList[0] == "functions" and pathList[
-                                    -1].endswith(".mcfunction"):
-                                customFunctions[p] = commands.Function(
-                                    packId, p, "Imported from a library", 0)
-
-                        pathList = pathList[:-1]
-                        oldPathList = oldPathList[:-1]
-                        os.makedirs(
-                            f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}",
-                            exist_ok=True)
-                        shutil.copyfile(
-                            path,
-                            f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}"
-                        )
-                        print("Saving to the datapack as a copy")
-                        os.makedirs(
-                            f".generated/packs/{packName}/source/#{'/'.join(oldPathList)}",
-                            exist_ok=True)
-                        shutil.copyfile(
-                            path,
-                            f".generated/packs/{packName}/source/#{'/'.join(oldPathList)}/{file}"
-                        )
-                        if not f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}" in libraryFiles:
-                            libraryFiles.append(
-                                f".generated/packs/{packName}/data/{packId}/{'/'.join(pathList)}/{file}"
-                            )
-                    else:
-                        os.makedirs(
-                            f".generated/packs/{packName}/data/{packId}/{os.path.relpath(subdir)}",
-                            exist_ok=True)
-                        shutil.copyfile(
-                            path,
-                            f".generated/packs/{packName}/data/{packId}/{path}"
-                        )
-
-                        print("Saving the file as a copy in the datapack")
-                        os.makedirs(
-                                f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
-                                exist_ok=True)
-                        shutil.copyfile(
-                            path,
-                            f".generated/packs/{packName}/source/{path}"
-                        )
-
-    for name in libraryNamespaces:
-        libraries.append(name)
-        print(f'updating namespace calls from "{name}" to "{packId}:{name}/"')
-        for path in libraryFiles:
-            update_namespace(path, packId, name)
+                    print("Saving the file as a copy in the datapack")
+                    os.makedirs(
+                        f".generated/packs/{packName}/source/{os.path.relpath(subdir)}",
+                        exist_ok=True)
+                    shutil.copyfile(
+                        path,
+                        f".generated/packs/{packName}/source/{path}"
+                    )
 
     print("Requiring packs")
     if len(requiredPacks) > 0:
         commands.Comment("Ensure all required packs are installed.",
-                initFunction).implement()
+                         initFunction).implement()
         for pack in requiredPacks:
             commands.Statement(
                 f"execute if data storage {packId} {{isCompatible:1}} store success score {packId} {packShort}_temp run function {pack}:exists",
@@ -481,14 +428,14 @@ def main():
             for function in listeners[key]:
                 if not function.scoreId in variables:
                     commands.Comment(f"Used for listener {function.listenerId}",
-                            initFunction).implement()
+                                     initFunction).implement()
                     commands.Statement(
                         f'scoreboard objectives add {function.scoreId[:min([len(function.scoreId), 16])]} {function.listenerId}',
                         initFunction).implement()
-                    #This line is only here so that the variable will register itself as visible to the rest of the program.
-                    #Initialization and manipulation are covered by other lines.
+                    # This line is only here so that the variable will register itself as visible to the rest of the program.
+                    # Initialization and manipulation are covered by other lines.
                     commands.Variable(packId, function.scoreId, "entity", "int", "0",
-                             f"Used for listener {function.listenerId}", False)
+                                      f"Used for listener {function.listenerId}", False)
 
                 commands.Statement("", tickFunction).implement()
                 commands.Comment("Run listeners", tickFunction).implement()
@@ -502,39 +449,39 @@ def main():
                 commands.Statement("", tickFunction).implement()
                 commands.Comment("Reset listener scores", tickFunction).implement()
             for score in scoresToReset:
-                #Reset the score
+                # Reset the score
                 commands.Statement(f"scoreboard players set @e {score} 0",
-                          tickFunction).implement()
-                #Remove the score on uninstall
+                                   tickFunction).implement()
+                # Remove the score on uninstall
                 commands.Statement(f"scoreboard objectives remove {score}",
-                          uninstallFunction).implement()
+                                   uninstallFunction).implement()
 
     if "tick" in listeners:
-        #Add a new line to the function
+        # Add a new line to the function
         commands.Statement("", tickFunction).implement()
         commands.Comment("Run tick listeners", tickFunction).implement()
         listeners["tick"].sort(key=lambda x: x.priority)
         for function in listeners["tick"]:
             commands.Statement(f"function {function.namespace}:{function.name}",
-                      tickFunction).implement()
+                               tickFunction).implement()
     if "load" in listeners:
-        #Add a new line to the function
+        # Add a new line to the function
         commands.Statement("", initFunction).implement()
         commands.Comment("Run listeners", initFunction).implement()
         listeners["load"].sort(key=lambda x: x.priority)
         for function in listeners["load"]:
             commands.Statement(f"function {function.namespace}:{function.name}",
-                      initFunction).implement()
+                               initFunction).implement()
     if "uninstall" in listeners:
-        #Add a new line to the function
+        # Add a new line to the function
         commands.Statement("", uninstallFunction).implement()
         commands.Comment("Run listeners", uninstallFunction).implement()
         listeners["uninstall"].sort(key=lambda x: x.priority)
         for function in listeners["uninstall"]:
             commands.Statement(f"function {function.namespace}:{function.name}",
-                      uninstallFunction).implement()
+                               uninstallFunction).implement()
     if "spawn" in listeners:
-        #Add a new line to the function
+        # Add a new line to the function
         commands.Statement("", tickFunction).implement()
         commands.Comment("Run spawn listeners", tickFunction).implement()
         listeners["spawn"].sort(key=lambda x: x.priority)
@@ -543,32 +490,30 @@ def main():
                 f"execute as @e[tag=!{packId}_spawned] at @s run function {function.namespace}:{function.name}",
                 tickFunction).implement()
 
-    #The "spawned" tag will be used by some other parts of the generator.
+    # The "spawned" tag will be used by some other parts of the generator.
     commands.Statement(f"tag @e[tag=!{packId}_spawned] add {packId}_spawned",
-              tickFunction).implement()
+                       tickFunction).implement()
 
     print('Adding "datapack loaded/unloaded" notification')
-    #Add a new line to the function
+    # Add a new line to the function
     commands.Statement("", initFunction).implement()
     commands.Comment("Uninstall if incompatible", initFunction).implement()
     initFunction.append(
         f'execute if data storage {packId} {{isCompatible:1}} run tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully (re)loaded."}}]'
     )
     commands.Comment("Uninstall the pack if it is incompatible",
-            initFunction).implement()
+                     initFunction).implement()
     commands.Statement(
         f"execute if data storage {packId} {{isCompatible:0}} run function {packId}:{uninstallFunction.name}",
         initFunction).implement()
 
-    for lib in libraries:
-        uninstallFunction.append(f'function {packId}:{lib}/uninstall')
-    #Add a new line to the function
+    # Add a new line to the function
     commands.Statement("", uninstallFunction).implement()
     uninstallFunction.append(
         f'tellraw @a [{{"text":"The pack "}},{{"text":"\\"{packName}\\" ","color":"green","hoverEvent":{{"action":"show_text","contents":[{{"text":"{packId} - {packShort}\\n{packDesc}"}}]}}}},{{"text":"has been sucessfully unloaded."}}]'
     )
     commands.Statement(f'datapack disable "file/{packName}"',
-              uninstallFunction).implement()
+                       uninstallFunction).implement()
     commands.Statement("", initFunction).implement()
     commands.Comment("Start the tick function", initFunction).implement()
     commands.Statement(
@@ -576,9 +521,9 @@ def main():
         initFunction).implement()
     commands.Statement("", tickFunction).implement()
     commands.Comment("Start the tick function again next tick",
-            tickFunction).implement()
+                     tickFunction).implement()
     commands.Statement(f"schedule function {packId}:{tickFunction.name} 1t replace",
-              tickFunction).implement()
+                       tickFunction).implement()
 
     os.makedirs(f".saved/data", exist_ok=True)
     print("Saving functions for use in tags")
@@ -635,8 +580,8 @@ def main():
                 "description": packDesc
             }
         },
-                  file,
-                  indent=4)
+            file,
+            indent=4)
     with open(
             f".generated/packs/{packName}/data/minecraft/tags/functions/load.json",
             "w+") as file:
@@ -644,8 +589,8 @@ def main():
             "replace": False,
             "values": [f"{packId}:{preinitFunction.name}"]
         },
-                  file,
-                  indent=4)
+            file,
+            indent=4)
 
     print("Writing preinit function to data pack")
     preinitFunction.implement(
@@ -677,6 +622,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #tags.start()
-    #convert.start()
-    #regex_test.start()
+    # tags.start()
+    # convert.start()
+    # regex_test.start()

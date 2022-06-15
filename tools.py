@@ -1,5 +1,6 @@
 import re
 
+
 def isUnescaped(string, index, escapeChar):
     if index < 0:
         index = len(string) + index
@@ -20,36 +21,6 @@ def isEscaped(string, index, escapeChar):
         if match.start(1) == index:
             return True
     return False
-
-
-def update_namespace(file_path, namespace, name):
-    from tempfile import mkstemp
-    from shutil import move, copymode
-    from os import fdopen, remove
-    #Create temp file
-    fh, abs_path = mkstemp()
-    with fdopen(fh, 'w') as new_file:
-        with open(file_path) as old_file:
-            for line in old_file:
-                if not line.strip()[0] == "#":
-                    new_file.write(
-                        line.replace(
-                            f"{name}:", f"{namespace}:{name}/").replace(
-                                f"storage {name}",
-                                f"storage {namespace}:{name}").replace(
-                                    f'"storage":"{name}"',
-                                    f'"storage":"{namespace}:{name}"').replace(
-                                        f"tag={name}_",
-                                        f"tag={namespace}_{name}_").replace(
-                                            "${namespace}", namespace))
-                else:
-                    new_file.write(line)
-    #Copy the file permissions from the old file to the new file
-    copymode(file_path, abs_path)
-    #Remove original file
-    remove(file_path)
-    #Move new file
-    move(abs_path, file_path)
 
 
 """
@@ -82,6 +53,8 @@ multiple.
 Each item in the ignoreChars parameter is a pair of start and end values. Defining multiple items will add alternative
 pairs. You may optionally provide a third argument that is a boolean defining whether the pair characters may be escaped.
 """
+
+
 def ignoreIndexes(string, ignoreChars, inclusive, escapeChar=r"\\"):
     altInds = []
     if (len(ignoreChars) > 1):
@@ -97,9 +70,9 @@ def ignoreIndexes(string, ignoreChars, inclusive, escapeChar=r"\\"):
 
     for i in range(0, len(string)):
         if (not ignoreList == None
-            ) and len(ignoreList) > 2 and ignoreList[2] == True and isEscaped(
-                string, i, escapeChar):
-            #The character is escaped. Continue as if it wasn't there.
+        ) and len(ignoreList) > 2 and ignoreList[2] == True and isEscaped(
+            string, i, escapeChar):
+            # The character is escaped. Continue as if it wasn't there.
             continue
 
         c = string[i]
@@ -182,7 +155,7 @@ def indexOf(character, string, ignoreChars, escapeChar="\\"):
         if (not inAny(i, ignoreInds)) and c == character:
             return i
 
-    #No match was found
+    # No match was found
     return -1
 
 

@@ -1,4 +1,4 @@
-pack-info: "example pack" "example_pack" "ep" "Example pack used for debugging" true single; #Partial comment
+pack-info: "example pack" "example_pack" "ep" "Example pack used for debugging" true both; #Partial comment
 #def hp:update;
 
 #This will set up a simple scoreboard objective.
@@ -21,7 +21,7 @@ constant entity e = @e[sort=nearest];
 
 #require fake_pack;
 
-"\"escaped string\" <--this should be part of that";
+constant string s1 = "\"escaped string\" <--this should be part of that";
 "#this is not a comment.";
 single-line {this is a single-line statement};
 
@@ -43,7 +43,7 @@ priority=-1 on tick {
   #execute clause - will execute as the nearest player
   as entity @p {
       #increments x by one for the player executed as
-      x++;
+      #x++;
   };
   
   as entity @s {

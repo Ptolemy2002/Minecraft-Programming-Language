@@ -1,6 +1,7 @@
 import json
 import re
 from tools import *
+
 class Statement:
     def __init__(self, text, parentFunction):
         self.text = text
@@ -80,8 +81,7 @@ class LiteralCommand(Statement):
                                 "Requested JSON value. Wrapping around JSON object"
                             )
                             value = json.dumps({"text": value})
-                        self.text = self.text[:match.start(
-                        ) - offset] + value + self.text[match.end() - offset:]
+                        self.text = self.text[:match.start() - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif main.constantVariables[name].type == "entity[]":
                         value = f"@e[tag=in_{main.packId}_{name}]"
@@ -90,8 +90,7 @@ class LiteralCommand(Statement):
                                 "Requested JSON value. Wrapping around JSON object"
                             )
                             value = json.dumps({"selector": value})
-                        self.text = self.text[:match.start(
-                        ) - offset] + value + self.text[match.end() - offset:]
+                        self.text = self.text[:match.start() - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                     elif main.constantVariables[name].type == "entity":
                         value = f"@e[tag={main.packId}_{name},limit=1]"
@@ -100,8 +99,7 @@ class LiteralCommand(Statement):
                                 "Requested JSON value. Wrapping around JSON object"
                             )
                             value = json.dumps({"selector": value})
-                        self.text = self.text[:match.start(
-                        ) - offset] + value + self.text[match.end() - offset:]
+                        self.text = self.text[:match.start() - offset] + value + self.text[match.end() - offset:]
                         offset += len(match.group()) - len(value)
                 elif name in main.variables:
                     if main.variables[name].modifier == "entity":
@@ -111,9 +109,7 @@ class LiteralCommand(Statement):
                         if not "entity" in main.variables[name].type:
                             obj = {"nbt": f"vars.{name}", "storage": main.packId}
                             value = json.dumps(obj)
-                            self.text = self.text[:match.start(
-                            ) - offset] + value + self.text[match.end() -
-                                                            offset:]
+                            self.text = self.text[:match.start() - offset] + value + self.text[match.end() - offset:]
                             offset += len(match.group()) - len(value)
                 else:
                     print(
@@ -165,8 +161,7 @@ class Variable:
             elif self.type == "string":
                 self.value = groups(self.value,
                                     [['"', '"', True], ["'", "'", True]],
-                                    False)[0].replace("\\\\", "\\").replace(
-                                        '\\"', '"').replace("\\'", "'")
+                                    False)[0].replace("\\\\", "\\").replace('\\"', '"').replace("\\'", "'")
             elif "[]" in self.type:
                 self.value = []
                 for item in words(",", value[1:-1],
@@ -186,6 +181,7 @@ class Variable:
                     else:
                         self.value.append(item)
 
+        print(self.value)
         main.variables[self.name] = self
         if define:
             DefineVariable(self, main.initFunction).implement()
